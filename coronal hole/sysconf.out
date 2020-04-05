@@ -1,0 +1,12 @@
+USER           = pieter
+WORKING_DIR    = /home/pieter/Documents/Data/studie/3e bach - sem 2/bachproef-wis-T2/coronal hole
+SYSTEM_NAME    = Linux
+NODE_NAME      = plaptop
+RELEASE        = 5.4.28-1-MANJARO
+ARCH           = x86_64
+BYTE_ORDER     = little
+VERSION        = #1 SMP PREEMPT Wed Mar 25 12:45:29 UTC 2020
+PLUTO_DIR      = /home/pieter/PLUTO
+PLUTO_VERSION  = "4.3"
+C_COMPILER     = gcc
+MPI_C_COMPILER = mpicc
