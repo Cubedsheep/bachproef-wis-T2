@@ -1,14 +1,15 @@
-\ProvidesPackage{preamble}
+\ProvidesPackage{language}
 
 % page lay-out and font size
 \setlength{\parskip}{11pt plus 1pt minus 1pt}	% space between lines and font size
 \usepackage[a4paper,top=3cm,bottom=2cm,left=1in]{geometry}	% set size of the page
 
 %% Language and font encodings
-\usepackage[dutch]{babel}	%  language
+\usepackage{babel}	%  language
 \usepackage[utf8]{inputenc}	% allow UTF8 input (e.g. "é")
 \usepackage[T1]{fontenc}	% idk
 \usepackage[backend=bibtex]{biblatex}	% used to include bibliographies
+\addbibresource{../bibliografie.bib}
 \usepackage{url}	% typeset URL's (and make them linkable)
 \usepackage[cal=rsfso,calscaled=.96]{mathalpha}	% change math caligraphy font
 

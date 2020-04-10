@@ -1,0 +1,58 @@
+\subsection{Theory Hydrodynamic linear waves}
+The theory in this section is adapted from \cite{notes-fluid-dynamics}. For the first task a non-viscous Newtonian fluid is considered. Heat conduction and dissipation is neglected as well.
+This type of fluid obeys the Euler equations for conservation of mass, momentum and internal energy:
+
+{\centering
+\noindent \fbox{\parbox{0.5\linewidth}{
+\begin{align*}
+	\frac{d\rho}{dt} + \rho \nabla \cdot \vec{v} &= 0\\
+	\rho \frac{d\vec{v}}{dt} &= -\nabla p + \vec{F}\\
+	\frac{dp}{dt} - \frac{\gamma p}{\rho} \frac{d\rho}{dt} &= 0
+\end{align*}}}\par}
+
+These are the Euler equations in Lagrangian form, with time derivatives following the fluid, hence the total derivatives with respect to time.
+PLUTO does the fluid simulation using a static grid, so we need the equations in Eulerian form with partial derivatives with respect to time.
+This change of derivatives can be carried out using the following relation, found in \cite{notes-fluid-dynamics} in section 2.4:
+\begin{equation}
+	\frac{df}{dt} = \frac{\partial f}{\partial t} + (\vec{v} \cdot \nabla) f
+	\label{eq:relation-total-partial}
+\end{equation}
+where $f(x,y,z,t)$ is a function that describes a property of the fluid. Or by doing the derivation of the equations again from start with an Eulerian view. In any case the result is the same:
+
+{\centering 
+\noindent \fbox{\parbox{0.7\linewidth}{
+\begin{align*}
+	\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vec{v}) &= 0\\
+	\frac{\partial}{\partial t} (\rho \vec{v}) &= \nabla \cdot (-p - \rho \vec{v}\vec{v}) + \vec{F}\\
+\frac{\partial}{\partial t} \left( \rho \left( \frac{\vec{v}^2}{2} + \mathcal{U} \right)  \right)  &= \vec{F} \cdot \vec{v} - \nabla \cdot \left( \rho \left( \frac{\vec{v}^2}{2}+\mathcal{U}\right)\vec{v} + p\vec{v})  \right) 
+\end{align*}}}
+\par}
+
+Next introduce the variable $\vec{m}=\rho \vec{v}$, the momentum density. The energy density $\mathcal{U}$ can be split in the thermal energy $\rho e$ and gravitational potential energy $\rho\Phi$. Let $E_t = e\rho + \frac{\vec{v}^2}{2}$ The only external force is $\vec{F} = \rho\vec{g}$
+carrying out these substitutions leads to the equations in section 6 in the PLUTO manual \cite{pluto-manual}:
+
+{\centering 
+\noindent \fbox{\parbox{.7\linewidth}{
+\begin{align*}
+	\frac{\partial \rho}{\partial t} + \nabla \cdot \vec{m} &= 0\\
+	\frac{\partial \vec{m}}{\partial t} + \nabla \cdot \left( \vec{m}\vec{v} + p \right) &= -\rho\nabla\Phi + \rho \vec{g}\\
+	\frac{\partial}{\partial t} \left( E_t+\rho\Phi \right)  + \nabla \cdot \left( \left( E_t + p + \rho\Phi \right) \vec{v} \right) &= \vec{m}\cdot\vec{g}
+\end{align*}}}
+\par}
+
+Together with an equation of state $\rho e = \rho e(p, \rho)$, which gives the thermal energy as a function of $p$ and $\rho$.
+In the remainder of this paper a calorically ideal gas is assumed. This is a gas for which the adiabatic constant $\gamma$ obeys:
+\begin{equation}
+	\gamma = \frac{f+2}{f}
+	\label{eq:adiabatic constant}
+\end{equation}
+where $f$ is the number of degrees of freedom. the previous relation can be rewritten as
+\begin{equation*}
+	f = \frac{2}{\gamma-1}
+\end{equation*}
+And by substituting this equation in the equation that expresses the energy as a function of degrees of freedom the closure relation $\rho e= \rho e(\rho, p)$ is found:
+\begin{equation*}
+	E_t = \rho e = \frac{f}{2}nk_BT = \frac{p}{\gamma-1}
+\end{equation*}
+
+%TODO: add references to course notes for the thermodynamic identities used in the last part.

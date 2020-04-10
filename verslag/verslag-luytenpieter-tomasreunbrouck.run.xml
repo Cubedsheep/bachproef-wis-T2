@@ -41,7 +41,7 @@
   >
 ]>
 <requests version="1.0">
-  <internal package="biblatex" priority="9" active="0">
+  <internal package="biblatex" priority="9" active="1">
     <generic>latex</generic>
     <provides type="dynamic">
       <file>verslag-luytenpieter-tomasreunbrouck.aux</file>
@@ -59,10 +59,10 @@
       <file>numeric.bbx</file>
       <file>numeric.cbx</file>
       <file>biblatex.cfg</file>
-      <file>dutch.lbx</file>
+      <file>english.lbx</file>
     </requires>
   </internal>
-  <external package="biblatex" priority="5" active="0">
+  <external package="biblatex" priority="5" active="1">
     <generic>bibtex</generic>
     <cmdline>
       <binary>bibtex</binary>
@@ -83,6 +83,7 @@
       <file>verslag-luytenpieter-tomasreunbrouck-blx.bib</file>
     </requires>
     <requires type="editable">
+      <file>../bibliografie.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.4.8)  9 APR 2020 12:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.4.8)  10 APR 2020 19:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -27,9 +27,9 @@ Package: import 2009/03/23  v 5.1
 ) (./LATEX-PREAMBLE/language.sty
 
 LaTeX Warning: You have requested package `LATEX-PREAMBLE/language',
-               but the package provides `preamble'.
+               but the package provides `language'.
 
-Package: preamble 
+Package: language 
 (/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2018/04/16 v5.8 Page Geometry
  (/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
@@ -59,8 +59,11 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 Package: babel 2019/10/15 3.35 The Babel package
  (/usr/share/texmf-dist/tex/generic/babel/switch.def
 File: switch.def 2019/10/15 3.35 Babel switching mechanism
-) (/usr/share/texmf-dist/tex/generic/babel-dutch/dutch.ldf
-Language: dutch 2005/03/30 v3.8i Dutch support from the babel system
+)
+Package babel Info: You haven't specified a language. I'll use 'nil'
+(babel)             as the main language. Reported on input line 584.
+ (/usr/share/texmf-dist/tex/generic/babel/nil.ldf
+Language: nil 2019/10/15 3.35 Nil language
  (/usr/share/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2019/10/15 3.35 Babel common definitions
 \babel@savecnt=\count91
@@ -68,7 +71,7 @@ File: babel.def 2019/10/15 3.35 Babel common definitions
  (/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@dirlevel=\count92
 )
-Package babel Info: Making " an active character on input line 132.
+\l@nil=\language85
 )) (/usr/share/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2018/08/11 v1.3c Input encoding file
 \inpenc@prehook=\toks16
@@ -165,7 +168,7 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 \bibhang=\skip50
 \blx@bcfin=\read1
 \blx@bcfout=\write3
-\blx@langwohyphens=\language85
+\blx@langwohyphens=\language86
 \c@mincomprange=\count136
 \c@maxcomprange=\count137
 \c@mincompwidth=\count138
@@ -337,9 +340,9 @@ LaTeX Font Info:    Redeclaring math alphabet \mathcal on input line 219.
 )) (./LATEX-PREAMBLE/imports.sty
 
 LaTeX Warning: You have requested package `LATEX-PREAMBLE/imports',
-               but the package provides `preamble'.
+               but the package provides `imports'.
 
-Package: preamble 
+Package: imports 
 (/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2019/04/01 v2.17c AMS math features
 \@mathmargin=\skip65
@@ -782,14 +785,21 @@ Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footers
 )) (./LATEX-PREAMBLE/definitions.sty
 
 LaTeX Warning: You have requested package `LATEX-PREAMBLE/definitions',
-               but the package provides `preamble'.
+               but the package provides `definitions'.
 
-Package: preamble 
+Package: definitions 
 )
-Package biblatex Info: Trying to load language 'dutch'...
-Package biblatex Info: ... file 'dutch.lbx' found.
- (/usr/share/texmf-dist/tex/latex/biblatex/lbx/dutch.lbx
-File: dutch.lbx 2019/08/31 v3.13a biblatex localization (PK/MW)
+Package biblatex Info: Trying to load language 'nil'...
+Package biblatex Info: ... file 'nil.lbx' not found.
+
+
+Package biblatex Warning: Language 'nil' not supported.
+(biblatex)                Using fallback language 'english' on input line 14.
+
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+(/usr/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2019/08/31 v3.13a biblatex localization (PK/MW)
 )
 
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
@@ -1002,37 +1012,70 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 14.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (./verslag-luytenpieter-tomasreunbrouck.toc)
+) [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./verslag-luytenpieter-tomasreunbrouck.toc)
 \tf@toc=\write5
 \openout5 = `verslag-luytenpieter-tomasreunbrouck.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 20.
- [1
+ [2] (./sections/Introduction.tex)
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 20.
+LaTeX Warning: Citation 'notes-fluid-dynamics' on page 3 undefined on input line 23.
+
+(./sections/Task-1.tex
+
+LaTeX Warning: Citation 'notes-fluid-dynamics' on page 3 undefined on input line 2.
+
+
+LaTeX Warning: Citation 'notes-fluid-dynamics' on page 3 undefined on input line 15.
+
+LaTeX Font Info:    Font shape `U/rsfso/m/n' will be
+(Font)              scaled to size 10.51207pt on input line 28.
+LaTeX Font Info:    Font shape `U/rsfso/m/n' will be
+(Font)              scaled to size 7.68005pt on input line 28.
+LaTeX Font Info:    Font shape `U/rsfso/m/n' will be
+(Font)              scaled to size 5.76004pt on input line 28.
+
+LaTeX Warning: Citation 'pluto-manual' on page 3 undefined on input line 32.
+
+[3])
+
+LaTeX Warning: Empty bibliography on input line 28.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 30.
+[4]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 30.
  (./verslag-luytenpieter-tomasreunbrouck.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 20.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 20.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 30.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 30.
 Package rerunfilecheck Info: File `verslag-luytenpieter-tomasreunbrouck.out' has not changed.
-(rerunfilecheck)             Checksum: 8E2968E5034CD354CE68735CB7B43776;44.
+(rerunfilecheck)             Checksum: 273601C2979414BE3D45EEE2FDBEDA48;169.
+
+
+LaTeX Warning: There were undefined references.
+
+
+Package biblatex Warning: Please (re)run BibTeX on the file(s):
+(biblatex)                verslag-luytenpieter-tomasreunbrouck
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'verslag-luytenpieter-tomasreunbrouck.run.xml'.
 \openout1 = `verslag-luytenpieter-tomasreunbrouck.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27453 strings out of 492167
- 510227 string characters out of 6131559
- 918710 words of memory out of 5000000
- 31544 multiletter control sequences out of 15000+600000
- 545897 words of font info for 66 fonts, out of 8000000 for 9000
+ 27651 strings out of 492167
+ 514275 string characters out of 6131559
+ 937793 words of memory out of 5000000
+ 31723 multiletter control sequences out of 15000+600000
+ 547564 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 52i,6n,71p,949b,1607s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb>
-Output written on verslag-luytenpieter-tomasreunbrouck.pdf (1 page, 62351 bytes).
+ 52i,15n,71p,928b,1085s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb>
+Output written on verslag-luytenpieter-tomasreunbrouck.pdf (4 pages, 163433 bytes).
 PDF statistics:
- 41 PDF objects out of 1000 (max. 8388607)
- 32 compressed objects within 1 object stream
- 4 named destinations out of 1000 (max. 500000)
- 9 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 103 PDF objects out of 1000 (max. 8388607)
+ 82 compressed objects within 1 object stream
+ 11 named destinations out of 1000 (max. 500000)
+ 25 words of extra memory for PDF output out of 10000 (max. 10000000)
 
