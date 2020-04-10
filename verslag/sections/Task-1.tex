@@ -29,7 +29,7 @@ where $f(x,y,z,t)$ is a function that describes a property of the fluid. Or by d
 \par}
 
 Next introduce the variable $\vec{m}=\rho \vec{v}$, the momentum density. The energy density $\mathcal{U}$ can be split in the thermal energy $\rho e$ and gravitational potential energy $\rho\Phi$. Let $E_t = e\rho + \frac{\vec{v}^2}{2}$ The only external force is $\vec{F} = \rho\vec{g}$
-carrying out these substitutions leads to the equations in section 6 in the PLUTO manual \cite{pluto-manual}:
+carrying out these substitutions leads to the equations in section 6 in the PLUTO manual \cite{pluto-manual}: \unsure{is the expression for $\vec{F}$ correct? Looks to be different in equation 2 and 3}
 
 {\centering 
 \noindent \fbox{\parbox{.7\linewidth}{
@@ -51,8 +51,9 @@ where $f$ is the number of degrees of freedom. the previous relation can be rewr
 	f = \frac{2}{\gamma-1}
 \end{equation*}
 And by substituting this equation in the equation that expresses the energy as a function of degrees of freedom the closure relation $\rho e= \rho e(\rho, p)$ is found:
+\improvement{Add a reference for this energy equation}
 \begin{equation*}
 	E_t = \rho e = \frac{f}{2}nk_BT = \frac{p}{\gamma-1}
 \end{equation*}
-
-%TODO: add references to course notes for the thermodynamic identities used in the last part.
+\todo[inline]{short discussion of assumptions made (no viscosity and heat conduction, callorically ideal gas)}
+\todo[inline]{Derivation of MHD equation, discussion of the integration scheme used}
