@@ -1,0 +1,75 @@
+\ProvidesPackage{preamble}
+
+\setlength{\parskip}{11pt plus 1pt minus 1pt}	% space between lines and font size
+
+%% Language and font encodings
+\usepackage[dutch]{babel}	%  language
+\usepackage[utf8]{inputenc}	% allow UTF8 input (e.g. "é")
+\usepackage[T1]{fontenc}	% idk
+\usepackage[backend=bibtex]{biblatex}	% used to include bibliographies
+\usepackage{url}	% typeset URL's (and make them linkable)
+\usepackage[cal=rsfso,calscaled=.96]{mathalpha}	% change math fonts
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=1in]{geometry}	% set size of the page
+
+%% Useful packages
+\usepackage{amsmath}	% math symbols
+\usepackage{wasysym}	% math symbols
+\usepackage{amsthm}	% math fonts
+\usepackage{amssymb}	% math fonts
+\usepackage{graphicx}	% used to include figures
+\usepackage[colorlinks=true, allcolors=blue]{hyperref} % makes refs in the pdf into links
+\usepackage{booktabs}	% idk
+\usepackage{float}	% used for float envirnments for figures and tables
+\usepackage{siunitx}	% used for typesetting measurements with units and error margins
+\usepackage{faktor}	% used for quotient sets
+
+%% name on every page
+\usepackage{fancyhdr}
+\pagestyle {fancy}
+%\lhead {Pieter Luyten}
+
+%% environments for proofs, definitions etc.
+\theoremstyle{definition}
+\newtheorem{definition}{Defenitie}[chapter]
+\newcommand{\defenitionautorefname}{defenitie}
+
+\theoremstyle{plain}
+\newtheorem{stelling}{Stelling}[chapter]
+\newcommand{\stellingautorefname}{stelling} % used to print "stelling" before number when
+					% refering to a stelling with autoref (fequires hyperref)
+
+\theoremstyle{plain}
+\newtheorem{lemma}{Lemma}[chapter]
+\newcommand{\lemmaautorefname}{lemma}
+
+\theoremstyle{}
+
+%% right "d" for integral infinitesimals
+\newcommand{\du}{\,\mathrm{d}}
+
+%% extra functions
+\newcommand{\bgtan}{\mathrm{\,Bgtan\,}}
+\newcommand{\bgsin}{\mathrm{\,Bgsin\,}}
+\newcommand{\bgcos}{\mathrm{\,Bgcos\,}}
+
+%% natural numbers, integers, rationals and reals
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\q}{\mathbb{Q}}
+
+%% vectors
+\newcommand{\uu}{\mathbf{u}}
+
+%% Topology
+\newcommand{\TT}{\mathcal{T}}
+\newcommand{\TB}{\mathcal{B}}
+\newcommand{\TO}{\mathcal{O}}
+\newcommand{\TA}{\mathcal{A}}
+\newcommand{\TU}{\mathcal{U}}
+\newcommand{\TC}{\mathcal{C}}
+\newcommand{\TS}{\mathcal{S}}
+\newcommand{\TD}{\mathcal{D}}
+

@@ -1,0 +1,18 @@
+\ProvidesPackage{environments}
+
+%% environments for proofs, definitions etc.
+\theoremstyle{definition}
+\newtheorem{definition}{Defenitie}[section]
+\newcommand{\defenitionautorefname}{defenitie}
+
+\theoremstyle{plain}
+\newtheorem{stelling}{Stelling}[section]
+\newcommand{\stellingautorefname}{stelling} % used to print "stelling" before number when
+					% refering to a stelling with autoref (fequires hyperref)
+
+\theoremstyle{plain}
+\newtheorem{lemma}{Lemma}[section]
+\newcommand{\lemmaautorefname}{lemma}
+
+\theoremstyle{}
+

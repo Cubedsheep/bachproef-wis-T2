@@ -7,3 +7,15 @@
 *.dbl
 *.o
 *.png
+# LaTeX temporary files from compiling
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.xml
+*.gz
+*.toc
