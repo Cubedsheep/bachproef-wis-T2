@@ -1,6 +1,6 @@
 #define  PHYSICS                        HD
 #define  DIMENSIONS                     2
-#define  COMPONENTS                     2
+#define  COMPONENTS                     3
 #define  GEOMETRY                       CARTESIAN
 #define  BODY_FORCE                     NO
 #define  FORCED_TURB                    NO
@@ -26,6 +26,10 @@
 #define  GAMMA                          2
 
 /* [Beg] user-defined constants (do not change this line) */
+
+#define UNIT_DENSITY                    (1.e9*CONST_mp)
+#define UNIT_LENGTH                     1.e8
+#define UNIT_VELOCITY                   1.e8
 
 
 /* [End] user-defined constants (do not change this line) */

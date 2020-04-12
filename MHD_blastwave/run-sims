@@ -1,0 +1,15 @@
+#!/bin/bash
+
+cd "initfiles"
+
+for f in $(ls)
+do
+	cd ".."
+	echo $f
+	rm "pluto.ini"
+	sleep 2
+	cp "initfiles/$f" "pluto.ini"
+	sleep 2
+	./pluto
+	cd "initfiles"
+done

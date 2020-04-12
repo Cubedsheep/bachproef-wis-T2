@@ -1,101 +1,26 @@
-0 0.000000e+00 1.000000e-06 0 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-1 4.869412e-04 2.592845e-05 43 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-2 9.864216e-04 2.445795e-05 63 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-3 1.498817e-03 2.440309e-05 84 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-4 1.988809e-03 2.461549e-05 104 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-5 2.482563e-03 2.473775e-05 124 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-6 2.978336e-03 2.482222e-05 144 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-7 3.475695e-03 2.493552e-05 164 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-8 3.975501e-03 2.502410e-05 184 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-9 4.476754e-03 2.512011e-05 204 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-10 4.980175e-03 2.522478e-05 224 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-11 5.485948e-03 2.536268e-05 244 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-12 5.994513e-03 2.549626e-05 264 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-13 6.480068e-03 2.562341e-05 283 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-14 6.993861e-03 2.576237e-05 303 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-15 7.484536e-03 2.589270e-05 322 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-16 7.977625e-03 2.601787e-05 341 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-17 8.499169e-03 2.614216e-05 361 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-18 8.996924e-03 2.625849e-05 380 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-19 9.496836e-03 2.636856e-05 399 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-20 9.998757e-03 2.646919e-05 418 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-21 1.047596e-02 2.655523e-05 436 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-22 1.098110e-02 2.661661e-05 455 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-23 1.148720e-02 2.666055e-05 474 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-24 1.199415e-02 2.670119e-05 493 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-25 1.247503e-02 2.673206e-05 511 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-26 1.298321e-02 2.675975e-05 530 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-27 1.349134e-02 2.672394e-05 549 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-28 1.399861e-02 2.666797e-05 568 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-29 1.447817e-02 2.661493e-05 586 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-30 1.498335e-02 2.655830e-05 605 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-31 1.548724e-02 2.647418e-05 624 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-32 1.598943e-02 2.637622e-05 643 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-33 1.648894e-02 2.620343e-05 662 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-34 1.698590e-02 2.612445e-05 681 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-35 1.748240e-02 2.615210e-05 700 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-36 1.797909e-02 2.614720e-05 719 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-37 1.847649e-02 2.622625e-05 738 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-38 1.897607e-02 2.638924e-05 757 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-39 1.947980e-02 2.666421e-05 776 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-40 1.998934e-02 2.699210e-05 795 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-41 2.047758e-02 2.726937e-05 813 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-42 2.099816e-02 2.754409e-05 832 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-43 2.149621e-02 2.781351e-05 850 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-44 2.199924e-02 2.809981e-05 868 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-45 2.247920e-02 2.838286e-05 885 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-46 2.299269e-02 2.868984e-05 903 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-47 2.348276e-02 2.898209e-05 920 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-48 2.397778e-02 2.927362e-05 937 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-49 2.447784e-02 2.955692e-05 954 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-50 2.498214e-02 2.980657e-05 971 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-51 2.549147e-02 3.013834e-05 988 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-52 2.597574e-02 3.042012e-05 1004 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-53 2.649593e-02 3.082172e-05 1021 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-54 2.698996e-02 3.091016e-05 1037 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-55 2.748532e-02 3.103590e-05 1053 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-56 2.798362e-02 3.128982e-05 1069 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-57 2.848718e-02 3.170913e-05 1085 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-58 2.899862e-02 3.227153e-05 1101 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-59 2.948624e-02 3.270421e-05 1116 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-60 2.997875e-02 3.292020e-05 1131 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-61 3.047314e-02 3.294588e-05 1146 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-62 3.099850e-02 3.270320e-05 1162 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-63 3.148727e-02 3.244971e-05 1177 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-64 3.197235e-02 3.221858e-05 1192 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-65 3.248623e-02 3.201113e-05 1208 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-66 3.299705e-02 3.183564e-05 1224 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-67 3.347358e-02 3.169733e-05 1239 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-68 3.397978e-02 3.157319e-05 1255 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-69 3.448415e-02 3.147195e-05 1271 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-70 3.498713e-02 3.140254e-05 1287 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-71 3.548923e-02 3.136199e-05 1303 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-72 3.599085e-02 3.134426e-05 1319 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-73 3.649237e-02 3.134829e-05 1335 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-74 3.699409e-02 3.137008e-05 1351 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-75 3.749619e-02 3.139362e-05 1367 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-76 3.799868e-02 3.141866e-05 1383 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-77 3.847014e-02 3.144444e-05 1398 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-78 3.897345e-02 3.147017e-05 1414 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-79 3.947715e-02 3.149360e-05 1430 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-80 3.998119e-02 3.151269e-05 1446 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-81 4.048555e-02 3.153270e-05 1462 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-82 4.099022e-02 3.155235e-05 1478 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-83 4.149523e-02 3.158005e-05 1494 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-84 4.196938e-02 3.166059e-05 1509 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-85 4.247726e-02 3.186441e-05 1525 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-86 4.298987e-02 3.228526e-05 1541 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-87 4.347664e-02 3.257516e-05 1556 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-88 4.399928e-02 3.275998e-05 1572 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-89 4.449177e-02 3.291402e-05 1587 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-90 4.498646e-02 3.305317e-05 1602 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-91 4.548323e-02 3.319089e-05 1617 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-92 4.598202e-02 3.332338e-05 1632 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-93 4.648280e-02 3.345559e-05 1647 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-94 4.698505e-02 3.351147e-05 1662 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-95 4.748807e-02 3.356141e-05 1677 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-96 4.799185e-02 3.361459e-05 1692 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-97 4.849647e-02 3.367275e-05 1707 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-98 4.896826e-02 3.373075e-05 1721 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-99 4.947468e-02 3.379670e-05 1736 single_file little rho vx1 vx2 Bx1 Bx2 prs 
-100 5.000000e-02 1.966777e-05 1752 single_file little rho vx1 vx2 Bx1 Bx2 prs 
+0 0.000000e+00 1.000000e-04 0 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+1 2.964001e-02 6.822740e-04 55 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+2 5.958487e-02 6.801207e-04 99 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+3 8.951903e-02 6.795237e-04 143 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+4 1.193861e-01 6.782476e-04 187 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+5 1.499162e-01 6.794116e-04 232 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+6 1.799382e-01 6.868510e-04 276 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+7 2.098754e-01 7.075605e-04 319 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+8 2.398143e-01 7.193416e-04 361 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+9 2.695698e-01 7.322792e-04 402 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+10 2.998829e-01 7.472146e-04 443 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+11 3.293378e-01 7.643444e-04 482 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+12 3.595121e-01 7.845163e-04 521 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+13 3.896746e-01 8.031062e-04 559 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+14 4.196891e-01 8.186165e-04 596 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+15 4.493131e-01 8.276220e-04 632 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+16 4.793614e-01 8.423515e-04 668 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+17 5.096632e-01 8.406259e-04 704 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+18 5.398572e-01 8.366224e-04 740 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+19 5.699133e-01 8.332196e-04 776 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+20 5.998767e-01 8.320870e-04 812 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+21 6.298582e-01 8.364987e-04 848 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+22 6.597372e-01 8.668796e-04 883 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+23 6.899530e-01 8.615975e-04 918 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+24 7.192156e-01 8.593555e-04 952 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
+25 7.500000e-01 7.254557e-04 988 single_file little rho vx1 vx2 vx3 Bx1 Bx2 Bx3 prs 
