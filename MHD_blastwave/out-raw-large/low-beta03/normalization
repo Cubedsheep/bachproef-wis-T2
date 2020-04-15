@@ -1,0 +1,9 @@
+> Normalization Units:
+
+  [Density]:      1.673e-15 (gr/cm^3), 1.000e+09 (1/cm^3)
+  [Pressure]:     1.673e+01 (dyne/cm^2)
+  [Velocity]:     1.000e+08 (cm/s)
+  [Length]:       1.000e+08 (cm)
+  [Temperature]:  1.203e+08 X (p/rho*mu) (K)
+  [Time]:         1.000e+00 (sec), 3.171e-08 (yrs) 
+  [Mag Field]:    1.450e+01 (Gauss)

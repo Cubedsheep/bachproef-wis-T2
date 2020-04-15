@@ -52,7 +52,7 @@ void Init (double *v, double x1, double x2, double x3)
   v[VX3] = 0.0;
   v[PRS] = g_inputParam[P_OUT];
 
-  if (r <= 0.3) v[PRS] = g_inputParam[P_IN];
+  if (r <= 0.09) v[PRS] = g_inputParam[P_IN];
 
   v[TRC] = 0.0;
 
