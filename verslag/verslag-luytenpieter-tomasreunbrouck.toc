@@ -1,5 +1,8 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \babel@toc {nil}{}
 \contentsline {section}{\numberline {1}Introduction}{3}{section.1}% 
-\contentsline {section}{\numberline {2}Task 1}{3}{section.2}% 
-\contentsline {subsection}{\numberline {2.1}Theory Hydrodynamic linear waves}{3}{subsection.2.1}% 
+\contentsline {section}{\numberline {2}Theoretical background}{3}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Hydrodynamic fluid equations}{3}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Hydrodynamic linear waves}{4}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}Magnetohydrodynamic fluid equations}{5}{subsection.2.3}% 
+\contentsline {subsection}{\numberline {2.4}Magnetohydrodynamic waves}{7}{subsection.2.4}% 

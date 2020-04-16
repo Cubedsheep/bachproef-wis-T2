@@ -1,0 +1,223 @@
+While the main focus of this bachelor project is the numerical modeling of waves in the solar corona, some theoretical background is important to frame the results of our simulations.
+Furthermore, this knowledge gives some insight in the assumptions that are made in deriving the magnetohydrodynamic (MHD) equations and when they are valid.
+
+\subsection{Hydrodynamic fluid equations}
+The theory in this section is adapted from \cite{notes-fluid-dynamics}. For the first task a non-viscous Newtonian fluid is considered. Heat conduction and dissipation is neglected as well.
+This type of fluid obeys the Euler equations for conservation of mass, momentum and internal energy:
+
+{\centering
+\noindent \fbox{\parbox{0.5\linewidth}{
+\begin{equation}
+	\label{eq:ideal-fluid}
+\begin{split}
+	\frac{d\rho}{dt} + \rho \nabla \cdot \vec{v} &= 0\\
+	\rho \frac{d\vec{v}}{dt} &= -\nabla p + \vec{F}\\
+	\frac{dp}{dt} - \frac{\gamma p}{\rho} \frac{d\rho}{dt} &= 0
+\end{split}
+\end{equation}
+}}\par}
+
+
+These are the Euler equations in Lagrangian form, with time derivatives following the fluid, hence the total derivatives with respect to time.
+PLUTO does the fluid simulation using a static grid, so we need the equations in Eulerian form with partial derivatives with respect to time.
+This change of derivatives can be carried out using the following relation, found in \cite{notes-fluid-dynamics} in section 2.4:
+\begin{equation}
+	\frac{df}{dt} = \frac{\partial f}{\partial t} + (\vec{v} \cdot \nabla) f
+	\label{eq:relation-total-partial}
+\end{equation}
+where $f(x,y,z,t)$ is a function that describes a property of the fluid. The equations can also be rederived using an Eulerian view. In any case the result is the same:
+
+{\centering 
+\noindent \fbox{\parbox{0.7\linewidth}{
+\begin{align*}
+	\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vec{v}) &= 0\\
+	\frac{\partial}{\partial t} (\rho \vec{v}) &= \nabla \cdot (-p - \rho \vec{v}\vec{v}) + \vec{F}\\
+\frac{\partial}{\partial t} \left( \rho \left( \frac{\vec{v}^2}{2} + \mathcal{U} \right)  \right)  &= \vec{F} \cdot \vec{v} - \nabla \cdot \left( \rho \left( \frac{\vec{v}^2}{2}+\mathcal{U}\right)\vec{v} + p\vec{v})  \right) 
+\end{align*}}}
+\par}
+
+Next introduce the variable $\vec{m}=\rho \vec{v}$, the momentum density. The energy density $\mathcal{U}$ can be split in the thermal energy $\rho e$ and gravitational potential energy $\rho\Phi$. Let $E_t = e\rho + \frac{\vec{v}^2}{2}$ The only external force is $\vec{F} = \rho\vec{g}$
+carrying out these substitutions leads to the equations in section 6 in the PLUTO manual \cite{pluto-manual}: \unsure{is the expression for $\vec{F}$ correct? Looks to be different in equation 2 and 3}
+
+{\centering 
+\noindent \fbox{\parbox{.7\linewidth}{
+\begin{equation}
+	\label{eq:ideal-fluid-pluto}
+\begin{split}
+	\frac{\partial \rho}{\partial t} + \nabla \cdot \vec{m} &= 0\\
+	\frac{\partial \vec{m}}{\partial t} + \nabla \cdot \left( \vec{m}\vec{v} + p \right) &= -\rho\nabla\Phi + \rho \vec{g}\\
+	\frac{\partial}{\partial t} \left( E_t+\rho\Phi \right)  + \nabla \cdot \left( \left( E_t + p + \rho\Phi \right) \vec{v} \right) &= \vec{m}\cdot\vec{g}
+\end{split}
+\end{equation}}}
+\par}
+
+Together with an equation of state $\rho e = \rho e(p, \rho)$, which gives the thermal energy as a function of $p$ and $\rho$.
+In the remainder of this paper a calorically ideal gas is assumed. This is a gas for which the adiabatic constant $\gamma$ obeys:
+\begin{equation}
+	\gamma = \frac{f+2}{f}
+	\label{eq:adiabatic constant}
+\end{equation}
+where $f$ is the number of degrees of freedom. the previous relation can be rewritten as
+\begin{equation*}
+	f = \frac{2}{\gamma-1}
+\end{equation*}
+And by substituting this equation in the equation that expresses the energy as a function of degrees of freedom the closure relation $\rho e= \rho e(\rho, p)$ is found:
+\improvement{Add a reference for this energy equation}
+\begin{equation*}
+	E_t = \rho e = \frac{f}{2}nk_BT = \frac{p}{\gamma-1}
+\end{equation*}
+\todo[inline]{short discussion of assumptions made (no viscosity and heat conduction, callorically ideal gas)}
+\todo[inline]{afleiding golven, groepssnelheid}
+\subsection{Hydrodynamic linear waves}
+We start again from the ideal fluid equations as given in \autoref{eq:ideal-fluid} and linearize them.
+For this we rewrite the quantities $\rho$ and $p$ as a background density $\rho_0$ and pressure $p_0$ with slight deviations $\rho'$, $p'$.
+Furthermore it is assumed that there are no external forces acting on the fluid. The Linearized equations are:
+
+{\centering 
+\noindent \fbox{\parbox{0.5\linewidth}{
+\begin{equation}
+	\label{eq:ideal-fluid-linear}
+	\begin{split}
+		\frac{\partial\rho'}{\partial t} + \rho_0\nabla\cdot \vec{v} &= 0\\
+		\rho_0 \frac{\partial \vec{v}}{\partial t} &= -\nabla p'\\
+		\frac{\partial p'}{\partial t} &= \frac{\gamma p_0}{\rho_0} \frac{\partial\rho'}{\partial t}
+	\end{split}
+\end{equation}
+}}
+\par}
+By acting with $\nabla$ on the second equation and using the first to substitute $\rho_0 \nabla \cdot \vec{v}$ we find the following relation:
+\begin{equation*}
+	\frac{\partial^2 \rho'}{\partial t^2} = -\nabla^2 p'
+\end{equation*}
+Acting with $ \frac{\partial}{\partial t}$ on the last equation and substituting the previous expression yields
+\begin{equation*}
+	\frac{\partial^2 p'}{\partial t^2} + \frac{\gamma p_0}{\rho_0} \nabla^2 p' = 0
+\end{equation*}
+which is the wave equation with $v_s = \sqrt{ \frac{\gamma p_0}{\rho_0} }$ the phase speed of the wave.
+Similar expressions are found for the other variables. \improvement{Referentie?}
+this wave speed can be found by substituting a plan wave of the form $p' = A \exp \left( i(\omega t - \vec{k}\cdot\vec{x}) \right) $. Substituting this expression in the wave equation for $p'$ leads to the dispersion relation:
+\begin{equation}
+	\omega^2 = k^2v_s^2.
+\end{equation}
+The phase velocity is given by
+\begin{equation}
+	v_{ph} = \frac{\partial \omega}{\partial k} = v_s
+\end{equation}
+\improvement{reference for this relation for the phase speed?}
+from which we conclude that these waves are non-dispersive.
+
+\subsection{Magnetohydrodynamic fluid equations}
+There are two approaches commonly taken in the literature to derive the MHD equations. They are either derived from kinetic gass theory, or postulated with added justification of why they can accuratly describe plasmas.
+
+A plasma is an ionised gas consisting of postive and negative ions. In the case of the corona of the sun this is mainly ionised hydrogen.
+Therefore the negative ions are free electrons and the positive ions protons, which are a lot heavier than electrons.
+When the characteristic timescales $\tau_e$ and $\tau_i$ between two collisions of electrons, respectively ions, is much shorter than characteristic timescales $\tau_f$ at which macroscopic variables change we can use a fluid description. 
+At these timescales the individual interactions of individual particles are not relevant anymore.
+
+The plasma can then be described as two different fluids, commonly refered to as the \emph{two-fluid theory}.
+The electron gas is one fluid and the proton gas the other. 
+The next assumption that is made, is that the relaxation time $\tau_T$ until the electron fluid and ion fluid are in thermal equilibrium after a slight disturbance is also a lot smaller than $\tau_f$.
+Finally, we assume that the fluid has no net charge. Not globally, but also not locally. 
+This means that in every large enough volume, for every ion with charge $Z$, there are also about $Z$ electrons in this volume.
+When all this applies, the variables describing the different fluids can be averaged or added together, to describe the plasma as one fluid.\improvement{add reference to cursus Poedts and course notes arxiv}
+
+The MHD equations can then be found by adding the maxwell equations to the HD equations. Because the HD equations are invariant under Galilean transformations. 
+However the Maxwell equations are invariant under Lorentz transformations, so we cannot simply add them to the HD equations and expect a consistent picture. 
+Understanding the averaging process is important for understanding what the plasma variables actually represent.
+Denote with $n_\alpha$ the number density of a certain type of particle, $m_\alpha$ the mass, $\vec{u}_\alpha$ the velocity of a fluid element and with $p_\alpha$ the pressure of the gas of these particles. 
+Let the subscript $e$ denote variables concerning the electrongas and $i$ variables describing the iongas.
+The variables describing the plasma are the following linear combinations of variables describing the electron and ion gas:
+
+{\centering 
+\noindent \fbox{\parbox{.5\linewidth}{
+\begin{equation}
+	\label{eq:plasma-variables}
+	\begin{split}
+		\rho &= n_em_e+n_im_i\\
+		\vec{v} &= (n_em_e\vec{u}_e + n_im_i\vec{u}_i)/\rho\\
+		\vec{j} &= -e(n_e\vec{u}_e-Zn_i\vec{u}_i)\\
+		p &= p_e+p_i
+	\end{split}
+\end{equation}
+}}
+\par}
+
+Where $e$ is the charge of an electron and $Z$ the charge of an ion as a multiple of the electron charge. The first equation is the \emph{total mass density}, the second the \emph{center of mass velocity}, the third the \emph{current density} and the last one describes the \emph{total pressure}.
+
+For a consistent Newtonian theory of MHD, the displacement current $\epsilon_0 \frac{\partial \vec{E}}{\partial t}$ is neglected. \improvement{reference to lecture notes arXiv}
+
+Finally, the viscosity and heat flow are neglected like in the HD case. Furthermore, for the ideal MHD case the resistivity of the fluid is neglected. The extra equations we need are then:
+\begin{align*}
+	\frac{\partial \vec{B}}{\partial t} &= - \nabla \times \vec{E}\\
+	\nabla \cdot \vec{B} &= 0\\
+	\nabla \times \vec{B} &= \mu_0 \vec{j}
+\end{align*}
+We do not need an equation relating the charge distribution to the electric field in the first equation since we assumed the fluid is locally neutral.
+Furthermore the displacement term in the third equation was neglected.
+
+Adding everything together such as in [REFERENCE TO ONE OF THE COURSES]\improvement{reference course of Poedts or arxiv} yields the ideal MHD equations used by PLUTO:
+
+{\centering 
+\noindent \fbox{\parbox{.85\linewidth}{
+\begin{equation}
+	\label{eq:ideal-MHD}
+	\begin{split}
+		\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho\vec{u}) &= 0\\
+		\rho \frac{\partial\vec{v}}{\partial t} + \nabla \cdot \left[ \rho\vec{v}\vec{v} - \vec{B}\vec{B}+I \left( p+ \frac{\vec{B}^2}{2} \right)  \right] ^T &= -\rho\nabla\Phi+\rho \vec{g}\\
+		\frac{\partial\vec{B}}{\partial t} + \nabla \times (c\vec{E}) &= 0\\
+		\frac{\partial (E_t+\rho\Phi)}{\partial t} + \nabla \cdot \left[ \left( E_T+p_t+\rho\Phi \right)\vec{v} - \vec{B}(\vec{v}\cdot\vec{B})  \right] 
+	\end{split}
+\end{equation}
+}}
+\par}
+
+where $E_t$ is again the total energy density, this time with an extra term for the magnetic field:
+\begin{equation*}
+	E_t = \rho e + \frac{\rho \vec{v}^2 + \vec{B}^2}{2}
+\end{equation*}
+and $c\vec{E}$ is given by:
+\begin{equation*}
+	c\vec{E} = -\vec{v}\times \vec{B}
+\end{equation*}
+\subsection{Magnetohydrodynamic waves}
+
+\todo[inline]{Derivation of MHD equation, discussion of the integration scheme used}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
