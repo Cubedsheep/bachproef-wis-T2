@@ -155,33 +155,60 @@ Finally, the viscosity and heat flow are neglected like in the HD case. Furtherm
 We do not need an equation relating the charge distribution to the electric field in the first equation since we assumed the fluid is locally neutral.
 Furthermore the displacement term in the third equation was neglected.
 
-Adding everything together such as in [REFERENCE TO ONE OF THE COURSES]\improvement{reference course of Poedts or arxiv} yields the ideal MHD equations used by PLUTO:
+Adding everything together such as in [REFERENCE TO ONE OF THE COURSES]\improvement{reference to course notes poedts} yields the ideal MHD equations:
 
 {\centering 
 \noindent \fbox{\parbox{.85\linewidth}{
 \begin{equation}
 	\label{eq:ideal-MHD}
 	\begin{split}
-		\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho\vec{u}) &= 0\\
-		\rho \frac{\partial\vec{v}}{\partial t} + \nabla \cdot \left[ \rho\vec{v}\vec{v} - \vec{B}\vec{B}+I \left( p+ \frac{\vec{B}^2}{2} \right)  \right] ^T &= -\rho\nabla\Phi+\rho \vec{g}\\
-		\frac{\partial\vec{B}}{\partial t} + \nabla \times (c\vec{E}) &= 0\\
-		\frac{\partial (E_t+\rho\Phi)}{\partial t} + \nabla \cdot \left[ \left( E_T+p_t+\rho\Phi \right)\vec{v} - \vec{B}(\vec{v}\cdot\vec{B})  \right] 
+		\frac{\partial\rho}{\partial t} + \nabla\cdot (\rho\vec{v}) &= 0\\
+		\rho \left( \frac{\partial\vec{v}}{\partial t} + \vec{v}\cdot\nabla\vec{v} \right) + \nabla p - \vec{j} \times \vec{B} &= 0\\
+		\frac{\partial p}{\partial t} + \vec{v}\cdot\nabla p + \gamma p\nabla\cdot\vec{v} &= 0\\
+		\frac{\partial \vec{B}}{\partial t} - \nabla\times (\vec{v}\times\vec{B}) &= 0
 	\end{split}
 \end{equation}
 }}
 \par}
 
-where $E_t$ is again the total energy density, this time with an extra term for the magnetic field:
+Where $$\vec{j} = \frac{\nabla\times \vec{B}}{\mu_0}. $$ We need one additional equation which the inital condition has to satisfy:
+\begin{equation*}
+	\nabla\cdot\vec{B}=0
+\end{equation*}
+which expresses that there are no magnetic monopoles. By acting with $\nabla\cdot$ on the fourth equation in \autoref{eq:ideal-MHD} we see that if the initial equation satisfies $\nabla\cdot\vec{B}=0$, it is automatically satisfied for all later times:
+\begin{equation*}
+	\frac{\partial (\nabla\cdot\vec{B})}{\partial t} = 0
+\end{equation*}
+
+The equations used by PLUTO in the ideal case have a slightly different form: \improvement{reference to user guide}
+
+{\centering 
+\noindent \fbox{\parbox{.85\linewidth}{
+\begin{equation}
+	\label{eq:ideal-MHD-PLUTO}
+	\begin{split}
+		\frac{\partial \rho}{\partial t} + \nabla \cdot (\vec{m}) &= 0\\
+		\frac{\partial\vec{m}}{\partial t} + \nabla \cdot \left[ \vec{m}\vec{v} - \vec{B}\vec{B}+I \left( p+ \frac{\vec{B}^2}{2} \right)  \right] ^T &= -\rho\nabla\Phi+\rho \vec{g}\\
+		\frac{\partial\vec{B}}{\partial t} + \nabla \times (c\vec{E}) &= 0\\
+		\frac{\partial (E_t+\rho\Phi)}{\partial t} + \nabla \cdot \left[ \left( E_T+p_t+\rho\Phi \right)\vec{v} - \vec{B}(\vec{v}\cdot\vec{B})  \right] &= \vec{m}\cdot\vec{g}
+	\end{split}
+\end{equation}
+}}
+\par}
+
+where, as with the HD equations, $\vec{m}=\rho\vec{v}$ and $E_t$ is again the total energy density, this time with an extra term for the magnetic field:
 \begin{equation*}
 	E_t = \rho e + \frac{\rho \vec{v}^2 + \vec{B}^2}{2}
 \end{equation*}
-and $c\vec{E}$ is given by:
+$c\vec{E}$ is given by:
 \begin{equation*}
 	c\vec{E} = -\vec{v}\times \vec{B}
 \end{equation*}
+note that the equations do not formally depend on the speed of light, but it is kept in the equations for consistency with the relativistic case.
 \subsection{Magnetohydrodynamic waves}
 
 \todo[inline]{Derivation of MHD equation, discussion of the integration scheme used}
+\todo[inline]{Test informatievaardigheden!!!}
 
 
 

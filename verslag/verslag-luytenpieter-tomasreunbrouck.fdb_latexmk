@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex verslag-luytenpieter-tomasreunbrouck"] 1587045131 "verslag-luytenpieter-tomasreunbrouck.aux" "verslag-luytenpieter-tomasreunbrouck.bbl" "verslag-luytenpieter-tomasreunbrouck" 1587045133
+["bibtex verslag-luytenpieter-tomasreunbrouck"] 1587134777 "verslag-luytenpieter-tomasreunbrouck.aux" "verslag-luytenpieter-tomasreunbrouck.bbl" "verslag-luytenpieter-tomasreunbrouck" 1587134781
   "../bibliografie.bib" 0 -1 0 ""
   "/usr/share/texmf-dist/bibtex/bst/biblatex/biblatex.bst" 1572567841 64965 69a9b5cd41a72f970d6b09ef293df7d7 ""
-  "verslag-luytenpieter-tomasreunbrouck-blx.bib" 1587045132 340 d317942c72ef73944863c01fbc692876 "pdflatex"
-  "verslag-luytenpieter-tomasreunbrouck.aux" 1587045132 6058 ec44dda3f2fa21d616f6b436fcbe2482 "pdflatex"
+  "verslag-luytenpieter-tomasreunbrouck-blx.bib" 1587134779 340 d317942c72ef73944863c01fbc692876 "pdflatex"
+  "verslag-luytenpieter-tomasreunbrouck.aux" 1587134780 6674 d8432a2a79e28d8c3795b52e877664e1 "pdflatex"
   (generated)
   "verslag-luytenpieter-tomasreunbrouck.bbl"
   "verslag-luytenpieter-tomasreunbrouck.blg"
-["pdflatex"] 1587045131 "verslag-luytenpieter-tomasreunbrouck.tex" "verslag-luytenpieter-tomasreunbrouck.pdf" "verslag-luytenpieter-tomasreunbrouck" 1587045133
+["pdflatex"] 1587134777 "verslag-luytenpieter-tomasreunbrouck.tex" "verslag-luytenpieter-tomasreunbrouck.pdf" "verslag-luytenpieter-tomasreunbrouck" 1587134781
   "/dev/null" 1586975166 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1572595918 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1572595918 3332 103109f5612ad95229751940c61aada0 ""
@@ -244,18 +244,18 @@
   "LATEX-PREAMBLE/imports.sty" 1586541052 890 bf9c4d2067924bbb3fdb85d92dbd76f5 ""
   "LATEX-PREAMBLE/language.sty" 1586522717 621 fe68acaf3f6cb38e5ccf127706c640b2 ""
   "sections/Introduction.tex" 1586513710 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "sections/theorie.tex" 1587045128 11189 ef2dd8b1ef37f641119d7b38ff5d6346 ""
-  "verslag-luytenpieter-tomasreunbrouck.aux" 1587045132 6058 ec44dda3f2fa21d616f6b436fcbe2482 "pdflatex"
+  "sections/theorie.tex" 1587134771 12589 63bdd76fad996d7d4f6c3e8e6bdb6365 ""
+  "verslag-luytenpieter-tomasreunbrouck.aux" 1587134780 6674 d8432a2a79e28d8c3795b52e877664e1 "pdflatex"
   "verslag-luytenpieter-tomasreunbrouck.bbl" 1586514621 512 da5a5cf020c0fbcb3437098fa3006702 "bibtex verslag-luytenpieter-tomasreunbrouck"
-  "verslag-luytenpieter-tomasreunbrouck.out" 1587045132 413 045d96174957ba010f0ee14caaf395a0 "pdflatex"
-  "verslag-luytenpieter-tomasreunbrouck.run.xml" 1587045132 2815 1381ab71128ecb8a687375912e7225a8 "pdflatex"
+  "verslag-luytenpieter-tomasreunbrouck.out" 1587134780 413 045d96174957ba010f0ee14caaf395a0 "pdflatex"
+  "verslag-luytenpieter-tomasreunbrouck.run.xml" 1587134780 2815 1381ab71128ecb8a687375912e7225a8 "pdflatex"
   "verslag-luytenpieter-tomasreunbrouck.tex" 1587038663 714 6e598f25c64c836702b8433d742f4294 ""
-  "verslag-luytenpieter-tomasreunbrouck.toc" 1587045132 652 cd0be6b33e30df72d2f4972b060a582e "pdflatex"
+  "verslag-luytenpieter-tomasreunbrouck.toc" 1587134780 652 cd0be6b33e30df72d2f4972b060a582e "pdflatex"
   (generated)
   "verslag-luytenpieter-tomasreunbrouck.out"
   "verslag-luytenpieter-tomasreunbrouck-blx.bib"
   "verslag-luytenpieter-tomasreunbrouck.pdf"
   "verslag-luytenpieter-tomasreunbrouck.toc"
   "verslag-luytenpieter-tomasreunbrouck.aux"
-  "verslag-luytenpieter-tomasreunbrouck.log"
   "verslag-luytenpieter-tomasreunbrouck.run.xml"
+  "verslag-luytenpieter-tomasreunbrouck.log"
