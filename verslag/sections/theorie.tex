@@ -1,3 +1,5 @@
+
+
 While the main focus of this bachelor project is the numerical modeling of waves in the solar corona, some theoretical background is important to frame the results of our simulations.
 Furthermore, this knowledge gives some insight in the assumptions that are made in deriving the magnetohydrodynamic (MHD) equations and when they are valid.
 
@@ -207,44 +209,107 @@ $c\vec{E}$ is given by:
 note that the equations do not formally depend on the speed of light, but it is kept in the equations for consistency with the relativistic case.
 \subsection{Magnetohydrodynamic waves}
 
+
+For our discussion of magnetohydrodynamic we rewrite the basic MHD equations into a form which is easier to linearalize. We also assume that the plasma is completely homogeneous and in equilibrium. In practice this means that we shall remove the cross products in the original equations as follows 
+
+{\centering 
+\noindent{
+\begin{equation}
+	\begin{split}
+		- \vec{J} \times \vec{B} &= -(\nabla  \times \vec{B}) \times \vec{B} = (\nabla \vec{B}) \cdot \vec{B} - \vec{B} \cdot \nabla \vec{B}\\
+		\nabla \times \vec{E} &= -\nabla \times (\vec{v} \times \vec{B}) =  \vec{B} \nabla \cdot \vec{v} + \vec{v} \cdot \nabla \vec{B} - \vec{B} \cdot \nabla \vec{v}
+	\end{split}
+\end{equation}
+}
+\par}
+
+
+The MHD equations now become
+
+{\centering 
+\noindent \fbox{\parbox{.85\linewidth}{
+\begin{equation}
+	\label{eq:ideal-MHD-withoutcross}
+	\begin{split}
+		\frac{\partial\rho}{\partial t} + \nabla\cdot (\rho\vec{v}) &= 0\\
+		\rho \frac{\partial \vec{v}}{\partial t} + \rho \vec{v} \cdot \nabla \vec{v} + (\gamma - 1)\nabla (\rho e) + (\nabla \vec{B})\cdot \vec{B} - \vec{B} \cdot \nabla \vec{B} &= 0\\
+		\frac{\partial e}{\partial t} + \vec{v} \cdot \nabla e + (\gamma -1)e \nabla \cdot \vec{v} &= 0\\
+		\frac{\partial \vec{B}}{\partial t} + \vec{v} \cdot \nabla \vec{B} + \vec{B} \nabla \cdot \vec{v} - \vec{B} \cdot \nabla \vec{v} &= 0
+	\end{split}
+\end{equation}
+}}
+\par}
+
+Of course the condition that $ \nabla \cdot \vec{B} = 0  $ remains. In this form the equations are much easier to linearalize:
+
+{\centering 
+\noindent \fbox{\parbox{.85\linewidth}{
+\begin{equation}
+	\label{eq:ideal-MHD-linear}
+	\begin{split}
+		\frac{\partial\rho_1}{\partial t} + \nabla\cdot (\rho_0\vec{v_1}) &= 0\\
+		\rho_0 \frac{\partial \vec{v_1}}{\partial t} + (\gamma - 1)\nabla (\rho_1 e_0) +\nabla (\rho_0 e_1) + (\nabla \vec{B_1})\cdot \vec{B_0} - \vec{B_0} \cdot \nabla \vec{B_1} &= 0\\
+		\frac{\partial e_1}{\partial t} + (\gamma -1)e_0 \nabla \cdot \vec{v_1} &= 0\\
+		\frac{\partial \vec{B_1}}{\partial t} + \vec{B_0} \nabla \cdot \vec{v_1} - \vec{B_0} \cdot \nabla \vec{v_1} &= 0
+	\end{split}
+\end{equation}
+}}
+\par}
+
+The second one of these equations \autoref{eq:ideal-MHD-linear} is the linearalized momentum equation. We shall work from this one as it lends itself the most for our discussion of ideal MHD waves. This is because it directly describes flow velocity. Plugging the other three into this equation gives us the essential equation for ideal MHD waves:
+
+\begin{equation}
+	\label{eq:ideal-wave}		
+		\frac{\partial^2 \vec{v_1}}{\partial^2 t} = \bigg( (\textbf{b} \nabla)^2 \textbf{I} + (b^2 + c^2)\nabla \nabla - \textbf{b} \cdot \nabla (\nabla \textbf{b} + \textbf{b} \nabla) \bigg) \cdot \vec{v_1}
+\end{equation}
+
+where $c = \sqrt{\cfrac{\gamma p_0}{\rho_0}}$ and $\textbf{b} = \cfrac{\textbf{B}_0}{\sqrt{\rho_0}}$ . We introduce this constants $c$ and $\textbf{b}$ as they will be the wave velocities of the solutions of the wave equation \autoref{eq:ideal-wave}. The constant $c$ is the acoustic speed known from regular hydrodynamics. The constant $\textbf{b}$ is know as the \textit{Alfvén velocity} and it is a vector in the same direction as the background magnetic field $\textbf{B}_0$.\\
+\\
+Notice that if we set $\textbf{b} = 0$ \autoref{eq:ideal-wave} becomes
+
+$$ \frac{\partial^2 \vec{v_1}}{\partial^2 t} = c^2 \nabla^2 \vec{v_1} $$
+
+which is exactly what we would expect as this is wave equation in the normal hydrodynamic case. This is an important sanity check for our method.\\
+\\
+
+We shall be looking for sinusoidal wave solutions. For now we shall also limit the discussion the waves in the velocity vector field as the waves in the scalar pressure and density fields and the magnetic vector field can easily be expressed in terms of the velocity field using the equations \autoref{eq:ideal-MHD-linear}. The solutions we look for are of the form
+
+$$ \vec{v_1} = \bar{\textbf{v}} \exp(i(\omega t - \vec{k} \cdot \vec{x})) \ .$$ 
+
+Under the constrain of having to provide sinusoidal wave solutions \autoref{eq:ideal-wave} becomes
+
+\begin{equation}
+\bigg( \big( \omega^2 - (\vec{k}\cdot \textbf{b})^2 \big)\textbf{I} - (b^2 + c^2)\vec{k}\vec{k} + \vec{k} \cdot \textbf{b}(\vec{k}\textbf{b} + \textbf{b}\vec{k}) \bigg) \cdot \bar{\textbf{v}} = 0 \ .
+\end{equation} 
+
+In order to solve this we need that 
+
+$$ \det \bigg( \big( \omega^2 - (\vec{k}\cdot \textbf{b})^2 \big)\textbf{I} - (b^2 + c^2)\vec{k}\vec{k} + \vec{k} \cdot \textbf{b}(\vec{k}\textbf{b} + \textbf{b}\vec{k}) \bigg) = 0 \ .$$
+
+In the rest of the report we shall show the reader the results of 2D simulation of waves in a plasma. Therefore we shall also solve this equation as if we are working in 2D plane. Without any loss of generality we can assume that $\textbf{b} = (b, 0)$ and $\vec{k} = (k_x, k_y)$. Broken down into components we then have 
+
+\begin{equation}
+\begin{pmatrix}
+ -k_x^2 c^2  &  - k_y k_x c^2 \\
+- k_y k_x c^2  &    - k_x^2 (b^2 + c^2) - k_y^2 b^2
+\end{pmatrix}
+\begin{pmatrix}
+\bar{v}_x \\
+\bar{v}_y
+\end{pmatrix}
+ =  -\omega^2
+\begin{pmatrix}
+\bar{v}_x \\
+\bar{v}_y
+\end{pmatrix}
+\end{equation} 
+
+Then we see that the determinant of the system is 
+
+$$ \omega^4 - \omega^2(k_x^2 b^2 - k_y^2 b^2 - k_y^2 - k_y^2) + b^2 c^2 k_x^2(1 + k_y^2) $$
+
+of which the roots are $ \omega^2 = k^2 \sqrt{b^2 + c^2}(\sqrt{b^2 + c^2} \pm bck_x) $ where $k^2 = k_x^2 + k_y^2$ . These solutions correspond to the so-calles fast (+) and slow (-) magnetosonic waves.
+
 \todo[inline]{Derivation of MHD equation, discussion of the integration scheme used}
 \todo[inline]{Test informatievaardigheden!!!}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
