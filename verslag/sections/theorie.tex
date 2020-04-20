@@ -3,6 +3,8 @@
 While the main focus of this bachelor project is the numerical modeling of waves in the solar corona, some theoretical background is important to frame the results of our simulations.
 Furthermore, this knowledge gives some insight in the assumptions that are made in deriving the magnetohydrodynamic (MHD) equations and when they are valid.
 
+\subsection*{Hydrodynamics}
+
 \subsection{Hydrodynamic fluid equations}
 The theory in this section is adapted from \cite{notes-fluid-dynamics}. For the first task a non-viscous Newtonian fluid is considered. Heat conduction and dissipation is neglected as well.
 This type of fluid obeys the Euler equations for conservation of mass, momentum and internal energy:
@@ -107,6 +109,34 @@ The phase velocity is given by
 \end{equation}
 \improvement{reference for this relation for the phase speed?}
 from which we conclude that these waves are non-dispersive.
+
+\subsection{Hydrodynamic shocks}
+
+Now we shall reconsider one of the least convincing assumptions made for the derivations of the fluid equations: that of perfectly continuous background variables. In reality, we might encounter very sudden changes in the scalar variable density $\rho$ and vectorial variable velocity $\vec{v}$. To have the theory of ideal fluids take this into account, we can introduce these jumps in the variables as mathematical discontinuities. This discontinuity is appropriately called a 'shock'. We are interested in how this shock moves through the fluid. The derivation of its motion is quite straight forward.\\
+\\
+Start from the continuity equation in its Eulerian form in 1D
+
+\begin{equation}
+\label{eq:continuity-Euler}
+\frac{\partial \rho}{\partial t} + \frac{\partial(\rho v)}{\partial x}
+\end{equation}
+
+Of course, this equation assumes that $\rho$ and $\rho v$ are continuous variables with continuous partial derivatives. Rewrite the equation so that over a distance $\Delta x$ and a duration $\Delta t$ the variables $\rho$ and $\rho v$ experience a change $\Delta\rho$ and $\Delta \rho v$. This gives the much less elegant version 
+
+$$ \frac{\Delta \rho}{\Delta t} + \frac{\Delta(\rho v)}{\Delta x} = 0 \ . $$
+
+If this were the perfectly continuous case we would now let $\Delta x, \Delta t \to 0$, resulting in \autoref{eq:continuity-Euler}. However, we might also say that the transition is not smooth and that for $\Delta x, \Delta t \to 0$ the jump remains: $ \Delta \rho, \Delta \rho v \to \Delta \rho, \Delta \rho v $. Rewrite the equations to see what this means:
+
+$$ \frac{\Delta x}{\Delta t} + \frac{\Delta(\rho v)}{\Delta \rho} = 0 \ . $$
+
+Then for $\Delta x, \Delta t \to 0$ we get 
+
+\begin{equation}
+\label{eq:HD-shock-condition}
+\frac{\partial x}{\partial t} + \frac{\Delta(\rho v)}{\Delta \rho} = V_S + \frac{\Delta(\rho v)}{\Delta \rho} = 0
+\end{equation}
+
+where $V_S$ is the shock speed. This relation is the hydrodynamic shock condition. To generalize it beyond 1D, it suffices to take $\vec{v} \cdot \vec{n}$ instead of $v$ where $\vec{n}$ is the unit normal vector on the shock wave front pointing towards the region with lower pressure.
 
 \subsection{Magnetohydrodynamic fluid equations}
 There are two approaches commonly taken in the literature to derive the MHD equations. They are either derived from kinetic gass theory, or postulated with added justification of why they can accuratly describe plasmas.
