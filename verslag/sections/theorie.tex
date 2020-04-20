@@ -133,10 +133,17 @@ Then for $\Delta x, \Delta t \to 0$ we get
 
 \begin{equation}
 \label{eq:HD-shock-condition}
-\frac{\partial x}{\partial t} + \frac{\Delta(\rho v)}{\Delta \rho} = V_S + \frac{\Delta(\rho v)}{\Delta \rho} = 0
+\frac{\partial x}{\partial t} + \frac{\Delta(\rho v)}{\Delta \rho} = -V_S + \frac{\Delta(\rho v)}{\Delta \rho} = 0
 \end{equation}
 
-where $V_S$ is the shock speed. This relation is the hydrodynamic shock condition. To generalize it beyond 1D, it suffices to take $\vec{v} \cdot \vec{n}$ instead of $v$ where $\vec{n}$ is the unit normal vector on the shock wave front pointing towards the region with lower pressure.
+where $V_S$ is the shock speed. This relation is the hydrodynamic shock condition. To generalize it beyond 1D, it suffices to take $\vec{v} \cdot \vec{n}$ instead of $v$ where $\vec{n}$ is the unit normal vector on the shock wave front pointing towards the region with lower pressure. It looks as follows
+
+\begin{equation}
+\label{eq:HD-3D-shock-condition}
+- V_S + \frac{\Delta(\rho \ \vec{v} \cdot \vec{n})}{\Delta \rho} = 0 \ .
+\end{equation}
+
+The minus sign in front of $V_S$ is merely a matter of orientation. In \autoref{eq:HD-shock-condition} the orientation is along the positive x-axis. In \autoref{eq:HD-3D-shock-condition} it is along the unit vector $\vec{n}$.
 
 \subsection{Magnetohydrodynamic fluid equations}
 There are two approaches commonly taken in the literature to derive the MHD equations. They are either derived from kinetic gass theory, or postulated with added justification of why they can accuratly describe plasmas.
@@ -316,7 +323,7 @@ In order to solve this we need that
 
 $$ \det \bigg( \big( \omega^2 - (\vec{k}\cdot \textbf{b})^2 \big)\textbf{I} - (b^2 + c^2)\vec{k}\vec{k} + \vec{k} \cdot \textbf{b}(\vec{k}\textbf{b} + \textbf{b}\vec{k}) \bigg) = 0 \ .$$
 
-In the rest of the report we shall show the reader the results of 2D simulation of waves in a plasma. Therefore we shall also solve this equation as if we are working in 2D plane. Without any loss of generality we can assume that $\textbf{b} = (b, 0)$ and $\vec{k} = (k_x, k_y)$. Broken down into components we then have 
+We shall begin by interpreting this formula in 2D and then see what happens when a third component is added. Without any loss of generality we can assume that $\textbf{b} = (b, 0)$ and $\vec{k} = (k_x, k_y)$. Broken down into components we then have 
 
 \begin{equation}
 \begin{pmatrix}
@@ -338,7 +345,9 @@ Then we see that the determinant of the system is
 
 $$ \omega^4 - \omega^2(k_x^2 b^2 - k_y^2 b^2 - k_y^2 - k_y^2) + b^2 c^2 k_x^2(1 + k_y^2) $$
 
-of which the roots are $ \omega^2 = k^2 \sqrt{b^2 + c^2}(\sqrt{b^2 + c^2} \pm bck_x) $ where $k^2 = k_x^2 + k_y^2$ . These solutions correspond to the so-calles fast (+) and slow (-) magnetosonic waves.
+of which the roots are $ \omega^2 = k^2 \sqrt{b^2 + c^2}(\sqrt{b^2 + c^2} \pm bck_x) $ where $k^2 = k_x^2 + k_y^2$ . These solutions correspond to the so-calles fast (+) and slow (-) magnetosonic waves. One can readily see that they are the result of a quite complicated interplay between the hydrodynamic and magnetic sides of the story. To see this better, it helps to lift the problem to 3D.\\
+\\
+ 
 
 \todo[inline]{Derivation of MHD equation, discussion of the integration scheme used}
 \todo[inline]{Test informatievaardigheden!!!}
