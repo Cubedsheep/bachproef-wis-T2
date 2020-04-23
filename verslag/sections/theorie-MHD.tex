@@ -27,7 +27,7 @@ The variables describing the plasma are the following linear combinations of var
 	\begin{split}
 		\rho &= n_em_e+n_im_i\\
 		\vec{v} &= (n_em_e\vec{u}_e + n_im_i\vec{u}_i)/\rho\\
-		\vec{j} &= -e(n_e\vec{u}_e-Zn_i\vec{u}_i)\\
+		\vec{J} &= -e(n_e\vec{u}_e-Zn_i\vec{u}_i)\\
 		p &= p_e+p_i
 	\end{split}
 \end{equation}
@@ -42,7 +42,7 @@ Finally, the viscosity and heat flow are neglected like in the HD case. Furtherm
 \begin{align*}
 	\frac{\partial \vec{B}}{\partial t} &= - \nabla \times \vec{E}\\
 	\nabla \cdot \vec{B} &= 0\\
-	\nabla \times \vec{B} &= \mu_0 \vec{j}
+	\nabla \times \vec{B} &= \mu_0 \vec{J}
 \end{align*}
 We do not need an equation relating the charge distribution to the electric field in the first equation since we assumed the fluid is locally neutral.
 Furthermore the displacement term in the third equation was neglected.
@@ -55,7 +55,7 @@ Adding everything together such as in [REFERENCE TO ONE OF THE COURSES]\improvem
 	\label{eq:ideal-MHD}
 	\begin{split}
 		\frac{\partial\rho}{\partial t} + \nabla\cdot (\rho\vec{v}) &= 0\\
-		\rho \left( \frac{\partial\vec{v}}{\partial t} + \vec{v}\cdot\nabla\vec{v} \right) + \nabla p - \vec{j} \times \vec{B} &= 0\\
+		\rho \left( \frac{\partial\vec{v}}{\partial t} + \vec{v}\cdot\nabla\vec{v} \right) + \nabla p - \vec{J} \times \vec{B} &= 0\\
 		\frac{\partial p}{\partial t} + \vec{v}\cdot\nabla p + \gamma p\nabla\cdot\vec{v} &= 0\\
 		\frac{\partial \vec{B}}{\partial t} - \nabla\times (\vec{v}\times\vec{B}) &= 0
 	\end{split}
@@ -63,7 +63,7 @@ Adding everything together such as in [REFERENCE TO ONE OF THE COURSES]\improvem
 }}
 \par}
 
-Where $$\vec{j} = \frac{\nabla\times \vec{B}}{\mu_0}. $$ We need one additional equation which the inital condition has to satisfy:
+Where $$\vec{J} = \frac{\nabla\times \vec{B}}{\mu_0}. $$ We need one additional equation which the inital condition has to satisfy:
 \begin{equation*}
 	\nabla\cdot\vec{B}=0
 \end{equation*}
@@ -80,7 +80,7 @@ The equations used by PLUTO in the ideal case have a slightly different form: \i
 	\label{eq:ideal-MHD-PLUTO}
 	\begin{split}
 		\frac{\partial \rho}{\partial t} + \nabla \cdot (\vec{m}) &= 0\\
-		\frac{\partial\vec{m}}{\partial t} + \nabla \cdot \left[ \vec{m}\vec{v} - \vec{B}\vec{B}+I \left( p+ \frac{\vec{B}^2}{2} \right)  \right] ^T &= -\rho\nabla\Phi+\rho \vec{g}\\
+		\frac{\partial\vec{m}}{\partial t} + \nabla \cdot \left[ \vec{m}\vec{v} - \vec{B}\vec{B}+I \left( p+ \frac{B^2}{2} \right)  \right] ^T &= -\rho\nabla\Phi+\rho \vec{g}\\
 		\frac{\partial\vec{B}}{\partial t} + \nabla \times (c\vec{E}) &= 0\\
 		\frac{\partial (E_t+\rho\Phi)}{\partial t} + \nabla \cdot \left[ \left( E_T+p_t+\rho\Phi \right)\vec{v} - \vec{B}(\vec{v}\cdot\vec{B})  \right] &= \vec{m}\cdot\vec{g}
 	\end{split}
@@ -90,7 +90,7 @@ The equations used by PLUTO in the ideal case have a slightly different form: \i
 
 where, as with the HD equations, $\vec{m}=\rho\vec{v}$ and $E_t$ is again the total energy density, this time with an extra term for the magnetic field:
 \begin{equation*}
-	E_t = \rho e + \frac{\rho \vec{v}^2 + \vec{B}^2}{2}
+	E_t = \rho e + \frac{\rho v^2 + B^2}{2}
 \end{equation*}
 $c\vec{E}$ is given by:
 \begin{equation*}

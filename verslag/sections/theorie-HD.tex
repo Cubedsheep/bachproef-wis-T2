@@ -34,11 +34,11 @@ where $f(x,y,z,t)$ is a function that describes a property of the fluid. The equ
 \begin{align*}
 	\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vec{v}) &= 0\\
 	\frac{\partial}{\partial t} (\rho \vec{v}) &= \nabla \cdot (-p - \rho \vec{v}\vec{v}) + \vec{F}\\
-\frac{\partial}{\partial t} \left( \rho \left( \frac{\vec{v}^2}{2} + \mathcal{U} \right)  \right)  &= \vec{F} \cdot \vec{v} - \nabla \cdot \left( \rho \left( \frac{\vec{v}^2}{2}+\mathcal{U}\right)\vec{v} + p\vec{v})  \right) 
+\frac{\partial}{\partial t} \left( \rho \left( \frac{v^2}{2} + \mathcal{U} \right)  \right)  &= \vec{F} \cdot \vec{v} - \nabla \cdot \left( \rho \left( \frac{v^2}{2}+\mathcal{U}\right)\vec{v} + p\vec{v})  \right) 
 \end{align*}}}
 \par}
 
-Next introduce the variable $\vec{m}=\rho \vec{v}$, the momentum density. The energy density $\mathcal{U}$ can be split in the thermal energy $\rho e$ and gravitational potential energy $\rho\Phi$. Let $E_t = e\rho + \frac{\vec{v}^2}{2}$ The only external force is $\vec{F} = \rho\vec{g}$
+Next introduce the variable $\vec{m}=\rho \vec{v}$, the momentum density. The energy density $\mathcal{U}$ can be split in the thermal energy $\rho e$ and gravitational potential energy $\rho\Phi$. Let $E_t = e\rho + \frac{v^2}{2}$ The only external force is $\vec{F} = \rho\vec{g}$
 carrying out these substitutions leads to the equations in section 6 in the PLUTO manual \cite{pluto-manual}: \unsure{is the expression for $\vec{F}$ correct? Looks to be different in equation 2 and 3}
 
 {\centering 
@@ -72,7 +72,7 @@ And by substituting this equation in the equation that expresses the energy as a
 \todo[inline]{afleiding golven, groepssnelheid}
 \subsection{Hydrodynamic linear waves}
 We start again from the ideal fluid equations as given in \autoref{eq:ideal-fluid} and linearize them.
-For this we rewrite the quantities $\rho$ and $p$ as a background density $\rho_0$ and pressure $p_0$ with slight deviations $\rho'$, $p'$.
+For this we rewrite the quantities $\rho$ and $p$ as a background density $\rho_0$ and pressure $p_0$ with slight deviations $\rho_1$, $p_1$.
 Furthermore it is assumed that there are no external forces acting on the fluid. The Linearized equations are:
 
 {\centering 
@@ -80,24 +80,24 @@ Furthermore it is assumed that there are no external forces acting on the fluid.
 \begin{equation}
 	\label{eq:ideal-fluid-linear}
 	\begin{split}
-		\frac{\partial\rho'}{\partial t} + \rho_0\nabla\cdot \vec{v} &= 0\\
-		\rho_0 \frac{\partial \vec{v}}{\partial t} &= -\nabla p'\\
-		\frac{\partial p'}{\partial t} &= \frac{\gamma p_0}{\rho_0} \frac{\partial\rho'}{\partial t}
+		\frac{\partial\rho_1}{\partial t} + \rho_0\nabla\cdot \vec{v} &= 0\\
+		\rho_0 \frac{\partial \vec{v}}{\partial t} &= -\nabla p_1\\
+		\frac{\partial p_1}{\partial t} &= \frac{\gamma p_0}{\rho_0} \frac{\partial\rho_1}{\partial t}
 	\end{split}
 \end{equation}
 }}
 \par}
 By acting with $\nabla$ on the second equation and using the first to substitute $\rho_0 \nabla \cdot \vec{v}$ we find the following relation:
 \begin{equation*}
-	\frac{\partial^2 \rho'}{\partial t^2} = -\nabla^2 p'
+	\frac{\partial^2 \rho_1}{\partial t^2} = -\nabla^2 p_1
 \end{equation*}
 Acting with $ \frac{\partial}{\partial t}$ on the last equation and substituting the previous expression yields
 \begin{equation*}
-	\frac{\partial^2 p'}{\partial t^2} + \frac{\gamma p_0}{\rho_0} \nabla^2 p' = 0
+	\frac{\partial^2 p_1}{\partial t^2} + \frac{\gamma p_0}{\rho_0} \nabla^2 p_1 = 0
 \end{equation*}
 which is the wave equation with $v_s = \sqrt{ \frac{\gamma p_0}{\rho_0} }$ the phase speed of the wave.
 Similar expressions are found for the other variables. \improvement{Referentie?}
-this wave speed can be found by substituting a plan wave of the form $p' = A \exp \left( i(\omega t - \vec{k}\cdot\vec{x}) \right) $. Substituting this expression in the wave equation for $p'$ leads to the dispersion relation:
+this wave speed can be found by substituting a plan wave of the form $p_1 = A \exp \left( i(\omega t - \vec{k}\cdot\vec{x}) \right) $. Substituting this expression in the wave equation for $p_1$ leads to the dispersion relation:
 \begin{equation}
 	\omega^2 = k^2v_s^2.
 \end{equation}
@@ -147,7 +147,7 @@ The minus sign in front of $V_S$ is merely a matter of orientation. In \autoref{
 \label{HD-shock-conditions}
 \begin{split}
 V_S \Delta \rho &= \vec{n}\cdot\Delta(\rho \ \vec{v})\\
-V_S \Delta (\rho \ \vec{v}) &= \vec{n} \cdot \Delta(\rho \ \vec{v} \ \vec{v} + p \ \textbf{I}) \\
+V_S \Delta (\rho \ \vec{v}) &= \vec{n} \cdot \Delta(\rho \ \vec{v} \ \vec{v} + p \ \I) \\
 V_S \Delta E_t &= \vec{n} \cdot \Delta \big (\rho \ (e + \frac{v^2}{2} + \frac{p}{\rho}) \ \vec{v} \big)
 \end{split}
 \end{equation}
