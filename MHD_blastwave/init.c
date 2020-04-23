@@ -60,7 +60,7 @@ void Init (double *v, double x1, double x2, double x3)
   double beta;
   beta = g_inputParam[BETA];
   v[BX1] = 0.0;
-  v[BX2] = sqrt(2.0*g_inputParam[P_OUT]/beta);
+  v[BX2] = sqrt(2.0*v[PRS]/beta);
   v[BX3] = 0.0;
 
   v[AX1] = 0.0;

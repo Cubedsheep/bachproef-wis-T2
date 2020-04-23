@@ -1,0 +1,5 @@
+#!/bin/bash
+
+./pluto -i initfiles/beta01.ini
+./pluto -i initfiles/beta10.ini
+

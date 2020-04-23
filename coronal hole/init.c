@@ -178,7 +178,7 @@ void UserDefBoundary (const Data *d, RBox *box, int side, Grid *grid)
                           // You can check the velocity profiles by plotting the below function with matlab or others.
             d->Vc[VX1][k][j][i] = v1 + (v0 - v1)*(0.5*(1.-tanh((g_time-0.)/20.))); 
        else 
-            d->Vc[VX1][k][j][i] = v2 + (v2 - v2)*(0.5*(1.-tanh((g_time-600.)/60.)));
+            d->Vc[VX1][k][j][i] = v2 + (v0 - v2)*(0.5*(1.-tanh((g_time-600.)/60.)));
       
        d->Vc[VX2][k][j][i] = 0.0;
        
