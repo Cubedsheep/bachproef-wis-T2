@@ -36,11 +36,11 @@ where $f(x,y,z,t)$ is a function that describes a property of the fluid. The equ
 \begin{align*}
 	\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vec{v}) &= 0\\
 	\frac{\partial}{\partial t} (\rho \vec{v}) &= \nabla \cdot (-p - \rho \vec{v}\vec{v}) + \vec{F}\\
-\frac{\partial}{\partial t} \left( \rho \left( \frac{\vec{v}^2}{2} + \mathcal{U} \right)  \right)  &= \vec{F} \cdot \vec{v} - \nabla \cdot \left( \rho \left( \frac{\vec{v}^2}{2}+\mathcal{U}\right)\vec{v} + p\vec{v})  \right) 
+\frac{\partial}{\partial t} \left( \rho \left( \frac{v^2}{2} + \mathcal{U} \right)  \right)  &= \vec{F} \cdot \vec{v} - \nabla \cdot \left( \rho \left( \frac{v^2}{2}+\mathcal{U}\right)\vec{v} + p\vec{v})  \right) 
 \end{align*}}}
 \par}
 
-Next introduce the variable $\vec{m}=\rho \vec{v}$, the momentum density. The energy density $\mathcal{U}$ can be split in the thermal energy $\rho e$ and gravitational potential energy $\rho\Phi$. Let $E_t = e\rho + \frac{\vec{v}^2}{2}$ The only external force is $\vec{F} = \rho\vec{g}$
+Next introduce the variable $\vec{m}=\rho \vec{v}$, the momentum density. The energy density $\mathcal{U}$ can be split in the thermal energy $\rho e$ and gravitational potential energy $\rho\Phi$. Let $E_t = e\rho + \frac{v^2}{2}$ The only external force is $\vec{F} = \rho\vec{g}$
 carrying out these substitutions leads to the equations in section 6 in the PLUTO manual \cite{pluto-manual}: \unsure{is the expression for $\vec{F}$ correct? Looks to be different in equation 2 and 3}
 
 {\centering 
@@ -74,7 +74,7 @@ And by substituting this equation in the equation that expresses the energy as a
 \todo[inline]{afleiding golven, groepssnelheid}
 \subsection{Hydrodynamic linear waves}
 We start again from the ideal fluid equations as given in \autoref{eq:ideal-fluid} and linearize them.
-For this we rewrite the quantities $\rho$ and $p$ as a background density $\rho_0$ and pressure $p_0$ with slight deviations $\rho'$, $p'$.
+For this we rewrite the quantities $\rho$ and $p$ as a background density $\rho_0$ and pressure $p_0$ with slight deviations $\rho_1$, $p_1$.
 Furthermore it is assumed that there are no external forces acting on the fluid. The Linearized equations are:
 
 {\centering 
@@ -82,24 +82,24 @@ Furthermore it is assumed that there are no external forces acting on the fluid.
 \begin{equation}
 	\label{eq:ideal-fluid-linear}
 	\begin{split}
-		\frac{\partial\rho'}{\partial t} + \rho_0\nabla\cdot \vec{v} &= 0\\
-		\rho_0 \frac{\partial \vec{v}}{\partial t} &= -\nabla p'\\
-		\frac{\partial p'}{\partial t} &= \frac{\gamma p_0}{\rho_0} \frac{\partial\rho'}{\partial t}
+		\frac{\partial\rho_1}{\partial t} + \rho_0\nabla\cdot \vec{v} &= 0\\
+		\rho_0 \frac{\partial \vec{v}}{\partial t} &= -\nabla p_1\\
+		\frac{\partial p_1}{\partial t} &= \frac{\gamma p_0}{\rho_0} \frac{\partial\rho_1}{\partial t}
 	\end{split}
 \end{equation}
 }}
 \par}
 By acting with $\nabla$ on the second equation and using the first to substitute $\rho_0 \nabla \cdot \vec{v}$ we find the following relation:
 \begin{equation*}
-	\frac{\partial^2 \rho'}{\partial t^2} = -\nabla^2 p'
+	\frac{\partial^2 \rho_1}{\partial t^2} = -\nabla^2 p_1
 \end{equation*}
 Acting with $ \frac{\partial}{\partial t}$ on the last equation and substituting the previous expression yields
 \begin{equation*}
-	\frac{\partial^2 p'}{\partial t^2} + \frac{\gamma p_0}{\rho_0} \nabla^2 p' = 0
+	\frac{\partial^2 p_1}{\partial t^2} + \frac{\gamma p_0}{\rho_0} \nabla^2 p_1 = 0
 \end{equation*}
 which is the wave equation with $v_s = \sqrt{ \frac{\gamma p_0}{\rho_0} }$ the phase speed of the wave.
 Similar expressions are found for the other variables. \improvement{Referentie?}
-this wave speed can be found by substituting a plan wave of the form $p' = A \exp \left( i(\omega t - \vec{k}\cdot\vec{x}) \right) $. Substituting this expression in the wave equation for $p'$ leads to the dispersion relation:
+this wave speed can be found by substituting a plan wave of the form $p_1 = A \exp \left( i(\omega t - \vec{k}\cdot\vec{x}) \right) $. Substituting this expression in the wave equation for $p_1$ leads to the dispersion relation:
 \begin{equation}
 	\omega^2 = k^2v_s^2.
 \end{equation}
@@ -149,7 +149,7 @@ The minus sign in front of $V_S$ is merely a matter of orientation. In \autoref{
 \label{HD-shock-conditions}
 \begin{split}
 V_S \Delta \rho &= \vec{n}\cdot\Delta(\rho \ \vec{v})\\
-V_S \Delta (\rho \ \vec{v}) &= \vec{n} \cdot \Delta(\rho \ \vec{v} \ \vec{v} + p \ \textbf{I}) \\
+V_S \Delta (\rho \ \vec{v}) &= \vec{n} \cdot \Delta(\rho \ \vec{v} \ \vec{v} + p \ \I) \\
 V_S \Delta E_t &= \vec{n} \cdot \Delta \big (\rho \ (e + \frac{v^2}{2} + \frac{p}{\rho}) \ \vec{v} \big)
 \end{split}
 \end{equation}
@@ -187,7 +187,7 @@ The variables describing the plasma are the following linear combinations of var
 	\begin{split}
 		\rho &= n_em_e+n_im_i\\
 		\vec{v} &= (n_em_e\vec{u}_e + n_im_i\vec{u}_i)/\rho\\
-		\vec{j} &= -e(n_e\vec{u}_e-Zn_i\vec{u}_i)\\
+		\vec{J} &= -e(n_e\vec{u}_e-Zn_i\vec{u}_i)\\
 		p &= p_e+p_i
 	\end{split}
 \end{equation}
@@ -202,7 +202,7 @@ Finally, the viscosity and heat flow are neglected like in the HD case. Furtherm
 \begin{align*}
 	\frac{\partial \vec{B}}{\partial t} &= - \nabla \times \vec{E}\\
 	\nabla \cdot \vec{B} &= 0\\
-	\nabla \times \vec{B} &= \mu_0 \vec{j}
+	\nabla \times \vec{B} &= \mu_0 \vec{J}
 \end{align*}
 We do not need an equation relating the charge distribution to the electric field in the first equation since we assumed the fluid is locally neutral.
 Furthermore the displacement term in the third equation was neglected.
@@ -215,7 +215,7 @@ Adding everything together such as in [REFERENCE TO ONE OF THE COURSES]\improvem
 	\label{eq:ideal-MHD}
 	\begin{split}
 		\frac{\partial\rho}{\partial t} + \nabla\cdot (\rho\vec{v}) &= 0\\
-		\rho \left( \frac{\partial\vec{v}}{\partial t} + \vec{v}\cdot\nabla\vec{v} \right) + \nabla p - \vec{j} \times \vec{B} &= 0\\
+		\rho \left( \frac{\partial\vec{v}}{\partial t} + \vec{v}\cdot\nabla\vec{v} \right) + \nabla p - \vec{J} \times \vec{B} &= 0\\
 		\frac{\partial p}{\partial t} + \vec{v}\cdot\nabla p + \gamma p\nabla\cdot\vec{v} &= 0\\
 		\frac{\partial \vec{B}}{\partial t} - \nabla\times (\vec{v}\times\vec{B}) &= 0
 	\end{split}
@@ -223,7 +223,7 @@ Adding everything together such as in [REFERENCE TO ONE OF THE COURSES]\improvem
 }}
 \par}
 
-Where $$\vec{j} = \frac{\nabla\times \vec{B}}{\mu_0}. $$ We need one additional equation which the inital condition has to satisfy:
+Where $$\vec{J} = \frac{\nabla\times \vec{B}}{\mu_0}. $$ We need one additional equation which the inital condition has to satisfy:
 \begin{equation*}
 	\nabla\cdot\vec{B}=0
 \end{equation*}
@@ -240,7 +240,7 @@ The equations used by PLUTO in the ideal case have a slightly different form: \i
 	\label{eq:ideal-MHD-PLUTO}
 	\begin{split}
 		\frac{\partial \rho}{\partial t} + \nabla \cdot (\vec{m}) &= 0\\
-		\frac{\partial\vec{m}}{\partial t} + \nabla \cdot \left[ \vec{m}\vec{v} - \vec{B}\vec{B}+I \left( p+ \frac{\vec{B}^2}{2} \right)  \right] ^T &= -\rho\nabla\Phi+\rho \vec{g}\\
+		\frac{\partial\vec{m}}{\partial t} + \nabla \cdot \left[ \vec{m}\vec{v} - \vec{B}\vec{B}+I \left( p+ \frac{B^2}{2} \right)  \right] ^T &= -\rho\nabla\Phi+\rho \vec{g}\\
 		\frac{\partial\vec{B}}{\partial t} + \nabla \times (c\vec{E}) &= 0\\
 		\frac{\partial (E_t+\rho\Phi)}{\partial t} + \nabla \cdot \left[ \left( E_T+p_t+\rho\Phi \right)\vec{v} - \vec{B}(\vec{v}\cdot\vec{B})  \right] &= \vec{m}\cdot\vec{g}
 	\end{split}
@@ -250,7 +250,7 @@ The equations used by PLUTO in the ideal case have a slightly different form: \i
 
 where, as with the HD equations, $\vec{m}=\rho\vec{v}$ and $E_t$ is again the total energy density, this time with an extra term for the magnetic field:
 \begin{equation*}
-	E_t = \rho e + \frac{\rho \vec{v}^2 + \vec{B}^2}{2}
+	E_t = \rho e + \frac{\rho v^2 + B^2}{2}
 \end{equation*}
 $c\vec{E}$ is given by:
 \begin{equation*}
@@ -297,10 +297,10 @@ Of course the condition that $ \nabla \cdot \vec{B} = 0  $ remains. In this form
 \begin{equation}
 	\label{eq:ideal-MHD-linear}
 	\begin{split}
-		\frac{\partial\rho_1}{\partial t} + \nabla\cdot (\rho_0\vec{v_1}) &= 0\\
-		\rho_0 \frac{\partial \vec{v_1}}{\partial t} + (\gamma - 1)\nabla (\rho_1 e_0) +\nabla (\rho_0 e_1) + (\nabla \vec{B_1})\cdot \vec{B_0} - \vec{B_0} \cdot \nabla \vec{B_1} &= 0\\
-		\frac{\partial e_1}{\partial t} + (\gamma -1)e_0 \nabla \cdot \vec{v_1} &= 0\\
-		\frac{\partial \vec{B_1}}{\partial t} + \vec{B_0} \nabla \cdot \vec{v_1} - \vec{B_0} \cdot \nabla \vec{v_1} &= 0
+		\frac{\partial\rho_1}{\partial t} + \nabla\cdot (\rho_0\vec{v}_1) &= 0\\
+		\rho_0 \frac{\partial \vec{v}_1}{\partial t} + (\gamma - 1)\nabla (\rho_1 e_0) +\nabla (\rho_0 e_1) + (\nabla \vec{B}_1)\cdot \vec{B}_0 - \vec{B}_0 \cdot \nabla \vec{B}_1 &= 0\\
+		\frac{\partial e_1}{\partial t} + (\gamma -1)e_0 \nabla \cdot \vec{v}_1 &= 0\\
+		\frac{\partial \vec{B}_1}{\partial t} + \vec{B}_0 \nabla \cdot \vec{v}_1 - \vec{B}_0 \cdot \nabla \vec{v}_1 &= 0
 	\end{split}
 \end{equation}
 }}
@@ -310,66 +310,66 @@ The second one of these equations \autoref{eq:ideal-MHD-linear} is the linearali
 
 \begin{equation}
 	\label{eq:ideal-wave}		
-		\frac{\partial^2 \vec{v_1}}{\partial^2 t} = \bigg( (\textbf{b} \nabla)^2 \textbf{I} + (b^2 + c^2)\nabla \nabla - \textbf{b} \cdot \nabla (\nabla \textbf{b} + \textbf{b} \nabla) \bigg) \cdot \vec{v_1}
+		\frac{\partial^2 \vec{v}_1}{\partial^2 t} = \bigg( (\vec{b} \nabla)^2 \I + (b^2 + c^2)\nabla \nabla - \vec{b} \cdot \nabla (\nabla \vec{b} + \vec{b} \nabla) \bigg) \cdot \vec{v}_1
 \end{equation}
 
-where $c = \sqrt{\cfrac{\gamma p_0}{\rho_0}}$ and $\textbf{b} = \cfrac{\textbf{B}_0}{\sqrt{\rho_0}}$ . We introduce this constants $c$ and $\textbf{b}$ as they will be the wave velocities of the solutions of the wave equation \autoref{eq:ideal-wave}. The constant $c$ is the acoustic speed known from regular hydrodynamics. The constant $\textbf{b}$ is know as the \textit{Alfvén } velocity and it is a vector in the same direction as the background magnetic field $\textbf{B}_0$.\\
+where $c = \sqrt{\cfrac{\gamma p_0}{\rho_0}}$ and $\vec{b} = \cfrac{\vec{b}_0}{\sqrt{\rho_0}}$ . We introduce this constants $c$ and $\vec{b}$ as they will be the wave velocities of the solutions of the wave equation \autoref{eq:ideal-wave}. The constant $c$ is the acoustic speed known from regular hydrodynamics. The constant $\vec{b}$ is know as the \textit{Alfvén } velocity and it is a vector in the same direction as the background magnetic field $\vec{b}_0$.\\
 \\
-Notice that if we set $\textbf{b} = 0$ \autoref{eq:ideal-wave} becomes
+Notice that if we set $\vec{b} = 0$ \autoref{eq:ideal-wave} becomes
 
-$$ \frac{\partial^2 \vec{v_1}}{\partial^2 t} = c^2 \nabla^2 \vec{v_1} $$
+$$ \frac{\partial^2 \vec{v}_1}{\partial^2 t} = c^2 \nabla^2 \vec{v}_1 $$
 
 which is exactly what we would expect as this is wave equation in the normal hydrodynamic case. This is an important sanity check for our method.\\
 \\
 
 We shall be looking for sinusoidal wave solutions. For now we shall also limit the discussion the waves in the velocity vector field as the waves in the scalar pressure and density fields and the magnetic vector field can easily be expressed in terms of the velocity field using the equations \autoref{eq:ideal-MHD-linear}. The solutions we look for are of the form
 
-$$ \vec{v_1} = \bar{\textbf{v}} \exp(i(\omega t - \vec{k} \cdot \vec{x})) \ .$$ 
+$$ \vec{v}_1 = \bar{\textbf{v}} \exp(i(\omega t - \vec{k} \cdot \vec{x})) \ .$$ 
 
 Under the constrain of having to provide sinusoidal wave solutions \autoref{eq:ideal-wave} becomes
 
 \begin{equation}
 \label{eq:plane-wave-equation}
-\bigg( \big( \omega^2 - (\vec{k}\cdot \textbf{b})^2 \big)\textbf{I} - (b^2 + c^2)\vec{k}\vec{k} + \vec{k} \cdot \textbf{b}(\vec{k}\textbf{b} + \textbf{b}\vec{k}) \bigg) \cdot \bar{\textbf{v}} = 0 \ .
+\bigg( \big( \omega^2 - (\vec{k}\cdot \vec{b})^2 \big) \I - (b^2 + c^2)\vec{k}\vec{k} + \vec{k} \cdot \vec{b}(\vec{k}\vec{b} + \vec{b}\vec{k}) \bigg) \cdot \bar{\textbf{v}} = 0 \ .
 \end{equation} 
 
-In order to solve this we need that 
-
-$$ \det \bigg( \big( \omega^2 - (\vec{k}\cdot \textbf{b})^2 \big)\textbf{I} - (b^2 + c^2)\vec{k}\vec{k} + \vec{k} \cdot \textbf{b}(\vec{k}\textbf{b} + \textbf{b}\vec{k}) \bigg) = 0 \ .$$
-
-We shall begin by interpreting this formula in 2D and then see what happens when a third component is added. Without any loss of generality we can assume that $\textbf{b} = (b, 0)$ and $\vec{k} = (k_x, k_y)$. Broken down into components we then have 
+Without any loss of generality we may assume that $\vec{b} = (b,0,0)$ and $\vec{k} = (k_x, k_y, 0) $. Filling in these into \autoref{eq:plane-wave-equation} results in
 
 \begin{equation}
+\label{eq:plane-wave-equation-matrixform}
 \begin{pmatrix}
- -k_x^2 c^2  &  - k_y k_x c^2 \\
-- k_y k_x c^2  &    - k_x^2 (b^2 + c^2) - k_y^2 b^2
+ \omega^ 2-k_x^2 c^2  &  - k_y k_x c^2  & 0\\
+- k_y k_x c^2  &  \omega^2  - k_x^2 (b^2 + c^2) - k_y^2 b^2  &  0\\
+0  &  0  & \omega^2  -  k_x^2 b^2
 \end{pmatrix}
 \begin{pmatrix}
 \bar{v}_x \\
-\bar{v}_y
+\bar{v}_y \\
+\bar{v}_z
 \end{pmatrix}
- =  -\omega^2
+ = 
 \begin{pmatrix}
-\bar{v}_x \\
-\bar{v}_y
+0 \\
+0 \\
+0
 \end{pmatrix}
 \end{equation} 
 
-Then we see that the determinant of the system is 
+In order to solve this we need the determinant of the matrix in \autoref{eq:plane-wave-equation-matrixform} to be $0$. This results in the dispersion relation
 
-$$ \omega^4 - \omega^2(k_x^2 b^2 - k_y^2 b^2 - k_y^2 - k_y^2) + b^2 c^2 k_x^2(1 + k_y^2) $$
+\begin{equation}
+\label{eq:dispersion}
+(\omega^2 - k_x^2 b^2)\big( \omega^4 - \omega^2(k_x^2 b^2 - k_y^2 b^2 - k_y^2 - k_y^2) + b^2 c^2 k_x^2(1 + k_y^2) \big) = 0 \ .
+\end{equation}
 
-of which the roots are $ \omega^2 = k^2 \sqrt{b^2 + c^2}(\sqrt{b^2 + c^2} \pm bck_x) $ where $k^2 = k_x^2 + k_y^2$ . These solutions correspond to the so-calles fast (+) and slow (-) magnetosonic waves. One can readily see that they are the result of a quite complicated interplay between the hydrodynamic and magnetic sides of the story. To see this better, it helps to lift the problem to 3D.\\
+
+We shall first discuss the factor $ \omega^4 - \omega^2(k_x^2 b^2 - k_y^2 b^2 - k_y^2 - k_y^2) + b^2 c^2 k_x^2(1 + k_y^2) $ of which the roots are $ \omega^2_{F,S} = k^2 \sqrt{b^2 + c^2}(\sqrt{b^2 + c^2} \pm bck_x) $ where $k^2 = k_x^2 + k_y^2$ . These solutions correspond to the so-calles fast (+) and slow (-) magnetosonic waves. One can readily see that they are the result of a quite complicated interplay between the hydrodynamic and magnetic sides of the story. To help us see this better, the other factor will help.\\
 \\
-Take $ \vec{b} = (b,0,0), \vec{k} = (k_x, k_y,0) $. There is no loss of generality. Plugging these vectors into \autoref{eq:plane-wave-equation} we get a slightly different determinant.
-
-$$ (\omega^2 - k_x^2 b^2)\big( \omega^4 - \omega^2(k_x^2 b^2 - k_y^2 b^2 - k_y^2 - k_y^2) + b^2 c^2 k_x^2(1 + k_y^2) \big) \ . $$
- 
-The roots corresponding to the fast and slow magnetosonic waves are again present (as one would expect). However, there is an extra root $\omega^2 = k_x^2 b^2$. This one is of great interest as it does not contain the same complicated magnetosonic interaction and solely depends on the nature of the magnetic field. The density irregularities only provide the wave's momentum. The restoring force is entirely generated by the tension in the magnetic field.\\
+The only root of the firs factor in \autoref{eq:dispersion} is $ \omega^2 = k_x^2 b^2 $. This solution is of great interest as it does not contain the same complicated magnetosonic interaction and solely depends on the nature of the magnetic field. The density irregularities only provide the wave's momentum. The restoring force is entirely generated by the tension in the magnetic field.\\
 \\
 The wave corresponding to $\omega_A^2 = k_x^2 b^2$ is called the \textit{Alfvén} wave. Notice that its direction corresponds to that of the magnetic field, where $\omega_A = k_x b$ lies in the same direction and $-\omega_A$ in the opposite direction. It should be noted that this solution is non-relativistic. As the magnetic field becomes stronger in comparison to the density the Alfén wave becomes a regular electromagnetic wave.\\
 \\
-Now, the first roots we had - the magnetosonic waves - are combinations of Alvén waves and ordinary sound waves. There are two types because the Alfvén and sound waves can either be in fase or in antifase to one another. In the first wave the region of high pressure will correspond to a high magnetic field density, which causes the resulting wave to be driven forward by both ordinary hydrodynamic pressure and the tension of the concentrated magnetic field lines. In the case of the slow wave these same two forces work against each other, slowing the wave.
+Now, the first roots we had - the magnetosonic waves - are combinations of Alvén waves and ordinary sound waves. There are two types because the Alfvén and sound waves can either be in fase or in antifase to one another. In the first case $\omega_F$ the region of high pressure will correspond to a high magnetic field density, which causes the resulting wave to be driven forward by both ordinary hydrodynamic pressure and the tension of the concentrated magnetic field lines. In the other case $\omega_S$ these same two forces work against each other, slowing the wave.
 
 
 \subsection*{Magnetohydrodynamic shocks}
@@ -380,7 +380,7 @@ To derive the Rankine–Hugoniot conditions for MHD shocks, one simply uses \aut
 \label{eq:MHD-shock-conditions}
 \begin{split}
 V_S \Delta \rho &= \vec{n}\cdot\Delta(\rho \ \vec{v})\\
-V_S \Delta (\rho \ \vec{v}) &= \vec{n} \cdot \Delta(\rho \ \vec{v} \ \vec{v} + (p + \frac{B^2}{2}) \ \textbf{I} -  \vec{B}\vec{B}) \\
+V_S \Delta (\rho \ \vec{v}) &= \vec{n} \cdot \Delta(\rho \ \vec{v} \ \vec{v} + (p + \frac{B^2}{2}) \ \I -  \vec{B}\vec{B}) \\
 V_S \Delta E_t &= \vec{n} \cdot \Delta \big( (\rho \frac{v^2}{2} + \frac{\gamma}{\gamma - 1} p + B^2) \ \vec{v} - \vec{v} \cdot \vec{B} \vec{B} \big) \\
 V_S \Delta \vec{B} &= \vec{n} \cdot \Delta \big( \vec{v} \vec{B} - \vec{B} \vec{v} \big)
 \end{split}
