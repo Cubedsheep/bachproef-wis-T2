@@ -1,0 +1,138 @@
+\subsection{Magnetohydrodynamic waves}
+
+For our discussion of magnetohydrodynamic waves we rewrite the basic MHD equations into a form which is easier to linearalize. We also assume that the plasma is completely homogeneous and in equilibrium. In practice this means that we shall remove the cross products in the original equations as follows 
+
+{\centering 
+\noindent{
+\begin{equation}
+	\begin{split}
+		- \vec{J} \times \vec{B} &= -(\nabla  \times \vec{B}) \times \vec{B} = (\nabla \vec{B}) \cdot \vec{B} - \vec{B} \cdot \nabla \vec{B}\\
+		\nabla \times \vec{E} &= -\nabla \times (\vec{v} \times \vec{B}) =  \vec{B} \nabla \cdot \vec{v} + \vec{v} \cdot \nabla \vec{B} - \vec{B} \cdot \nabla \vec{v}
+	\end{split}
+\end{equation}
+}
+\par}
+
+
+The MHD equations now become
+
+{\centering 
+\noindent \fbox{\parbox{.85\linewidth}{
+\begin{equation}
+	\label{eq:ideal-MHD-withoutcross}
+	\begin{split}
+		\frac{\partial\rho}{\partial t} + \nabla\cdot (\rho\vec{v}) &= 0\\
+		\rho \frac{\partial \vec{v}}{\partial t} + \rho \vec{v} \cdot \nabla \vec{v} + (\gamma - 1)\nabla (\rho e) + (\nabla \vec{B})\cdot \vec{B} - \vec{B} \cdot \nabla \vec{B} &= 0\\
+		\frac{\partial e}{\partial t} + \vec{v} \cdot \nabla e + (\gamma -1)e \nabla \cdot \vec{v} &= 0\\
+		\frac{\partial \vec{B}}{\partial t} + \vec{v} \cdot \nabla \vec{B} + \vec{B} \nabla \cdot \vec{v} - \vec{B} \cdot \nabla \vec{v} &= 0
+	\end{split}
+\end{equation}
+}}
+\par}
+
+Of course the condition that $ \nabla \cdot \vec{B} = 0  $ remains. In this form the equations are much easier to linearize:
+
+{\centering 
+\noindent \fbox{\parbox{.85\linewidth}{
+\begin{equation}
+	\label{eq:ideal-MHD-linear}
+	\begin{split}
+		\frac{\partial\rho_1}{\partial t} + \nabla\cdot (\rho_0\vec{v_1}) &= 0\\
+		\rho_0 \frac{\partial \vec{v_1}}{\partial t} + (\gamma - 1)\nabla (\rho_1 e_0) +\nabla (\rho_0 e_1) + (\nabla \vec{B_1})\cdot \vec{B_0} - \vec{B_0} \cdot \nabla \vec{B_1} &= 0\\
+		\frac{\partial e_1}{\partial t} + (\gamma -1)e_0 \nabla \cdot \vec{v_1} &= 0\\
+		\frac{\partial \vec{B_1}}{\partial t} + \vec{B_0} \nabla \cdot \vec{v_1} - \vec{B_0} \cdot \nabla \vec{v_1} &= 0
+	\end{split}
+\end{equation}
+}}
+\par}
+
+The second one of these equations \autoref{eq:ideal-MHD-linear} is the linearalized momentum equation. We shall work from this one as it lends itself the most for our discussion of ideal MHD waves. This is because it directly describes flow velocity. Plugging the other three into this equation gives us the essential equation for ideal MHD waves:
+
+\begin{equation}
+	\label{eq:ideal-wave}		
+		\frac{\partial^2 \vec{v_1}}{\partial^2 t} = \bigg( (\textbf{b} \nabla)^2 \textbf{I} + (b^2 + c^2)\nabla \nabla - \textbf{b} \cdot \nabla (\nabla \textbf{b} + \textbf{b} \nabla) \bigg) \cdot \vec{v_1}
+\end{equation}
+Where
+\begin{equation}
+	c = \sqrt{ \frac{\gamma p_0}{\rho_0}}
+	\label{eq:acoustic-speed}
+\end{equation}
+and
+\begin{equation}
+	\vec{b} = \frac{\vec{B}}{\sqrt{\rho_0}}
+	\label{eq:Alfven-speed}
+\end{equation}
+We introduce the constants $c$ and $\textbf{b}$ as they will be the wave velocities of the solutions of the wave equation \autoref{eq:ideal-wave}. 
+The constant $c$ is the acoustic speed known from regular hydrodynamics. 
+The constant $\textbf{b}$ is know as the \textit{Alfvén } velocity and it is a vector in the same direction as the background magnetic field $\textbf{B}_0$.\\
+\\
+Notice that if we set $\textbf{b} = 0$ \autoref{eq:ideal-wave} becomes
+
+$$ \frac{\partial^2 \vec{v_1}}{\partial^2 t} = c^2 \nabla^2 \vec{v_1} $$
+
+which is exactly what we would expect as this is wave equation in the normal hydrodynamic case. This is an important sanity check for our method.\\
+\\
+
+We shall be looking for sinusoidal wave solutions. For now we shall also limit the discussion the waves in the velocity vector field as the waves in the scalar pressure and density fields and the magnetic vector field can easily be expressed in terms of the velocity field using the equations \autoref{eq:ideal-MHD-linear}. The solutions we look for are of the form
+
+$$ \vec{v_1} = \bar{\textbf{v}} \exp(i(\omega t - \vec{k} \cdot \vec{x})) \ .$$ 
+
+Under the constrain of having to provide sinusoidal wave solutions \autoref{eq:ideal-wave} becomes
+
+\begin{equation}
+\label{eq:plane-wave-equation}
+\bigg( \big( \omega^2 - (\vec{k}\cdot \textbf{b})^2 \big)\textbf{I} - (b^2 + c^2)\vec{k}\vec{k} + \vec{k} \cdot \textbf{b}(\vec{k}\textbf{b} + \textbf{b}\vec{k}) \bigg) \cdot \bar{\textbf{v}} = 0 \ .
+\end{equation} 
+
+In order to solve this we need that 
+
+$$ \det \bigg( \big( \omega^2 - (\vec{k}\cdot \textbf{b})^2 \big)\textbf{I} - (b^2 + c^2)\vec{k}\vec{k} + \vec{k} \cdot \textbf{b}(\vec{k}\textbf{b} + \textbf{b}\vec{k}) \bigg) = 0 \ .$$
+
+We shall begin by interpreting this formula in 2D and then see what happens when a third component is added. Without any loss of generality we can assume that $\textbf{b} = (b, 0)$ and $\vec{k} = (k_x, k_y)$. Broken down into components we then have 
+
+\begin{equation}
+\begin{pmatrix}
+ -k_x^2 c^2  &  - k_y k_x c^2 \\
+- k_y k_x c^2  &    - k_x^2 (b^2 + c^2) - k_y^2 b^2
+\end{pmatrix}
+\begin{pmatrix}
+\bar{v}_x \\
+\bar{v}_y
+\end{pmatrix}
+ =  -\omega^2
+\begin{pmatrix}
+\bar{v}_x \\
+\bar{v}_y
+\end{pmatrix}
+\end{equation} 
+
+Then we see that the determinant of the system is 
+
+$$ \omega^4 - \omega^2(k_x^2 b^2 - k_y^2 b^2 - k_y^2 - k_y^2) + b^2 c^2 k_x^2(1 + k_y^2) $$
+
+of which the roots are $ \omega^2 = k^2 \sqrt{b^2 + c^2}(\sqrt{b^2 + c^2} \pm bck_x) $ where $k^2 = k_x^2 + k_y^2$ . These solutions correspond to the so-calles fast (+) and slow (-) magnetosonic waves. One can readily see that they are the result of a quite complicated interplay between the hydrodynamic and magnetic sides of the story. To see this better, it helps to lift the problem to 3D.\\
+\\
+Take $ \vec{b} = (b,0,0), \vec{k} = (k_x, k_y,0) $. There is no loss of generality. Plugging these vectors into \autoref{eq:plane-wave-equation} we get a slightly different determinant.
+
+$$ (\omega^2 - k_x^2 b^2)\big( \omega^4 - \omega^2(k_x^2 b^2 - k_y^2 b^2 - k_y^2 - k_y^2) + b^2 c^2 k_x^2(1 + k_y^2) \big) \ . $$
+ 
+The roots corresponding to the fast and slow magnetosonic waves are again present (as one would expect). However, there is an extra root $\omega^2 = k_x^2 b^2$. This one is of great interest as it does not contain the same complicated magnetosonic interaction and solely depends on the nature of the magnetic field. The density irregularities only provide the wave's momentum. The restoring force is entirely generated by the tension in the magnetic field.\\
+\\
+The wave corresponding to $\omega_A^2 = k_x^2 b^2$ is called the \textit{Alfvén} wave. Notice that its direction corresponds to that of the magnetic field, where $\omega_A = k_x b$ lies in the same direction and $-\omega_A$ in the opposite direction. It should be noted that this solution is non-relativistic. As the magnetic field becomes stronger in comparison to the density the Alfén wave becomes a regular electromagnetic wave.\\
+\\
+Now, the first roots we had - the magnetosonic waves - are combinations of Alvén waves and ordinary sound waves. There are two types because the Alfvén and sound waves can either be in fase or in antifase to one another. In the first wave the region of high pressure will correspond to a high magnetic field density, which causes the resulting wave to be driven forward by both ordinary hydrodynamic pressure and the tension of the concentrated magnetic field lines. In the case of the slow wave these same two forces work against each other, slowing the wave.
+
+
+\subsection*{Magnetohydrodynamic shocks}
+
+To derive the Rankine–Hugoniot conditions for MHD shocks, one simply uses \autoref{eq:ideal-MHD} as it is already in its Eulerian form and preforms the same calculations as for the Rankine–Hugoniot conditions for HD shocks. This yields
+
+\begin{equation}
+\label{eq:MHD-shock-conditions}
+\begin{split}
+V_S \Delta \rho &= \vec{n}\cdot\Delta(\rho \ \vec{v})\\
+V_S \Delta (\rho \ \vec{v}) &= \vec{n} \cdot \Delta(\rho \ \vec{v} \ \vec{v} + (p + \frac{B^2}{2}) \ \textbf{I} -  \vec{B}\vec{B}) \\
+V_S \Delta E_t &= \vec{n} \cdot \Delta \big( (\rho \frac{v^2}{2} + \frac{\gamma}{\gamma - 1} p + B^2) \ \vec{v} - \vec{v} \cdot \vec{B} \vec{B} \big) \\
+V_S \Delta \vec{B} &= \vec{n} \cdot \Delta \big( \vec{v} \vec{B} - \vec{B} \vec{v} \big)
+\end{split}
+\end{equation}
