@@ -1,0 +1,20 @@
+Magnetic field: B in the plane: in x- or y-direction
+
+!!try different values for beta=p/(B²/2) (eg. 1, 0.1, 5...)
+
+calculate the velocity of the wave by calculating the position of the boundary at each time step. --> compare with MHD waves. slows down because of boundary condition? (group speed)
+these HD waves are non-dispersive.
+
+calculate phase velocity
+
+boundary condition: OK
+
+Find diagram of group speed of MHD waves (+literature?)
+
+
+Third tasks: change units! (default length scale, number density)
+		Initial condition!! --> need to balance the structure: in code units make P+B²/2 =constant on whole domain in code units
+		second step: setup boundary condition: see sample (time dependent boundary?)
+		for other parameters: folow paper
+		
+book: fundamental plasma physics / basics of plasma physics
