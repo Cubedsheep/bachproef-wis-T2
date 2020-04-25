@@ -52,7 +52,7 @@ void Init (double *v, double x1, double x2, double x3)
   v[VX3] = 0.0;
   v[PRS] = g_inputParam[P_OUT];
 
-  if (r <= 0.09) v[PRS] = g_inputParam[P_IN];
+ /* if (r <= 0.09) v[PRS] = g_inputParam[P_IN];*/
 
   v[TRC] = 0.0;
 
@@ -61,8 +61,9 @@ void Init (double *v, double x1, double x2, double x3)
   beta = g_inputParam[BETA];
   v[BX1] = 0.0;
   v[BX2] = sqrt(2.0*v[PRS]/beta);
+  if (r <= 0.09) v[BX2] = sqrt(2.0*v[PRS]/beta)*g_inputParam[P_IN];
   v[BX3] = 0.0;
-
+  
   v[AX1] = 0.0;
   v[AX2] = 0.0;
   v[AX3] = 0.0;
