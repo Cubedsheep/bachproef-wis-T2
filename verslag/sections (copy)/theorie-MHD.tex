@@ -1,0 +1,104 @@
+\subsection{Magnetohydrodynamic fluid equations}
+There are two approaches commonly taken in the literature to derive the MHD equations. They are either derived from kinetic gass theory, or postulated with added justification of why they can accuratly describe plasmas.
+
+A plasma is an ionised gas consisting of postive and negative ions. In the case of the corona of the sun this is mainly ionised hydrogen.
+Therefore the negative ions are free electrons and the positive ions protons, which are a lot heavier than electrons.
+When the characteristic timescales $\tau_e$ and $\tau_i$ between two collisions of electrons, respectively ions, is much shorter than characteristic timescales $\tau_f$ at which macroscopic variables change we can use a fluid description. 
+At these timescales the individual interactions of individual particles are not relevant anymore.
+
+The plasma can then be described as two different fluids, commonly refered to as the \emph{two-fluid theory}.
+The electron gas is one fluid and the proton gas the other. 
+The next assumption that is made, is that the relaxation time $\tau_T$ until the electron fluid and ion fluid are in thermal equilibrium after a slight disturbance is also a lot smaller than $\tau_f$.
+Finally, we assume that the fluid has no net charge. Not globally, but also not locally. 
+This means that in every large enough volume, for every ion with charge $Z$, there are also about $Z$ electrons in this volume.
+When all this applies, the variables describing the different fluids can be averaged or added together, to describe the plasma as one fluid.\improvement{add reference to cursus Poedts and course notes arxiv}
+
+The MHD equations can then be found by adding the maxwell equations to the HD equations. Because the HD equations are invariant under Galilean transformations. 
+However the Maxwell equations are invariant under Lorentz transformations, so we cannot simply add them to the HD equations and expect a consistent picture. 
+Understanding the averaging process is important for understanding what the plasma variables actually represent.
+Denote with $n_\alpha$ the number density of a certain type of particle, $m_\alpha$ the mass, $\vec{u}_\alpha$ the velocity of a fluid element and with $p_\alpha$ the pressure of the gas of these particles. 
+Let the subscript $e$ denote variables concerning the electrongas and $i$ variables describing the iongas.
+The variables describing the plasma are the following linear combinations of variables describing the electron and ion gas:
+
+{\centering 
+\noindent \fbox{\parbox{.5\linewidth}{
+\begin{equation}
+	\label{eq:plasma-variables}
+	\begin{split}
+		\rho &= n_em_e+n_im_i\\
+		\vec{v} &= (n_em_e\vec{u}_e + n_im_i\vec{u}_i)/\rho\\
+		\vec{J} &= -e(n_e\vec{u}_e-Zn_i\vec{u}_i)\\
+		p &= p_e+p_i
+	\end{split}
+\end{equation}
+}}
+\par}
+
+Where $e$ is the charge of an electron and $Z$ the charge of an ion as a multiple of the electron charge. The first equation is the \emph{total mass density}, the second the \emph{center of mass velocity}, the third the \emph{current density} and the last one describes the \emph{total pressure}.
+
+For a consistent Newtonian theory of MHD, the displacement current $\epsilon_0 \frac{\partial \vec{E}}{\partial t}$ is neglected. \improvement{reference to lecture notes arXiv}
+
+Finally, the viscosity and heat flow are neglected like in the HD case. Furthermore, for the ideal MHD case the resistivity of the fluid is neglected. The extra equations we need are then:
+\begin{align*}
+	\frac{\partial \vec{B}}{\partial t} &= - \nabla \times \vec{E}\\
+	\nabla \cdot \vec{B} &= 0\\
+	\nabla \times \vec{B} &= \mu_0 \vec{J}
+\end{align*}
+We do not need an equation relating the charge distribution to the electric field in the first equation since we assumed the fluid is locally neutral.
+Furthermore the displacement term in the third equation was neglected.
+
+Adding everything together such as in [REFERENCE TO ONE OF THE COURSES]\improvement{reference to course notes poedts} yields the ideal MHD equations:
+
+{\centering 
+\noindent \fbox{\parbox{.85\linewidth}{
+\begin{equation}
+	\label{eq:ideal-MHD}
+	\begin{split}
+		\frac{\partial\rho}{\partial t} + \nabla\cdot (\rho\vec{v}) &= 0\\
+		\rho \left( \frac{\partial\vec{v}}{\partial t} + \vec{v}\cdot\nabla\vec{v} \right) + \nabla p - \vec{J} \times \vec{B} &= 0\\
+		\frac{\partial p}{\partial t} + \vec{v}\cdot\nabla p + \gamma p\nabla\cdot\vec{v} &= 0\\
+		\frac{\partial \vec{B}}{\partial t} - \nabla\times (\vec{v}\times\vec{B}) &= 0
+	\end{split}
+\end{equation}
+}}
+\par}
+
+Where $$\vec{J} = \frac{\nabla\times \vec{B}}{\mu_0}. $$ We need one additional equation which the inital condition has to satisfy:
+\begin{equation*}
+	\nabla\cdot\vec{B}=0
+\end{equation*}
+which expresses that there are no magnetic monopoles. By acting with $\nabla\cdot$ on the fourth equation in \autoref{eq:ideal-MHD} we see that if the initial equation satisfies $\nabla\cdot\vec{B}=0$, it is automatically satisfied for all later times:
+\begin{equation*}
+	\frac{\partial (\nabla\cdot\vec{B})}{\partial t} = 0
+\end{equation*}
+
+The equations used by PLUTO in the ideal case have a slightly different form: \improvement{reference to user guide}
+
+{\centering 
+\noindent \fbox{\parbox{.85\linewidth}{
+\begin{equation}
+	\label{eq:ideal-MHD-PLUTO}
+	\begin{split}
+		\frac{\partial \rho}{\partial t} + \nabla \cdot (\vec{m}) &= 0\\
+		\frac{\partial\vec{m}}{\partial t} + \nabla \cdot \left[ \vec{m}\vec{v} - \vec{B}\vec{B}+I \left( p+ \frac{B^2}{2} \right)  \right] ^T &= -\rho\nabla\Phi+\rho \vec{g}\\
+		\frac{\partial\vec{B}}{\partial t} + \nabla \times (c\vec{E}) &= 0\\
+		\frac{\partial (E_t+\rho\Phi)}{\partial t} + \nabla \cdot \left[ \left( E_T+p_t+\rho\Phi \right)\vec{v} - \vec{B}(\vec{v}\cdot\vec{B})  \right] &= \vec{m}\cdot\vec{g}
+	\end{split}
+\end{equation}
+}}
+\par}
+
+where, as with the HD equations, $\vec{m}=\rho\vec{v}$ and $E_t$ is again the total energy density, this time with an extra term for the magnetic field:
+\begin{equation*}
+	E_t = \rho e + \frac{\rho v^2 + B^2}{2}
+\end{equation*}
+$c\vec{E}$ is given by:
+\begin{equation*}
+	c\vec{E} = -\vec{v}\times \vec{B}
+\end{equation*}
+note that the equations do not formally depend on the speed of light, but it is kept in the equations for consistency with the relativistic case.
+
+
+
+
+

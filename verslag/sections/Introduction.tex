@@ -1,0 +1,45 @@
+
+
+\subsection*{The lay of the land}
+
+This report discusses simulation results of the plasma in the solar corona in accordance with the theory of magnetohydrodynamics (MHD). We aim give an qualitative interpretation of our simulation data based on the MHD-equations for an ideal plasma.\\
+\\
+Studying the behaviour of a plasma based on analytically acquired solutions of the MHD equations is very complicated. Thus, it is useful to attain some solutions numerically and interpret the results by means of visualizations.\\
+\\
+In this manner we have completed an analysis of the behaviours of an idealised plasma for different boundary conditions. For each case we have investigated the influence of changes in the initial conditions by running the simulation in parallel for different values of the initial variables and comparing the outputs. 
+
+\subsection*{Physics of the solar corona}
+
+A brief justification of some basic assumptions is in place. As mentioned, we presuppose that the solar corona consists of an ideal plasma. That is, a highly ionised gas with smooth background conditions. A gas of this type should demonstrate a 'collective behaviour' which is necessary for the the ideal MHD-equations to be sufficiently accurate. By 'collective behaviour', we mean the following.\\
+\\
+A plasma consists of positively charged ions and negatively charges electrons. To be able to assume the ideal MHD theory we must have that the kinetic energy of these particles sufficiently outweighs the potential energy produced by the pairwise Coulomb interactions. In other words, the ratio $ \frac{KE}{PE} $ must be very big. If this is indeed the case we may presume that we are working with a collection of particles that interact with smooth a background.\\
+\\
+A smooth background is achieved by a phenomenon called 'electric screening'. This is the effect by which positively charges ions are electrically screened from each other - in that their Coulomb interaction becomes negligible - by a cloud of electrons.\\
+\\
+Consider such an ion. We can write the electric potential in a system of mobile charged particles as 
+
+$$ \phi  \sim \frac{1}{r} e^{-r k_D}$$
+
+where $k_D = \frac{1}{\lambda_D}$ and $ \lambda_D $ is the Debye length. The reason why the Debye length is important for our purposes is that it traces the boundary of where the motion of the particles begins to outweigh the electric potential. We can see this because for a given charge $Q$ 
+
+$$ \frac{KE}{PE}  \sim \frac{T}{\frac{Q}{\lambda_D}}  \sim \frac{\lambda_{MFP}}{\lambda_D} $$
+
+where $\lambda_{MHD}$ is the mean length of a free particle path.\\
+\\
+Since the temperature in the solar corona is of the order of $10^6 K$ we may assume that these ratios are sufficiently large to consider the ion gas as a collection of charges particles which behave collectively, which is what constitutes a plasma.
+
+\subsection*{Goal of this report}
+
+As mentioned the main purpose of the project was to gain a basic understanding of the nature of the plasma in the solar corona. Specifically MHD-waves are of great interest as they are directly observable in satellite observations of the sun. Therefore, we shall focus our report on them. Concretely, we discuss two compelling examples of MHD-waves: the MHD-blastwave and the interaction of an MHD-wave with a coronal hole.\\
+\\
+For the first problem we have simulated an MHD-blastwave under the influence of a very powerful magnetic field. Visualizations of the output data have shown that the results are quite distinctive for different values of the magnetic field's strength. We have also simulated a blastwave under normal hydrodynamic conditions. This HD-blastwave provides the case where the field strength is $0$.\\
+\\
+Secondly, we discuss a simulation where we had an MHD-wave run into a coronal hole. This hole is part of the boundary conditions for this problem. It consists of a sharp drop in pressure and density. As one would expect, its effect on the wave is quite striking and we shall discuss it in detail.
+
+\subsection*{The software}
+
+The software that was used for the numerical solutions is called PLUTO. This is an open source code written specifically for this purpose. It is a piece of code designed to solve the HD and MHD conservation laws for arbitrary initial conditions in a finite volume.\\
+\\
+PLUTO was developed by the Department of Physics at Torino University. 
+
+
