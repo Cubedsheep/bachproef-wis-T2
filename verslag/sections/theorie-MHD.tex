@@ -1,6 +1,12 @@
 \subsection{Magnetohydrodynamic fluid equations}
+Since the aim of this bachelor project is mainly using simulation software to get an understanding of the behaviour of waves in plasma and the subject of magnetohydrodynamics is a really complex one,
+we will merely state the results relevant as theoretical background for our simulations and skim over the derivations, without diving into every technical detail.
+Where necessary, the assumptions behind the equations and how these assumptions limit the applicability is discussed.
+We provide references to the material where we found the relevant formulas and derivations can often be found.
+
 There are two approaches commonly taken in the literature to derive the MHD equations. They are either derived from kinetic gass theory, or postulated with added justification of why they can accuratly describe plasmas.
 
+We will now sketch the first aproach in order to get some insight in the underlying assumptions of the theory.
 A plasma is an ionised gas consisting of postive and negative ions. In the case of the corona of the sun this is mainly ionised hydrogen.
 Therefore the negative ions are free electrons and the positive ions protons, which are a lot heavier than electrons.
 When the characteristic timescales $\tau_e$ and $\tau_i$ between two collisions of electrons, respectively ions, is much shorter than characteristic timescales $\tau_f$ at which macroscopic variables change we can use a fluid description. 
@@ -13,10 +19,12 @@ Finally, we assume that the fluid has no net charge. Not globally, but also not 
 This means that in every large enough volume, for every ion with charge $Z$, there are also about $Z$ electrons in this volume.
 When all this applies, the variables describing the different fluids can be averaged or added together, to describe the plasma as one fluid.\improvement{add reference to cursus Poedts and course notes arxiv}
 
-The MHD equations can then be found by adding the maxwell equations to the HD equations. Because the HD equations are invariant under Galilean transformations. 
-However the Maxwell equations are invariant under Lorentz transformations, so we cannot simply add them to the HD equations and expect a consistent picture. 
-Understanding the averaging process is important for understanding what the plasma variables actually represent.
-Denote with $n_\alpha$ the number density of a certain type of particle, $m_\alpha$ the mass, $\vec{u}_\alpha$ the velocity of a fluid element and with $p_\alpha$ the pressure of the gas of these particles. 
+The MHD equations can then be found by adding the maxwell equations to the HD equations. There is one complication: the HD equations are invariant under Galilean transformations. 
+However the Maxwell equations are invariant under Lorentz transformations, so we cannot simply add them to the HD equations and expect a consistent picture.
+To solve this the term for the displacement current $\epsilon_0 \frac{\partial \vec{E}}{\partial t}$ is dropped \improvement{referentie} which results in a set of equations that are invariant under Galilean transformations.
+
+Understanding the averaging process which brings us from two-fluid theory to the decription given by the magnetohydrodynamic equations is important for understanding what the plasma variables actually represent and when thes representation is an acurate depiction of the state of the plasma.
+Denote with $n_\alpha$ the number density of a certain type of particle, $m_\alpha$ the mass of one particle, $\vec{u}_\alpha$ the velocity of a fluid element of the fluid consisting from particles $\alpha$ and with $p_\alpha$ the pressure of the gas of these particles. 
 Let the subscript $e$ denote variables concerning the electrongas and $i$ variables describing the iongas.
 The variables describing the plasma are the following linear combinations of variables describing the electron and ion gas:
 
@@ -35,8 +43,6 @@ The variables describing the plasma are the following linear combinations of var
 \par}
 
 Where $e$ is the charge of an electron and $Z$ the charge of an ion as a multiple of the electron charge. The first equation is the \emph{total mass density}, the second the \emph{center of mass velocity}, the third the \emph{current density} and the last one describes the \emph{total pressure}.
-
-For a consistent Newtonian theory of MHD, the displacement current $\epsilon_0 \frac{\partial \vec{E}}{\partial t}$ is neglected. \improvement{reference to lecture notes arXiv}
 
 Finally, the viscosity and heat flow are neglected like in the HD case. Furthermore, for the ideal MHD case the resistivity of the fluid is neglected. The extra equations we need are then:
 \begin{align*}

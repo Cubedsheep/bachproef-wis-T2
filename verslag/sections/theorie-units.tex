@@ -1,4 +1,5 @@
 \subsection{Units}
+\label{sec:units}
 The PLUTO code works, in general, with dimensionless code-units. This is done by defining a unit density $\rho_0$, unit velocity $v_0$ and unit length $L_0$.
 From these, unit time can be defined as $t_0=L_0/v_0$. Inspired by \autoref{eq:acoustic-speed} and \autoref{eq:Alfven-speed} we defin $p_0=\rho_0v_0^2$ and $B_0=v_0\sqrt{4\pi\rho_0}$.
 Next, we use the substitutions $v_0\vec{v}_u=\vec{v}$, $\rho_0\rho_u=\rho$, $L_0\vec{x}_u=\vec{x}$, $t_0t_u=t$, $p_0p_u=p$ and $B_0\vec{b}_u=\vec{B}$ in \autoref{eq:ideal-MHD}.
@@ -24,4 +25,19 @@ When we have a wave with wavelength $\lambda_1$ and frequency $f_1$, it will sho
 
 Because the ideal MHD equations are in fact dimensionless (without sources), we can carry out the simulations in dimensionless units and later scale our results to match conditions as found in e.g. the solar corona, under the condition that the relative magnitudes of $\rho_0$, $v_0$ and $L_0$ are correct.
 
-
+the plasma-$\beta$ in these dimensionless units is defined as
+\begin{equation}
+	\beta = \frac{p}{B^2/2}
+	\label{eq:plasma-beta}
+\end{equation}
+We find that
+\begin{equation}
+	v_a = \frac{B_0}{\sqrt{\rho_0}} = \sqrt{ \frac{p_0}{2\beta\rho_0}} = \sqrt{ \frac{1}{2\beta}}v_0
+	\label{eq:Alfven-code-units}
+\end{equation}
+and that
+\begin{equation}
+	v_s = \sqrt{ \gamma\frac{p_0}{\rho_0}} = \sqrt{\gamma}v_0
+	\label{eq:sound-code-units}
+\end{equation}
+These expressions will be necessary to compare the simulation data to the theoretical results from the previous sections.

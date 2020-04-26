@@ -21,7 +21,7 @@ This type of fluid obeys the Euler equations for conservation of mass, momentum 
 
 
 These are the Euler equations in Lagrangian form, with time derivatives following the fluid, hence the total derivatives with respect to time.
-PLUTO does the fluid simulation using a static grid, so we need the equations in Eulerian form with partial derivatives with respect to time.
+PLUTO does the fluid simulation using a static grid, so we need the equations in Eulerian form: partial derivatives with respect to time instead of total derivatives.
 This change of derivatives can be carried out using the following relation, found in \cite{notes-fluid-dynamics} in section 2.4:
 \begin{equation}
 	\frac{df}{dt} = \frac{\partial f}{\partial t} + (\vec{v} \cdot \nabla) f
@@ -31,11 +31,14 @@ where $f(x,y,z,t)$ is a function that describes a property of the fluid. The equ
 
 {\centering 
 \noindent \fbox{\parbox{0.7\linewidth}{
-\begin{align*}
+\begin{equation}
+	\label{eq:ideal-HD-euler}
+\begin{split}
 	\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vec{v}) &= 0\\
 	\frac{\partial}{\partial t} (\rho \vec{v}) &= \nabla \cdot (-p - \rho \vec{v}\vec{v}) + \vec{F}\\
 \frac{\partial}{\partial t} \left( \rho \left( \frac{v^2}{2} + \mathcal{U} \right)  \right)  &= \vec{F} \cdot \vec{v} - \nabla \cdot \left( \rho \left( \frac{v^2}{2}+\mathcal{U}\right)\vec{v} + p\vec{v})  \right) 
-\end{align*}}}
+\end{split}
+\end{equation}}}
 \par}
 
 Next introduce the variable $\vec{m}=\rho \vec{v}$, the momentum density. The energy density $\mathcal{U}$ can be split in the thermal energy $\rho e$ and gravitational potential energy $\rho\Phi$. Let $E_t = e\rho + \frac{v^2}{2}$ The only external force is $\vec{F} = \rho\vec{g}$
@@ -54,12 +57,12 @@ carrying out these substitutions leads to the equations in section 6 in the PLUT
 \par}
 
 Together with an equation of state $\rho e = \rho e(p, \rho)$, which gives the thermal energy as a function of $p$ and $\rho$.
-In the remainder of this paper a calorically ideal gas is assumed. This is a gas for which the adiabatic constant $\gamma$ obeys:
+In the remainder of this paper a calorically ideal gas is assumed. This is a gas for which the adiabatic constant $\gamma$ is constant and obeys:
 \begin{equation}
 	\gamma = \frac{f+2}{f}
 	\label{eq:adiabatic constant}
 \end{equation}
-where $f$ is the number of degrees of freedom. the previous relation can be rewritten as
+where $f$ is the number of degrees of freedom for a molecule of the gas. the previous relation can be rewritten as
 \begin{equation*}
 	f = \frac{2}{\gamma-1}
 \end{equation*}
@@ -71,7 +74,7 @@ And by substituting this equation in the equation that expresses the energy as a
 \todo[inline]{short discussion of assumptions made (no viscosity and heat conduction, callorically ideal gas)}
 \todo[inline]{afleiding golven, groepssnelheid}
 \subsection{Hydrodynamic linear waves}
-We start again from the ideal fluid equations as given in \autoref{eq:ideal-fluid} and linearize them.
+We start again from the ideal fluid equations as given in \autoref{eq:ideal-HD-euler} and linearize them.
 For this we rewrite the quantities $\rho$ and $p$ as a background density $\rho_0$ and pressure $p_0$ with slight deviations $\rho_1$, $p_1$.
 Furthermore it is assumed that there are no external forces acting on the fluid. The Linearized equations are:
 
@@ -95,17 +98,23 @@ Acting with $ \frac{\partial}{\partial t}$ on the last equation and substituting
 \begin{equation*}
 	\frac{\partial^2 p_1}{\partial t^2} + \frac{\gamma p_0}{\rho_0} \nabla^2 p_1 = 0
 \end{equation*}
-which is the wave equation with $v_s = \sqrt{ \frac{\gamma p_0}{\rho_0} }$ the phase speed of the wave.
+which is the wave equation with 
+\begin{equation}
+v_s = \sqrt{ \frac{\gamma p_0}{\rho_0} }
+\label{eq:sound-speed}
+\end{equation}
+the speed of sound in the ideal fluid, and the phase- and group speed of linear sound waves.
 Similar expressions are found for the other variables. \improvement{Referentie?}
-this wave speed can be found by substituting a plan wave of the form $p_1 = A \exp \left( i(\omega t - \vec{k}\cdot\vec{x}) \right) $. Substituting this expression in the wave equation for $p_1$ leads to the dispersion relation:
+this wave speed can be found by substituting a plane wave of the form $p_1 = A \exp \left( i(\omega t - \vec{k}\cdot\vec{x}) \right) $. Substituting this expression in the wave equation for $p_1$ leads to the dispersion relation:
 \begin{equation}
 	\omega^2 = k^2v_s^2.
 \end{equation}
-The phase velocity is given by
+The group velocity is given by
 \begin{equation}
-	v_{ph} = \frac{\partial \omega}{\partial k} = v_s
+	\vec{v}_{g} = \frac{\partial \omega}{\partial \vec{k}} = v_s\unitvec{k}
+	\label{eq:group-velocity}
 \end{equation}
-\improvement{reference for this relation for the phase speed?}
+\improvement{reference for this relation for the group speed?}
 from which we conclude that these waves are non-dispersive.
 
 \subsection{Hydrodynamic shocks}

@@ -9,9 +9,19 @@ The simulation was done on a $1024 \times 1024$ grid for a period of $t=1.5$ wit
 A snapshot of the variables describing the system was saved every $0.03$ time units, for a total of $50$ snapshots (excluding the initial condition).
 The Pluto simulation used $996$ steps.
 
+\begin{figure}[H]
+	%\hspace{-1cm}
+	\centering
+	\includegraphics[width=\linewidth]{images/HD-blast-prs-1.pdf}
+	\caption{Pressure profile for a blastwave in an ideal fluid at different times. The top row start with the larger pressure difference of $5/1$, the bottom row is the blastwave with smaller pressure difference of $1.5/1$.}
+	\label{fig:HD-blast-short}
+\end{figure}
+
 In \autoref{fig:HD-blast-short} the pressureprofile of both scenarios is plot for the initial condition and two frames right after the start of the simulation.
 In \autoref{fig:HD-blast-long} the profile is plotted for later times.
 Its imedeatly clear that the shock wave with the higher pressure difference travels faster then the other one, but the general shape of the wave is the same.
+
+
 
 In \autoref{fig:speed-time-hd} the speed of the wave front along the positive $x$-axis is plotted as a function of time, and this confirms that the wave speed is lower with a lower pressure difference.
 The group speed was calculated in two ways. The first was to start at a point at the edge of the domain and find the first point on the line from this point to the center with a pressure higher than $1.01$ times the background pressure.
@@ -29,30 +39,7 @@ Firstly, we notice that the speeds calculated with the first metod tend to lie o
 It has nothing to do with the physics of the problem. 
 The slight deviations from this lines are because PLUTO does not use fixed time steps for integration, therefore the time between two snapshots is not always exactly the same.
 
-We see that the curve closely follows the dots with the lower pressure difference, whereas this is not the case for the higher pressure difference.
-There are two main reasons for this discrepancy. 
-Firstly, this is not exactly the same as a Riemann problem, certainly at a later stage when the sharp boundary has smoothend out.
-Secondly, due to non-linear effects we cannot assume that the wave is non-dispersive. 
-This means that the first edge of the wave is probably traveling faster than the group speed of the center of this shockwave, which is the value calculated in the Riemann problem.
-These two effects together can explain the difference in speed between the value for a Riemann problem and the value calculated from the simulation data.
-
-We remark that approximating the shock as a Riemann problem is a crude first-order approximation. 
-The PLUTO code calculates flow velocities like this in every integration step. 
-This small example highlights the importance of robust integrators and Riemann solvers, together with small enought time steps, to acuratly model flow variables in the vicinity of large gradients.
-
-Finally \autoref{fig:speed-angle-hd} shows that the wave is isotropic. 
-The speed of the wavefront along lines making an angle $\theta$ with the $x$-axis through the origin was calculated.
-The slight variations in speed are again artifacts of the space discretization.
-
-\begin{figure}[h]
-	%\hspace{-1cm}
-	\centering
-	\includegraphics[width=\linewidth]{images/HD-blast-prs-1.pdf}
-	\caption{Pressure profile for a blastwave in an ideal fluid at different times. The top row start with the larger pressure difference of $5/1$, the bottom row is the blastwave with smaller pressure difference of $1.5/1$.}
-	\label{fig:HD-blast-short}
-\end{figure}
-
-\begin{figure}[h]
+\begin{figure}[H]
 	%\hspace{-1cm}
 	\centering
 	\includegraphics[width=\linewidth]{images/HD-blast-prs-2.pdf}
@@ -68,6 +55,24 @@ The slight variations in speed are again artifacts of the space discretization.
 	\label{fig:speed-angle-hd}
 \end{figure}
 
+We see that the curve closely follows the dots with the lower pressure difference, whereas this is not the case for the higher pressure difference.
+There are two main reasons for this discrepancy. 
+Firstly, this is not exactly the same as a Riemann problem, certainly at a later stage when the sharp boundary has smoothend out.
+Secondly, due to non-linear effects we cannot assume that the wave is non-dispersive. 
+This means that the first edge of the wave is probably traveling faster than the group speed of the center of this shockwave, which is the value calculated in the Riemann problem.
+These two effects together can explain the difference in speed between the value for a Riemann problem and the value calculated from the simulation data.
+
+We remark that approximating the shock as a Riemann problem is a crude first-order approximation. 
+The PLUTO code calculates flow velocities like this in every integration step. 
+This small example highlights the importance of robust integrators and Riemann solvers, together with small enought time steps, to acuratly model flow variables in the vicinity of large gradients.
+
+Finally \autoref{fig:speed-angle-hd} shows that the wave is isotropic. 
+The speed of the wavefront along lines making an angle $\theta$ with the $x$-axis through the origin was calculated.
+The slight variations in speed are again artifacts of the space discretization.
+
+
+
+
 \begin{figure}[H]
 	%\hspace{-1cm}
 	\centering
@@ -76,5 +81,4 @@ The slight variations in speed are again artifacts of the space discretization.
 	\label{fig:speed-time-hd}
 \end{figure}
 
-
-test
+\newpage
