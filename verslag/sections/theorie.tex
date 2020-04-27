@@ -73,7 +73,7 @@ And by substituting this equation in the equation that expresses the energy as a
 \todo[inline]{short discussion of assumptions made (no viscosity and heat conduction, callorically ideal gas)}
 \todo[inline]{afleiding golven, groepssnelheid}
 \subsection{Hydrodynamic linear waves}
-We start again from the ideal fluid equations as given in \autoref{eq:ideal-fluid} and linearize them.
+We start again from the ideal fluid equations as given in \cref{eq:ideal-fluid} and linearize them.
 For this we rewrite the quantities $\rho$ and $p$ as a background density $\rho_0$ and pressure $p_0$ with slight deviations $\rho_1$, $p_1$.
 Furthermore it is assumed that there are no external forces acting on the fluid. The Linearized equations are:
 
@@ -125,7 +125,7 @@ Of course, this equation assumes that $\rho$ and $\rho v$ are continuous variabl
 
 $$ \frac{\Delta \rho}{\Delta t} + \frac{\Delta(\rho v)}{\Delta x} = 0 \ . $$
 
-If this were the perfectly continuous case we would now let $\Delta x, \Delta t \to 0$, resulting in \autoref{eq:continuity-Euler}. However, we might also say that the transition is not smooth and that for $\Delta x, \Delta t \to 0$ the jump remains: $ \Delta \rho, \Delta \rho v \to \Delta \rho, \Delta \rho v $. Rewrite the equations to see what this means:
+If this were the perfectly continuous case we would now let $\Delta x, \Delta t \to 0$, resulting in \cref{eq:continuity-Euler}. However, we might also say that the transition is not smooth and that for $\Delta x, \Delta t \to 0$ the jump remains: $ \Delta \rho, \Delta \rho v \to \Delta \rho, \Delta \rho v $. Rewrite the equations to see what this means:
 
 $$ \frac{\Delta x}{\Delta t} \Delta \rho + \Delta(\rho v) . $$
 
@@ -143,7 +143,7 @@ where $V_S$ is the shock speed. This relation is the hydrodynamic shock conditio
 - V_S \Delta(\rho v) + \Delta(\rho \ \vec{v} \cdot \vec{n}) = 0 \ .
 \end{equation}
 
-The minus sign in front of $V_S$ is merely a matter of orientation. In \autoref{eq:HD-shock-condition} the orientation is along the positive x-axis. In \autoref{eq:HD-3D-shock-condition} it is along the unit vector $\vec{n}$. This is the first of the three \textit{Rankine–Hugoniot} relations. The other two can analogously be derived from the Eulerian form of momentum and energy equations in \autoref{eq:ideal-fluid}. The three Rankine–Hugoniot conditions are
+The minus sign in front of $V_S$ is merely a matter of orientation. In \cref{eq:HD-shock-condition} the orientation is along the positive x-axis. In \cref{eq:HD-3D-shock-condition} it is along the unit vector $\vec{n}$. This is the first of the three \textit{Rankine–Hugoniot} relations. The other two can analogously be derived from the Eulerian form of momentum and energy equations in \cref{eq:ideal-fluid}. The three Rankine–Hugoniot conditions are
 
 \begin{equation}
 \label{HD-shock-conditions}
@@ -227,7 +227,7 @@ Where $$\vec{J} = \frac{\nabla\times \vec{B}}{\mu_0}. $$ We need one additional 
 \begin{equation*}
 	\nabla\cdot\vec{B}=0
 \end{equation*}
-which expresses that there are no magnetic monopoles. By acting with $\nabla\cdot$ on the fourth equation in \autoref{eq:ideal-MHD} we see that if the initial equation satisfies $\nabla\cdot\vec{B}=0$, it is automatically satisfied for all later times:
+which expresses that there are no magnetic monopoles. By acting with $\nabla\cdot$ on the fourth equation in \cref{eq:ideal-MHD} we see that if the initial equation satisfies $\nabla\cdot\vec{B}=0$, it is automatically satisfied for all later times:
 \begin{equation*}
 	\frac{\partial (\nabla\cdot\vec{B})}{\partial t} = 0
 \end{equation*}
@@ -308,7 +308,7 @@ Of course the condition that $ \nabla \cdot \vec{B} = 0  $ remains. In this form
 }}
 \par}
 
-The second one of these equations \autoref{eq:ideal-MHD-linear} is the linearalized momentum equation. We shall work from this one as it lends itself the most for our discussion of ideal MHD waves. This is because it directly describes flow velocity. Plugging the other three into this equation gives us the essential equation for ideal MHD waves:
+The second one of these equations \cref{eq:ideal-MHD-linear} is the linearalized momentum equation. We shall work from this one as it lends itself the most for our discussion of ideal MHD waves. This is because it directly describes flow velocity. Plugging the other three into this equation gives us the essential equation for ideal MHD waves:
 
 \begin{equation}
 	\label{eq:ideal-wave}		
@@ -325,27 +325,27 @@ and
 \vec{b} = \cfrac{\vec{b}_0}{\sqrt{\rho_0}}.
 \label{eq:Alfven-speed}
 \end{equation}
- We introduce these constants $c$ and $\vec{b}$ as they will be the wave velocities of the solutions of the wave equation \autoref{eq:ideal-wave}. The constant $c$ is the acoustic speed known from regular hydrodynamics. The constant $\vec{b}$ is know as the \textit{Alfvén } velocity and it is a vector in the same direction as the background magnetic field $\vec{b}_0$.\\
+ We introduce these constants $c$ and $\vec{b}$ as they will be the wave velocities of the solutions of the wave equation \cref{eq:ideal-wave}. The constant $c$ is the acoustic speed known from regular hydrodynamics. The constant $\vec{b}$ is know as the \textit{Alfvén } velocity and it is a vector in the same direction as the background magnetic field $\vec{b}_0$.\\
 \\
-Notice that if we set $\vec{b} = 0$ \autoref{eq:ideal-wave} becomes
+Notice that if we set $\vec{b} = 0$ \cref{eq:ideal-wave} becomes
 
 $$ \frac{\partial^2 \vec{v}_1}{\partial^2 t} = c^2 \nabla^2 \vec{v}_1 $$
 
 which is exactly what we would expect as this is wave equation in the normal hydrodynamic case. This is an important sanity check for our method.\\
 \\
 
-We shall be looking for sinusoidal wave solutions. For now we shall also limit the discussion the waves in the velocity vector field as the waves in the scalar pressure and density fields and the magnetic vector field can easily be expressed in terms of the velocity field using the equations \autoref{eq:ideal-MHD-linear}. The solutions we look for are of the form
+We shall be looking for sinusoidal wave solutions. For now we shall also limit the discussion the waves in the velocity vector field as the waves in the scalar pressure and density fields and the magnetic vector field can easily be expressed in terms of the velocity field using the equations \cref{eq:ideal-MHD-linear}. The solutions we look for are of the form
 
 $$ \vec{v}_1 = \bar{\textbf{v}} \exp(i(\omega t - \vec{k} \cdot \vec{x})) \ .$$ 
 
-Under the constrain of having to provide sinusoidal wave solutions \autoref{eq:ideal-wave} becomes
+Under the constrain of having to provide sinusoidal wave solutions \cref{eq:ideal-wave} becomes
 
 \begin{equation}
 \label{eq:plane-wave-equation}
 \bigg( \big( \omega^2 - (\vec{k}\cdot \vec{b})^2 \big) \I - (b^2 + c^2)\vec{k}\vec{k} + \vec{k} \cdot \vec{b}(\vec{k}\vec{b} + \vec{b}\vec{k}) \bigg) \cdot \bar{\textbf{v}} = 0 \ .
 \end{equation} 
 
-Without any loss of generality we may assume that $\vec{b} = (b,0,0)$ and $\vec{k} = (k_x, k_y, 0) $. Filling in these into \autoref{eq:plane-wave-equation} results in
+Without any loss of generality we may assume that $\vec{b} = (b,0,0)$ and $\vec{k} = (k_x, k_y, 0) $. Filling in these into \cref{eq:plane-wave-equation} results in
 
 \begin{equation}
 \label{eq:plane-wave-equation-matrixform}
@@ -367,7 +367,7 @@ Without any loss of generality we may assume that $\vec{b} = (b,0,0)$ and $\vec{
 \end{pmatrix}
 \end{equation} 
 
-In order to solve this we need the determinant of the matrix in \autoref{eq:plane-wave-equation-matrixform} to be $0$. This results in the dispersion relation
+In order to solve this we need the determinant of the matrix in \cref{eq:plane-wave-equation-matrixform} to be $0$. This results in the dispersion relation
 
 \begin{equation}
 \label{eq:dispersion}
@@ -377,7 +377,7 @@ In order to solve this we need the determinant of the matrix in \autoref{eq:plan
 
 We shall first discuss the factor $ \omega^4 - \omega^2(k_x^2 b^2 - k_y^2 b^2 - k_y^2 - k_y^2) + b^2 c^2 k_x^2(1 + k_y^2) $ of which the roots are $ \omega^2_{F,S} = k^2 \sqrt{b^2 + c^2}(\sqrt{b^2 + c^2} \pm bck_x) $ where $k^2 = k_x^2 + k_y^2$ . These solutions correspond to the so-calles fast (+) and slow (-) magnetosonic waves. One can readily see that they are the result of a quite complicated interplay between the hydrodynamic and magnetic sides of the story. To help us see this better, the other factor will help.\\
 \\
-The only root of the firs factor in \autoref{eq:dispersion} is $ \omega^2 = k_x^2 b^2 $. This solution is of great interest as it does not contain the same complicated magnetosonic interaction and solely depends on the nature of the magnetic field. The density irregularities only provide the wave's momentum. The restoring force is entirely generated by the tension in the magnetic field.\\
+The only root of the firs factor in \cref{eq:dispersion} is $ \omega^2 = k_x^2 b^2 $. This solution is of great interest as it does not contain the same complicated magnetosonic interaction and solely depends on the nature of the magnetic field. The density irregularities only provide the wave's momentum. The restoring force is entirely generated by the tension in the magnetic field.\\
 \\
 The wave corresponding to $\omega_A^2 = k_x^2 b^2$ is called the \textit{Alfvén} wave. Notice that its direction corresponds to that of the magnetic field, where $\omega_A = k_x b$ lies in the same direction and $-\omega_A$ in the opposite direction. It should be noted that this solution is non-relativistic. As the magnetic field becomes stronger in comparison to the density the Alfén wave becomes a regular electromagnetic wave.\\
 \\
@@ -386,7 +386,7 @@ Now, the first roots we had - the magnetosonic waves - are combinations of Alvé
 
 \subsection*{Magnetohydrodynamic shocks}
 
-To derive the Rankine–Hugoniot conditions for MHD shocks, one simply uses \autoref{eq:ideal-MHD} as it is already in its Eulerian form and preforms the same calculations as for the Rankine–Hugoniot conditions for HD shocks. This yields
+To derive the Rankine–Hugoniot conditions for MHD shocks, one simply uses \cref{eq:ideal-MHD} as it is already in its Eulerian form and preforms the same calculations as for the Rankine–Hugoniot conditions for HD shocks. This yields
 
 \begin{equation}
 \label{eq:MHD-shock-conditions}

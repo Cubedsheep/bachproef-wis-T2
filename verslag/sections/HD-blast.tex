@@ -17,13 +17,13 @@ The Pluto simulation used $996$ steps.
 	\label{fig:HD-blast-short}
 \end{figure}
 
-In \autoref{fig:HD-blast-short} the pressureprofile of both scenarios is plot for the initial condition and two frames right after the start of the simulation.
-In \autoref{fig:HD-blast-long} the profile is plotted for later times.
+In \cref{fig:HD-blast-short} the pressureprofile of both scenarios is plot for the initial condition and two frames right after the start of the simulation.
+In \cref{fig:HD-blast-long} the profile is plotted for later times.
 Its imedeatly clear that the shock wave with the higher pressure difference travels faster then the other one, but the general shape of the wave is the same.
 
 
 
-In \autoref{fig:speed-time-hd} the speed of the wave front along the positive $x$-axis is plotted as a function of time, and this confirms that the wave speed is lower with a lower pressure difference.
+In \cref{fig:speed-time-hd} the speed of the wave front along the positive $x$-axis is plotted as a function of time, and this confirms that the wave speed is lower with a lower pressure difference.
 The group speed was calculated in two ways. The first was to start at a point at the edge of the domain and find the first point on the line from this point to the center with a pressure higher than $1.01$ times the background pressure.
 This gives a relation $x(t)$ for the position of the wave-front along this line.
 The speed was calculated using numerical differentiation with the following central difference:
@@ -43,7 +43,7 @@ The slight deviations from this lines are because PLUTO does not use fixed time 
 	%\hspace{-1cm}
 	\centering
 	\includegraphics[width=\linewidth]{images/HD-blast-prs-2.pdf}
-	\caption{Pressure profile for a blastwave in an ideal fluid at larger timescales. Initial conditions for each row are the same as in \autoref{fig:HD-blast-short}.}
+	\caption{Pressure profile for a blastwave in an ideal fluid at larger timescales. Initial conditions for each row are the same as in \cref{fig:HD-blast-short}.}
 	\label{fig:HD-blast-long}
 \end{figure}
 
@@ -58,9 +58,13 @@ We remark that approximating the shock as a Riemann problem is a crude first-ord
 The PLUTO code calculates flow velocities like this in every integration step. 
 This small example highlights the importance of robust integrators and Riemann solvers, together with small enought time steps, to acuratly model flow variables in the vicinity of large gradients.
 
-Finally \autoref{fig:speed-angle-hd} shows that the wave is isotropic. 
-The speed of the wavefront along lines making an angle $\theta$ with the $x$-axis through the origin was calculated.
-The slight variations in speed are again artifacts of the space discretization.
+\begin{figure}[H]
+	%\hspace{-1cm}
+	\centering
+	\includegraphics[width=\linewidth]{images/speed-time-hd.pdf}
+	\caption{the speed of the wave as a function of time, along the $x$-axis. The dots represent the speed calculated from the simulation data by deriving the function $x(t)$ that represents the position of the wave front. The lines represent the theoretical shock speed in a Riemann-problem with as high pressure the highest pressure in the domain, and low pressure $1$.}
+	\label{fig:speed-time-hd}
+\end{figure}
 
 \begin{figure}[H]
 	%\hspace{-1cm}
@@ -70,12 +74,6 @@ The slight variations in speed are again artifacts of the space discretization.
 	\label{fig:speed-angle-hd}
 \end{figure}
 
-\begin{figure}[H]
-	%\hspace{-1cm}
-	\centering
-	\includegraphics[width=\linewidth]{images/speed-time-hd.pdf}
-	\caption{the speed of the wave as a function of time, along the $x$-axis. The dots represent the speed calculated from the simulation data by deriving the function $x(t)$ that represents the position of the wave front. The lines represent the theoretical shock speed in a Riemann-problem with as high pressure the highest pressure in the domain, and low pressure $1$.}
-	\label{fig:speed-time-hd}
-\end{figure}
-
-\newpage
+Finally \cref{fig:speed-angle-hd} shows that the wave is isotropic. 
+The speed of the wavefront aling lines making an angle $\theta$ with the $x$-axis through the origin was calculated. 
+The slight variations in speed are again artifacts of the space discretization.
