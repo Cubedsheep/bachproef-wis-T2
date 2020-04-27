@@ -35,7 +35,7 @@ where $f(x,y,z,t)$ is a function that describes a property of the fluid. The equ
 	\label{eq:ideal-HD-euler}
 \begin{split}
 	\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vec{v}) &= 0\\
-	\frac{\partial}{\partial t} (\rho \vec{v}) &= \nabla \cdot (-p - \rho \vec{v}\vec{v}) + \vec{F}\\
+	\frac{\partial}{\partial t} (\rho \vec{v}) &= \nabla \cdot (-p \I - \rho \vec{v}\vec{v}) + \vec{F}\\
 \frac{\partial}{\partial t} \left( \rho \left( \frac{v^2}{2} + \mathcal{U} \right)  \right)  &= \vec{F} \cdot \vec{v} - \nabla \cdot \left( \rho \left( \frac{v^2}{2}+\mathcal{U}\right)\vec{v} + p\vec{v})  \right) 
 \end{split}
 \end{equation}}}
@@ -50,7 +50,7 @@ carrying out these substitutions leads to the equations in section 6 in the PLUT
 	\label{eq:ideal-fluid-pluto}
 \begin{split}
 	\frac{\partial \rho}{\partial t} + \nabla \cdot \vec{m} &= 0\\
-	\frac{\partial \vec{m}}{\partial t} + \nabla \cdot \left( \vec{m}\vec{v} + p \right) &= -\rho\nabla\Phi + \rho \vec{g}\\
+	\frac{\partial \vec{m}}{\partial t} + \nabla \cdot \left( \vec{m}\vec{v} + p \I \right) &= -\rho\nabla\Phi + \rho \vec{g}\\
 	\frac{\partial}{\partial t} \left( E_t+\rho\Phi \right)  + \nabla \cdot \left( \left( E_t + p + \rho\Phi \right) \vec{v} \right) &= \vec{m}\cdot\vec{g}
 \end{split}
 \end{equation}}}
@@ -134,7 +134,7 @@ $$ \frac{\Delta \rho}{\Delta t} + \frac{\Delta(\rho v)}{\Delta x} = 0 \ . $$
 
 If this were the perfectly continuous case we would now let $\Delta x, \Delta t \to 0$, resulting in \cref{eq:continuity-Euler}. However, we might also say that the transition is not smooth and that for $\Delta x, \Delta t \to 0$ the jump remains: $ \Delta \rho, \Delta \rho v \to \Delta \rho, \Delta \rho v $. Rewrite the equations to see what this means:
 
-$$ \frac{\Delta x}{\Delta t} \Delta \rho + \Delta(\rho v) . $$
+$$ \frac{\Delta x}{\Delta t} \Delta \rho + \Delta(\rho v) = 0 \ . $$
 
 Then for $\Delta x, \Delta t \to 0$ we get 
 
