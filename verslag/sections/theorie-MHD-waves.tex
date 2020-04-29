@@ -191,44 +191,7 @@ V_S \Delta \vec{B} &= \vec{n} \cdot \Delta \big( \vec{v} \vec{B} - \vec{B} \vec{
 \end{split}
 \end{equation}
 
-Now, for the purposes of this report we would like to write a shock condition in terms of pressure as this is the variable on which we shall be focusing in the simulation data results. 
-Consider a pressure discontinuity $\Delta p = p_1 - p_0$ for some constant background density $\rho$. 
-Notice that this implies a shock in the velocity field as well since we get from the ideal gas law that $ v^2 = \frac{\gamma p}{\rho} $.
 
-Use the momentum equations to obtain in the 1D case that
-
-\begin{equation}
-\label{eq:p-shock-1D}
-\begin{split}
-V_S = \frac{\Delta \rho v^2 + p}{\Delta \rho v} &=  \frac{\Delta(\gamma +1) p}{\Delta \sqrt{\gamma \rho p}} \\ &=
-\frac{(\gamma + 1)(p_1 - p_0)}{\sqrt{\gamma \rho}(\sqrt{p_1} - \sqrt{p_0})} \\ &=
-\frac{\gamma+1}{\sqrt{\gamma \rho}} (\sqrt{p_1} + \sqrt{p_0})
-\end{split}
-\end{equation}
-
-Lifting this to 3D contains a small subtlety. Without loss of generality we may say that the unit normal on the shock front is $\vec{n} = (1,0,0)$. From the 3D momentum equation we then get that 
-
-$$ V_S 
-\begin{pmatrix}
-\Delta \rho v_1 \\
-\Delta \rho v_2 \\
-\Delta \rho v_3
-\end{pmatrix} 
-= 
-\begin{pmatrix}
-\Delta \rho v^2_1 + p \\
-\Delta \rho v_1 v_2 \\
-\Delta \rho v_1 v_3
-\end{pmatrix} 
-$$
-
-Only the first components in this equation are of concern to us since the second and third will be $0$ due to our choice of $\vec{n}$. Now, one think this will yield the same equation as it the 1D case but in should be taken into account that $v_1 \neq v$. 
-In general, we cannot say what the precise relationship between $v_1$ and $\vec{v}$ is but look at the average case $v_1 = \frac{1}{\sqrt{3}} v$. This then gives us the pressure shock condition for 3D
-
-\begin{equation}
-\label{eq:p-shock-3D}
-V_S = \frac{1}{\sqrt{3}} \frac{\gamma+1}{\sqrt{\gamma \rho}} (\sqrt{p_1} + \sqrt{p_0})
-\end{equation}
 
 
 
