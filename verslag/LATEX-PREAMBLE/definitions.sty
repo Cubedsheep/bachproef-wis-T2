@@ -29,8 +29,8 @@
 \newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
 
 %% captions less wide than the text (credits to LaTeX god aka Rickroller Michaël Maex)
-%\let\oldcap\caption
-%\renewcommand{\caption}[1]{\parbox{.9\linewidth}{\oldcap{#1}\addtocounter{figure}{-1}\refstepcounter{figure}}}
+\let\oldcap\caption
+\renewcommand{\caption}[1]{\parbox{.9\linewidth}{\oldcap{#1}}\addtocounter{figure}{-1}\refstepcounter{figure}}
 
 %% style for vectors
 \renewcommand{\vec}[1]{\mathbf{#1}}
