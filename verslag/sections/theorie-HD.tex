@@ -98,7 +98,7 @@ Acting with $ \frac{\partial}{\partial t}$ on the last equation and substituting
 \begin{equation*}
 	\frac{\partial^2 p_1}{\partial t^2} + \frac{\gamma p_0}{\rho_0} \nabla^2 p_1 = 0
 \end{equation*}
-which is the wave equation with 
+which is the wave equation with speed
 \begin{equation}
 v_s = \sqrt{ \frac{\gamma p_0}{\rho_0} }
 \label{eq:sound-speed}
@@ -162,7 +162,42 @@ V_S \Delta E_t &= \vec{n} \cdot \Delta \big (\rho \ (e + \frac{v^2}{2} + \frac{p
 \end{equation}
 
 
+Now, for the purposes of this report we would like to write a shock condition in terms of the shock speed as a function of the initial conditions $p_0, \rho_0, v_0$ and the final pressure $p_1$ as pressure is the variable on which we shall be focusing in the simulation data results. Consider a pressure discontinuity $\Delta p = p_1 - p_0$. Use the 1D mass and momentum equations to obtain that
 
+\begin{equation}
+\label{eq:Riemann-problem}
+\begin{split}
+V_S^2 = \frac{\Delta \rho v^2 + p}{\Delta \rho}   
+\end{split}
+\end{equation}
+
+Assume that $v_0 = 0$. This assumption may not seem entirely reasonable, but is very helpful in simplifying the problem and will be correct for most of our purposes. Furthermore, we shall see that it can be easily removed when we wish. Combining \cref{eq:Riemann-problem} with the shock conditions derived from the Energy equation, this then results in 
+
+\begin{equation}
+\label{eq:Riemann-solution}
+\begin{split}
+V_S^2 = v_s^2 + \frac{\gamma + 1}{2 \rho_0} \Delta p
+\end{split}
+\end{equation}
+
+where $v_s = \sqrt{\frac{\gamma p_0}{\rho}}$ is the speed of sound under the initial conditions. Notice that for $\Delta p = 0$ this expression gives $V_S = v_s$ as we should expect.\\
+\\
+In case we cannot assume $v_0 = 0$ (and do not wish to view the problem from a moving reference frame) the expression changes only slightly.
+
+\begin{equation}
+\label{eq:Riemann-solution2}
+\begin{split}
+(V_S - v_0)^2 &= v_s^2 + \frac{\gamma + 1}{2 \rho_0} \Delta p \\
+V_S &= v_0 + \sqrt{v_s^2 + \frac{\gamma + 1}{2 \rho_0} \Delta p}
+\end{split}
+\end{equation}
+
+Of course, for the 3D case, one simply writes
+
+\begin{equation}
+\label{eq:Riemann-solution-3D}
+V_S = \vec{n} \cdot \vec{v_0} + \sqrt{v_s^2 + \frac{\gamma + 1}{2 \rho_0} \Delta p}
+\end{equation}
 
 
 
