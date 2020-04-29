@@ -52,7 +52,7 @@ In \cref{fig:hole-initial} and \cref{fig:plume-initial} the value of some impota
 	\caption{Parameter values taken from \cite{coronal-hole}. The values used for the initial condition of the coronal hole and coronal plume models.}
 	\label{tab:parameters-hole}
 \end{table}
-For the nonlinear wave driver the velocity along $x$ was perturbed at the left boundary. 
+For the nonlinear wave driver the velocity along $x$ was perturbed at the left boundaryi. 
 To smoothly transition from $0$ to a certain max velocity $v_m$, stay at this velocity for some time and smoothly go back to $0$ a combination of two hyperbolic tangents is used in the following formula:
 \begin{equation}
 	v_x(t) = v_m \tanh \left( \frac{t}{s_1} \right) - \frac{v_m}{2} \left( \tanh \left( \frac{t-T_0}{s_2} \right) +1 \right) 
@@ -86,16 +86,71 @@ Adapted from \cite{coronal-hole}}
 	\label{fig:plume-initial}
 \end{figure}
 
+In \cref{fig:hole-frames} a couple of density profiles of the simulation are plotted.
+
+\begin{itemize}
+	\item coronal hole
+		\begin{itemize}
+	\item discuss wave transmission through hole (fast) and form of transmisson (initial shockfront, highers density, drops back down)
+	\item discuss shift in position
+	\item discuss rarefraction wave and diffracted waves
+	\end{itemize}
+	\item coronal plume
+		\begin{itemize}
+			\item reflected wave
+			\item transmitted wave (slower) and reflection inside plume + secondary transmitted waves
+			\item caustic focussing effects (high density -> energy -> observations?)
+			\item shift/deforming of structure
+			\item deformation of wave
+		\end{itemize}
+\end{itemize}
+General: add more background on how the simulations were done and how the data was condensed into plots.
+e.g. multiple attempts with different parameters, making animations to spot patterns and general behaviour, rerunning with higher detail... (for example: more frames required to capture fast wave inside hole)
+
+
 \begin{figure}[H]
 	%\hspace{-1cm}
 	\centering
-	\includegraphics[width=\linewidth]{images/coronal-hole.pdf}
-	\caption{Interaction of shock wave with coronal hole plotted at different times.}
-	\label{fig:coronal-hole}
+	\includegraphics[width=\linewidth]{images/hole-frames.pdf}
+	\caption{Plots of the density profile of the \emph{coronal hole model} for different times. 
+	The plots in the first and third column cover de complete domain.
+	The plots in the second and last column are zooms on the plume. 
+	The domain covered is the white box in the plots to the left.
+ The density is measured in $10^{9}$ cm$^{-3}$.
+The white circle has the characteristic width $d$ as diameter. 
+In the second an third pair of plots, the density range for the right plot is taken a lot more narrow to highlight the wave transmitted through the coronal hole.}
+	\label{fig:hole-frames}
 \end{figure}
+
+\begin{figure}[H]
+	%\hspace{-1cm}
+	\centering
+	\includegraphics[width=\linewidth]{images/hole-sections.pdf}
+	\caption{Density profiles along a cut, parallel to the direction of propagation of the wave, through the center of the \emph{coronal hole} at different times. The vertical dashed lines show the position of the wavefront at the bottom edge of the simulation domain.}
+	\label{fig:hole-sections}
+\end{figure}
+
+
+\begin{figure}[H]
+	%\hspace{-1cm}
+	\centering
+	\includegraphics[width=\linewidth]{images/plume-frames.pdf}
+	\caption{Plots of density profiles for the \emph{coronal plume model}. Same conventions used as in \cref{fig:hole-frames}}
+	\label{fig:plume-frames}
+\end{figure}
+
+\begin{figure}[H]
+	%\hspace{-1cm}
+	\centering
+	\includegraphics[width=\linewidth]{images/plume-sections.pdf}
+	\caption{Density profiles along a cut through the center of the \emph{coronal plume} at different times, along the direction of propagation of the waves.
+	The vertical dashed lines show the position of the wave at the bottom edge of the simulation domain.}
+	\label{fig:plume-sections}
+\end{figure}
+
+
 
 The refraction and reflection of the wave around the coronal hole is clearly visible, the group speed inside the hole is slower than outside.
 
-\todo[inline]{add plots wit initial conditions and form of wave driver}
 \todo[inline]{add discussion of simulation results: refraction effects}
 \todo[inline]{add short discussion of coronal plume}

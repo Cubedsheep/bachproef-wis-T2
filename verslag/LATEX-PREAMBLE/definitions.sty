@@ -7,7 +7,7 @@
 \newcommand{\bgtan}{\mathrm{\,Bgtan\,}}
 \newcommand{\bgsin}{\mathrm{\,Bgsin\,}}
 \newcommand{\bgcos}{\mathrm{\,Bgcos\,}}
-\newcommand{\tanh}{\mathrm{\,tanh}}
+%\newcommand{\tanh}{\mathrm{\,tanh}}
 
 %% natural numbers, integers, rationals and reals
 \newcommand{\R}{\mathbb{R}}
@@ -30,7 +30,7 @@
 
 %% captions less wide than the text (credits to LaTeX god aka Rickroller Michaël Maex)
 %\let\oldcap\caption
-%\renewcommand{\caption}[1]{\parbox{.9\linewidth}{\oldcap{#1}}}
+%\renewcommand{\caption}[1]{\parbox{.9\linewidth}{\oldcap{#1}\addtocounter{figure}{-1}\refstepcounter{figure}}}
 
 %% style for vectors
 \renewcommand{\vec}[1]{\mathbf{#1}}
