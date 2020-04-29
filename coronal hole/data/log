@@ -1,0 +1,1112 @@
+
+   ___  __   __  ____________   
+  / _ \/ /  / / / /_  __/ __ \ 
+ / ___/ /__/ /_/ / / / / /_/ /  
+/_/  /____/\____/ /_/  \____/   
+=============================    v. 4.3  
+
+> System:
+
+  USER:             pieter
+  - Basic data type:
+    o sizeof (char)     = 1
+    o sizeof (uchar)    = 1
+    o sizeof (short)    = 2
+    o sizeof (ushort)   = 2
+    o sizeof (int)      = 4
+    o sizeof (long)     = 8
+    o sizeof (*int)     = 8
+    o sizeof (float)    = 4
+    o sizeof (double)   = 8
+    o sizeof (*double)  = 8
+
+  - Structure data type:
+    o sizeof (CMD_LINE)   = 60
+    o sizeof (Data)       = 272
+    o sizeof (Grid)       = 1048
+    o sizeof (FLOAT_VECT) = 12
+    o sizeof (IMAGE)      = 856
+    o sizeof (OUTPUT)     = 1768
+    o sizeof (RGB)        = 3
+    o sizeof (RUNTIME)    = 46944
+    o sizeof (RESTART)    = 128
+    o sizeof (TIME_STEP)  = 128
+    o sizeof (RBOX)       = 112
+    o sizeof (State)      = 128
+    o sizeof (Sweep)      = 512
+
+> Local time:       Tue Apr 28 20:39:48 2020
+
+> Cmd line args:    
+
+> Header configuration:
+
+  PHYSICS:          MHD [div.B: Divergence Cleaning (GLM)]
+  DIMENSIONS:       2
+  COMPONENTS:       3
+  GEOMETRY:         Cartesian
+  BODY_FORCE:       NO
+  RECONSTRUCTION:   Linear TVD (Primitive lim)
+  TRACERS:          0
+  VARIABLES:        9
+  ENTROPY_SWITCH:   NO
+  BACKGROUND_FIELD: NO
+  LOADED MODULES:
+
+  ROTATION:         NO
+  EOS:              Ideal
+  TIME STEPPING:    Runga-Kutta II
+  DIM. SPLITTING:   No
+
+> Runtime configuration (pluto.ini):
+
+  +----------------------------------------------------------
+  | [Grid]
+  | 
+  | X1-grid    1    -1000.0    50    u    1000.0
+  | X2-grid    1    -1000.0    50   u    1000.0
+  | X3-grid    1    0.0    1      u    1.0
+  | 
+  | [Chombo Refinement]
+  | 
+  | Levels           4
+  | Ref_ratio        2 2 2 2 2 
+  | Regrid_interval  2 2 2 2 
+  | Refine_thresh    0.3
+  | Tag_buffer_size  3
+  | Block_factor     8
+  | Max_grid_size    64
+  | Fill_ratio       0.75
+  | 
+  | [Time]
+  | 
+  | CFL              0.4
+  | CFL_max_var      1.1
+  | tstop            5000
+  | first_dt         1
+  | 
+  | [Solver]
+  | 
+  | Solver         hlld
+  | 
+  | [Boundary]
+  | 
+  | X1-beg        userdef
+  | X1-end        outflow
+  | X2-beg        periodic
+  | X2-end        periodic
+  | X3-beg        outflow
+  | X3-end        outflow
+  | 
+  | [Static Grid Output]
+  | 
+  | uservar    0
+  | output_dir ./data/hole-raw/
+  | dbl        25  -1   multiple_files
+  | flt       -1.0  -1   single_file
+  | vtk       -1.0  -1   single_file
+  | dbl.h5    -1.0  -1
+  | flt.h5    -1.0  -1
+  | tab       -1.0  -1   
+  | ppm       -1.0  -1   
+  | png       -1.0  -1
+  | log_dir    ./Log_Files
+  | log        1
+  | analysis  -1.0  -1
+  | 
+  | [Chombo HDF5 output]
+  | 
+  | Checkpoint_interval  -1.0  0
+  | Plot_interval         1.0  0 
+  | 
+  | [Particles]
+  | 
+  | Nparticles          -1     1
+  | particles_dbl        1.0  -1
+  | particles_flt       -1.0  -1
+  | particles_vtk       -1.0  -1
+  | particles_tab       -1.0  -1
+  | 
+  | [Parameters]
+  | 
+  +---------------------------------------------------------
+
+> Generating grid...
+
+  Global grid:
+  X1: [ -1000.0000, 1000.0000],     50 point(s), 2 ghosts
+  X2: [ -1000.0000, 1000.0000],     50 point(s), 2 ghosts
+
+  Local grid:
+  X1: [ -1000.0000, 1000.0000],     50 point(s); 2 ghosts; Active zones = [2, 51]
+  X2: [ -1000.0000, 1000.0000],     50 point(s); 2 ghosts; Active zones = [2, 51]
+
+> Memory allocation
+> Assigning initial conditions (Startup) ...
+> Normalization Units:
+
+  [Density]:      1.673e-15 (gr/cm^3), 1.000e+09 (1/cm^3)
+  [Pressure]:     1.673e+01 (dyne/cm^2)
+  [Velocity]:     1.000e+08 (cm/s)
+  [Length]:       1.000e+08 (cm)
+  [Temperature]:  1.203e+08 X (p/rho*mu) (K)
+  [Time]:         1.000e+00 (sec), 3.171e-08 (yrs) 
+  [Mag Field]:    1.450e+01 (Gauss)
+ 
+> Number of processors: 1
+> Proc size:            50 X 50
+> Writing file #0 (dbl) to disk...
+> Starting computation... 
+
+step:0; t = 0.0000e+00; dt = 1.0000e+00; 0.0 %
+        [Mach = 0.000335]
+step:1; t = 1.0000e+00; dt = 1.1000e+00; 0.0 %
+        [Mach = 0.006184]
+step:2; t = 2.1000e+00; dt = 1.2100e+00; 0.0 %
+        [Mach = 0.013020]
+step:3; t = 3.3100e+00; dt = 1.3310e+00; 0.1 %
+        [Mach = 0.020533]
+step:4; t = 4.6410e+00; dt = 1.4641e+00; 0.1 %
+        [Mach = 0.028731]
+step:5; t = 6.1051e+00; dt = 1.6105e+00; 0.1 %
+        [Mach = 0.037594]
+step:6; t = 7.7156e+00; dt = 1.7716e+00; 0.2 %
+        [Mach = 0.047065]
+step:7; t = 9.4872e+00; dt = 1.9487e+00; 0.2 %
+        [Mach = 0.057051]
+step:8; t = 1.1436e+01; dt = 2.1436e+00; 0.2 %
+        [Mach = 0.067411]
+step:9; t = 1.3579e+01; dt = 2.3579e+00; 0.3 %
+        [Mach = 0.077963]
+step:10; t = 1.5937e+01; dt = 2.5937e+00; 0.3 %
+         [Mach = 0.088497]
+step:11; t = 1.8531e+01; dt = 2.8531e+00; 0.4 %
+         [Mach = 0.098788]
+step:12; t = 2.1384e+01; dt = 3.1384e+00; 0.4 %
+         [Mach = 0.108625]
+step:13; t = 2.4523e+01; dt = 3.4523e+00; 0.5 %
+> Writing file #1 (dbl) to disk...
+         [Mach = 0.117833]
+step:14; t = 2.7975e+01; dt = 3.7975e+00; 0.6 %
+         [Mach = 0.126296]
+step:15; t = 3.1772e+01; dt = 4.1772e+00; 0.6 %
+         [Mach = 0.133966]
+step:16; t = 3.5950e+01; dt = 4.5950e+00; 0.7 %
+         [Mach = 0.140860]
+step:17; t = 4.0545e+01; dt = 5.0545e+00; 0.8 %
+         [Mach = 0.147048]
+step:18; t = 4.5599e+01; dt = 5.5599e+00; 0.9 %
+> Writing file #2 (dbl) to disk...
+         [Mach = 0.152626]
+step:19; t = 5.1159e+01; dt = 6.1159e+00; 1.0 %
+         [Mach = 0.157704]
+step:20; t = 5.7275e+01; dt = 6.7275e+00; 1.1 %
+         [Mach = 0.162377]
+step:21; t = 6.4002e+01; dt = 7.4002e+00; 1.3 %
+         [Mach = 0.166722]
+step:22; t = 7.1403e+01; dt = 8.1403e+00; 1.4 %
+> Writing file #3 (dbl) to disk...
+         [Mach = 0.170788]
+step:23; t = 7.9543e+01; dt = 8.9543e+00; 1.6 %
+         [Mach = 0.174597]
+step:24; t = 8.8497e+01; dt = 9.8497e+00; 1.8 %
+         [Mach = 0.178150]
+step:25; t = 9.8347e+01; dt = 1.0835e+01; 2.0 %
+> Writing file #4 (dbl) to disk...
+         [Mach = 0.181426]
+step:26; t = 1.0918e+02; dt = 1.1918e+01; 2.2 %
+         [Mach = 0.184397]
+step:27; t = 1.2110e+02; dt = 1.3110e+01; 2.4 %
+> Writing file #5 (dbl) to disk...
+         [Mach = 0.187027]
+step:28; t = 1.3421e+02; dt = 1.4226e+01; 2.7 %
+         [Mach = 0.189239]
+step:29; t = 1.4844e+02; dt = 1.4230e+01; 3.0 %
+> Writing file #6 (dbl) to disk...
+         [Mach = 0.190853]
+step:30; t = 1.6267e+02; dt = 1.4230e+01; 3.3 %
+> Writing file #7 (dbl) to disk...
+         [Mach = 0.192011]
+step:31; t = 1.7690e+02; dt = 1.4231e+01; 3.5 %
+         [Mach = 0.192786]
+step:32; t = 1.9113e+02; dt = 1.4239e+01; 3.8 %
+> Writing file #8 (dbl) to disk...
+         [Mach = 0.193240]
+step:33; t = 2.0537e+02; dt = 1.4252e+01; 4.1 %
+         [Mach = 0.193424]
+step:34; t = 2.1962e+02; dt = 1.4261e+01; 4.4 %
+> Writing file #9 (dbl) to disk...
+         [Mach = 0.193389]
+step:35; t = 2.3388e+02; dt = 1.4268e+01; 4.7 %
+         [Mach = 0.193296]
+step:36; t = 2.4815e+02; dt = 1.4274e+01; 5.0 %
+> Writing file #10 (dbl) to disk...
+         [Mach = 0.193116]
+step:37; t = 2.6242e+02; dt = 1.4276e+01; 5.2 %
+> Writing file #11 (dbl) to disk...
+         [Mach = 0.192805]
+step:38; t = 2.7670e+02; dt = 1.4276e+01; 5.5 %
+         [Mach = 0.192406]
+step:39; t = 2.9097e+02; dt = 1.4273e+01; 5.8 %
+> Writing file #12 (dbl) to disk...
+         [Mach = 0.191958]
+step:40; t = 3.0525e+02; dt = 1.4270e+01; 6.1 %
+         [Mach = 0.191487]
+step:41; t = 3.1952e+02; dt = 1.4267e+01; 6.4 %
+> Writing file #13 (dbl) to disk...
+         [Mach = 0.191021]
+step:42; t = 3.3378e+02; dt = 1.4266e+01; 6.7 %
+         [Mach = 0.190593]
+step:43; t = 3.4805e+02; dt = 1.4266e+01; 7.0 %
+> Writing file #14 (dbl) to disk...
+         [Mach = 0.190499]
+step:44; t = 3.6231e+02; dt = 1.4266e+01; 7.2 %
+> Writing file #15 (dbl) to disk...
+         [Mach = 0.191101]
+step:45; t = 3.7658e+02; dt = 1.4267e+01; 7.5 %
+         [Mach = 0.191692]
+step:46; t = 3.9085e+02; dt = 1.4267e+01; 7.8 %
+> Writing file #16 (dbl) to disk...
+         [Mach = 0.192242]
+step:47; t = 4.0512e+02; dt = 1.4268e+01; 8.1 %
+         [Mach = 0.192734]
+step:48; t = 4.1938e+02; dt = 1.4271e+01; 8.4 %
+> Writing file #17 (dbl) to disk...
+         [Mach = 0.193146]
+step:49; t = 4.3365e+02; dt = 1.4275e+01; 8.7 %
+         [Mach = 0.193448]
+step:50; t = 4.4793e+02; dt = 1.4279e+01; 9.0 %
+> Writing file #18 (dbl) to disk...
+         [Mach = 0.193415]
+step:51; t = 4.6221e+02; dt = 1.4282e+01; 9.2 %
+> Writing file #19 (dbl) to disk...
+         [Mach = 0.193071]
+step:52; t = 4.7649e+02; dt = 1.4284e+01; 9.5 %
+         [Mach = 0.192327]
+step:53; t = 4.9077e+02; dt = 1.4284e+01; 9.8 %
+> Writing file #20 (dbl) to disk...
+         [Mach = 0.191173]
+step:54; t = 5.0506e+02; dt = 1.4281e+01; 10.1 %
+         [Mach = 0.189259]
+step:55; t = 5.1934e+02; dt = 1.4279e+01; 10.4 %
+> Writing file #21 (dbl) to disk...
+         [Mach = 0.186212]
+step:56; t = 5.3362e+02; dt = 1.4277e+01; 10.7 %
+         [Mach = 0.181553]
+step:57; t = 5.4789e+02; dt = 1.4277e+01; 11.0 %
+> Writing file #22 (dbl) to disk...
+         [Mach = 0.174708]
+step:58; t = 5.6217e+02; dt = 1.4277e+01; 11.2 %
+> Writing file #23 (dbl) to disk...
+         [Mach = 0.165127]
+step:59; t = 5.7645e+02; dt = 1.4278e+01; 11.5 %
+         [Mach = 0.154555]
+step:60; t = 5.9073e+02; dt = 1.4278e+01; 11.8 %
+> Writing file #24 (dbl) to disk...
+         [Mach = 0.153805]
+step:61; t = 6.0500e+02; dt = 1.4278e+01; 12.1 %
+         [Mach = 0.152672]
+step:62; t = 6.1928e+02; dt = 1.4279e+01; 12.4 %
+> Writing file #25 (dbl) to disk...
+         [Mach = 0.151861]
+step:63; t = 6.3356e+02; dt = 1.4281e+01; 12.7 %
+         [Mach = 0.152129]
+step:64; t = 6.4784e+02; dt = 1.4284e+01; 13.0 %
+> Writing file #26 (dbl) to disk...
+         [Mach = 0.152554]
+step:65; t = 6.6213e+02; dt = 1.4286e+01; 13.2 %
+> Writing file #27 (dbl) to disk...
+         [Mach = 0.153352]
+step:66; t = 6.7641e+02; dt = 1.4288e+01; 13.5 %
+         [Mach = 0.153961]
+step:67; t = 6.9070e+02; dt = 1.4289e+01; 13.8 %
+> Writing file #28 (dbl) to disk...
+         [Mach = 0.154328]
+step:68; t = 7.0499e+02; dt = 1.4288e+01; 14.1 %
+         [Mach = 0.154413]
+step:69; t = 7.1928e+02; dt = 1.4285e+01; 14.4 %
+> Writing file #29 (dbl) to disk...
+         [Mach = 0.154263]
+step:70; t = 7.3356e+02; dt = 1.4283e+01; 14.7 %
+         [Mach = 0.154044]
+step:71; t = 7.4785e+02; dt = 1.4282e+01; 15.0 %
+> Writing file #30 (dbl) to disk...
+         [Mach = 0.153620]
+step:72; t = 7.6213e+02; dt = 1.4282e+01; 15.2 %
+> Writing file #31 (dbl) to disk...
+         [Mach = 0.152929]
+step:73; t = 7.7641e+02; dt = 1.4282e+01; 15.5 %
+         [Mach = 0.152293]
+step:74; t = 7.9069e+02; dt = 1.4282e+01; 15.8 %
+> Writing file #32 (dbl) to disk...
+         [Mach = 0.151631]
+step:75; t = 8.0497e+02; dt = 1.4283e+01; 16.1 %
+         [Mach = 0.150631]
+step:76; t = 8.1926e+02; dt = 1.4283e+01; 16.4 %
+> Writing file #33 (dbl) to disk...
+         [Mach = 0.149133]
+step:77; t = 8.3354e+02; dt = 1.4283e+01; 16.7 %
+         [Mach = 0.148722]
+step:78; t = 8.4782e+02; dt = 1.4284e+01; 17.0 %
+> Writing file #34 (dbl) to disk...
+         [Mach = 0.148686]
+step:79; t = 8.6211e+02; dt = 1.4286e+01; 17.2 %
+> Writing file #35 (dbl) to disk...
+         [Mach = 0.148621]
+step:80; t = 8.7639e+02; dt = 1.4287e+01; 17.5 %
+         [Mach = 0.148811]
+step:81; t = 8.9068e+02; dt = 1.4289e+01; 17.8 %
+> Writing file #36 (dbl) to disk...
+         [Mach = 0.149167]
+step:82; t = 9.0497e+02; dt = 1.4289e+01; 18.1 %
+         [Mach = 0.149273]
+step:83; t = 9.1926e+02; dt = 1.4288e+01; 18.4 %
+> Writing file #37 (dbl) to disk...
+         [Mach = 0.149147]
+step:84; t = 9.3355e+02; dt = 1.4286e+01; 18.7 %
+         [Mach = 0.148993]
+step:85; t = 9.4783e+02; dt = 1.4284e+01; 19.0 %
+> Writing file #38 (dbl) to disk...
+         [Mach = 0.148682]
+step:86; t = 9.6212e+02; dt = 1.4283e+01; 19.2 %
+> Writing file #39 (dbl) to disk...
+         [Mach = 0.148170]
+step:87; t = 9.7640e+02; dt = 1.4283e+01; 19.5 %
+         [Mach = 0.147932]
+step:88; t = 9.9068e+02; dt = 1.4283e+01; 19.8 %
+> Writing file #40 (dbl) to disk...
+         [Mach = 0.147491]
+step:89; t = 1.0050e+03; dt = 1.4283e+01; 20.1 %
+         [Mach = 0.146787]
+step:90; t = 1.0192e+03; dt = 1.4283e+01; 20.4 %
+> Writing file #41 (dbl) to disk...
+         [Mach = 0.145688]
+step:91; t = 1.0335e+03; dt = 1.4283e+01; 20.7 %
+         [Mach = 0.145066]
+step:92; t = 1.0478e+03; dt = 1.4283e+01; 21.0 %
+> Writing file #42 (dbl) to disk...
+         [Mach = 0.144966]
+step:93; t = 1.0621e+03; dt = 1.4284e+01; 21.2 %
+> Writing file #43 (dbl) to disk...
+         [Mach = 0.144865]
+step:94; t = 1.0764e+03; dt = 1.4284e+01; 21.5 %
+         [Mach = 0.144766]
+step:95; t = 1.0907e+03; dt = 1.4285e+01; 21.8 %
+> Writing file #44 (dbl) to disk...
+         [Mach = 0.144482]
+step:96; t = 1.1050e+03; dt = 1.4286e+01; 22.1 %
+         [Mach = 0.144486]
+step:97; t = 1.1192e+03; dt = 1.4287e+01; 22.4 %
+> Writing file #45 (dbl) to disk...
+         [Mach = 0.144493]
+step:98; t = 1.1335e+03; dt = 1.4287e+01; 22.7 %
+         [Mach = 0.144404]
+step:99; t = 1.1478e+03; dt = 1.4286e+01; 23.0 %
+> Writing file #46 (dbl) to disk...
+         [Mach = 0.144263]
+step:100; t = 1.1621e+03; dt = 1.4285e+01; 23.2 %
+> Writing file #47 (dbl) to disk...
+          [Mach = 0.143994]
+step:101; t = 1.1764e+03; dt = 1.4284e+01; 23.5 %
+          [Mach = 0.143807]
+step:102; t = 1.1907e+03; dt = 1.4283e+01; 23.8 %
+> Writing file #48 (dbl) to disk...
+          [Mach = 0.143609]
+step:103; t = 1.2049e+03; dt = 1.4283e+01; 24.1 %
+          [Mach = 0.143239]
+step:104; t = 1.2192e+03; dt = 1.4283e+01; 24.4 %
+> Writing file #49 (dbl) to disk...
+          [Mach = 0.142634]
+step:105; t = 1.2335e+03; dt = 1.4283e+01; 24.7 %
+          [Mach = 0.141929]
+step:106; t = 1.2478e+03; dt = 1.4283e+01; 25.0 %
+> Writing file #50 (dbl) to disk...
+          [Mach = 0.141908]
+step:107; t = 1.2621e+03; dt = 1.4283e+01; 25.2 %
+> Writing file #51 (dbl) to disk...
+          [Mach = 0.141844]
+step:108; t = 1.2764e+03; dt = 1.4283e+01; 25.5 %
+          [Mach = 0.141796]
+step:109; t = 1.2906e+03; dt = 1.4284e+01; 25.8 %
+> Writing file #52 (dbl) to disk...
+          [Mach = 0.141704]
+step:110; t = 1.3049e+03; dt = 1.4284e+01; 26.1 %
+          [Mach = 0.141447]
+step:111; t = 1.3192e+03; dt = 1.4285e+01; 26.4 %
+> Writing file #53 (dbl) to disk...
+          [Mach = 0.141449]
+step:112; t = 1.3335e+03; dt = 1.4286e+01; 26.7 %
+          [Mach = 0.141437]
+step:113; t = 1.3478e+03; dt = 1.4287e+01; 27.0 %
+> Writing file #54 (dbl) to disk...
+          [Mach = 0.141360]
+step:114; t = 1.3621e+03; dt = 1.4287e+01; 27.2 %
+> Writing file #55 (dbl) to disk...
+          [Mach = 0.141220]
+step:115; t = 1.3764e+03; dt = 1.4287e+01; 27.5 %
+          [Mach = 0.140954]
+step:116; t = 1.3906e+03; dt = 1.4285e+01; 27.8 %
+> Writing file #56 (dbl) to disk...
+          [Mach = 0.140664]
+step:117; t = 1.4049e+03; dt = 1.4284e+01; 28.1 %
+          [Mach = 0.140452]
+step:118; t = 1.4192e+03; dt = 1.4284e+01; 28.4 %
+> Writing file #57 (dbl) to disk...
+          [Mach = 0.140093]
+step:119; t = 1.4335e+03; dt = 1.4283e+01; 28.7 %
+          [Mach = 0.139505]
+step:120; t = 1.4478e+03; dt = 1.4283e+01; 29.0 %
+> Writing file #58 (dbl) to disk...
+          [Mach = 0.138620]
+step:121; t = 1.4621e+03; dt = 1.4283e+01; 29.2 %
+> Writing file #59 (dbl) to disk...
+          [Mach = 0.138600]
+step:122; t = 1.4764e+03; dt = 1.4283e+01; 29.5 %
+          [Mach = 0.138482]
+step:123; t = 1.4906e+03; dt = 1.4284e+01; 29.8 %
+> Writing file #60 (dbl) to disk...
+          [Mach = 0.138262]
+step:124; t = 1.5049e+03; dt = 1.4283e+01; 30.1 %
+          [Mach = 0.138169]
+step:125; t = 1.5192e+03; dt = 1.4284e+01; 30.4 %
+> Writing file #61 (dbl) to disk...
+          [Mach = 0.137943]
+step:126; t = 1.5335e+03; dt = 1.4284e+01; 30.7 %
+          [Mach = 0.137546]
+step:127; t = 1.5478e+03; dt = 1.4285e+01; 31.0 %
+> Writing file #62 (dbl) to disk...
+          [Mach = 0.137316]
+step:128; t = 1.5621e+03; dt = 1.4286e+01; 31.2 %
+> Writing file #63 (dbl) to disk...
+          [Mach = 0.137257]
+step:129; t = 1.5763e+03; dt = 1.4286e+01; 31.5 %
+          [Mach = 0.137165]
+step:130; t = 1.5906e+03; dt = 1.4287e+01; 31.8 %
+> Writing file #64 (dbl) to disk...
+          [Mach = 0.136965]
+step:131; t = 1.6049e+03; dt = 1.4287e+01; 32.1 %
+          [Mach = 0.136725]
+step:132; t = 1.6192e+03; dt = 1.4286e+01; 32.4 %
+> Writing file #65 (dbl) to disk...
+          [Mach = 0.136573]
+step:133; t = 1.6335e+03; dt = 1.4285e+01; 32.7 %
+          [Mach = 0.136286]
+step:134; t = 1.6478e+03; dt = 1.4284e+01; 33.0 %
+> Writing file #66 (dbl) to disk...
+          [Mach = 0.135813]
+step:135; t = 1.6621e+03; dt = 1.4284e+01; 33.2 %
+> Writing file #67 (dbl) to disk...
+          [Mach = 0.135070]
+step:136; t = 1.6763e+03; dt = 1.4283e+01; 33.5 %
+          [Mach = 0.134974]
+step:137; t = 1.6906e+03; dt = 1.4283e+01; 33.8 %
+> Writing file #68 (dbl) to disk...
+          [Mach = 0.134885]
+step:138; t = 1.7049e+03; dt = 1.4283e+01; 34.1 %
+          [Mach = 0.134686]
+step:139; t = 1.7192e+03; dt = 1.4283e+01; 34.4 %
+> Writing file #69 (dbl) to disk...
+          [Mach = 0.134624]
+step:140; t = 1.7335e+03; dt = 1.4283e+01; 34.7 %
+          [Mach = 0.134445]
+step:141; t = 1.7478e+03; dt = 1.4283e+01; 35.0 %
+> Writing file #70 (dbl) to disk...
+          [Mach = 0.134119]
+step:142; t = 1.7620e+03; dt = 1.4284e+01; 35.2 %
+> Writing file #71 (dbl) to disk...
+          [Mach = 0.133823]
+step:143; t = 1.7763e+03; dt = 1.4284e+01; 35.5 %
+          [Mach = 0.133745]
+step:144; t = 1.7906e+03; dt = 1.4285e+01; 35.8 %
+> Writing file #72 (dbl) to disk...
+          [Mach = 0.133679]
+step:145; t = 1.8049e+03; dt = 1.4286e+01; 36.1 %
+          [Mach = 0.133525]
+step:146; t = 1.8192e+03; dt = 1.4286e+01; 36.4 %
+> Writing file #73 (dbl) to disk...
+          [Mach = 0.133395]
+step:147; t = 1.8335e+03; dt = 1.4287e+01; 36.7 %
+          [Mach = 0.133280]
+step:148; t = 1.8478e+03; dt = 1.4286e+01; 37.0 %
+> Writing file #74 (dbl) to disk...
+          [Mach = 0.133046]
+step:149; t = 1.8620e+03; dt = 1.4286e+01; 37.2 %
+> Writing file #75 (dbl) to disk...
+          [Mach = 0.132664]
+step:150; t = 1.8763e+03; dt = 1.4285e+01; 37.5 %
+          [Mach = 0.132053]
+step:151; t = 1.8906e+03; dt = 1.4284e+01; 37.8 %
+> Writing file #76 (dbl) to disk...
+          [Mach = 0.132013]
+step:152; t = 1.9049e+03; dt = 1.4284e+01; 38.1 %
+          [Mach = 0.131954]
+step:153; t = 1.9192e+03; dt = 1.4284e+01; 38.4 %
+> Writing file #77 (dbl) to disk...
+          [Mach = 0.131798]
+step:154; t = 1.9335e+03; dt = 1.4284e+01; 38.7 %
+          [Mach = 0.131758]
+step:155; t = 1.9477e+03; dt = 1.4283e+01; 39.0 %
+> Writing file #78 (dbl) to disk...
+          [Mach = 0.131619]
+step:156; t = 1.9620e+03; dt = 1.4283e+01; 39.2 %
+> Writing file #79 (dbl) to disk...
+          [Mach = 0.131350]
+step:157; t = 1.9763e+03; dt = 1.4283e+01; 39.5 %
+          [Mach = 0.130997]
+step:158; t = 1.9906e+03; dt = 1.4284e+01; 39.8 %
+> Writing file #80 (dbl) to disk...
+          [Mach = 0.130955]
+step:159; t = 2.0049e+03; dt = 1.4284e+01; 40.1 %
+          [Mach = 0.130928]
+step:160; t = 2.0192e+03; dt = 1.4285e+01; 40.4 %
+> Writing file #81 (dbl) to disk...
+          [Mach = 0.130822]
+step:161; t = 2.0334e+03; dt = 1.4285e+01; 40.7 %
+          [Mach = 0.130696]
+step:162; t = 2.0477e+03; dt = 1.4286e+01; 41.0 %
+> Writing file #82 (dbl) to disk...
+          [Mach = 0.130625]
+step:163; t = 2.0620e+03; dt = 1.4286e+01; 41.2 %
+> Writing file #83 (dbl) to disk...
+          [Mach = 0.130449]
+step:164; t = 2.0763e+03; dt = 1.4285e+01; 41.5 %
+          [Mach = 0.130139]
+step:165; t = 2.0906e+03; dt = 1.4285e+01; 41.8 %
+> Writing file #84 (dbl) to disk...
+          [Mach = 0.129822]
+step:166; t = 2.1049e+03; dt = 1.4285e+01; 42.1 %
+          [Mach = 0.129808]
+step:167; t = 2.1192e+03; dt = 1.4284e+01; 42.4 %
+> Writing file #85 (dbl) to disk...
+          [Mach = 0.129782]
+step:168; t = 2.1334e+03; dt = 1.4284e+01; 42.7 %
+          [Mach = 0.129751]
+step:169; t = 2.1477e+03; dt = 1.4282e+01; 43.0 %
+> Writing file #86 (dbl) to disk...
+          [Mach = 0.129716]
+step:170; t = 2.1620e+03; dt = 1.4280e+01; 43.2 %
+> Writing file #87 (dbl) to disk...
+          [Mach = 0.129614]
+step:171; t = 2.1763e+03; dt = 1.4278e+01; 43.5 %
+          [Mach = 0.129465]
+step:172; t = 2.1906e+03; dt = 1.4274e+01; 43.8 %
+> Writing file #88 (dbl) to disk...
+          [Mach = 0.129551]
+step:173; t = 2.2048e+03; dt = 1.4268e+01; 44.1 %
+          [Mach = 0.129491]
+step:174; t = 2.2191e+03; dt = 1.4260e+01; 44.4 %
+> Writing file #89 (dbl) to disk...
+          [Mach = 0.129467]
+step:175; t = 2.2334e+03; dt = 1.4252e+01; 44.7 %
+          [Mach = 0.129376]
+step:176; t = 2.2476e+03; dt = 1.4242e+01; 45.0 %
+> Writing file #90 (dbl) to disk...
+          [Mach = 0.129316]
+step:177; t = 2.2619e+03; dt = 1.4232e+01; 45.2 %
+> Writing file #91 (dbl) to disk...
+          [Mach = 0.129251]
+step:178; t = 2.2761e+03; dt = 1.4221e+01; 45.5 %
+          [Mach = 0.129092]
+step:179; t = 2.2903e+03; dt = 1.4208e+01; 45.8 %
+> Writing file #92 (dbl) to disk...
+          [Mach = 0.128813]
+step:180; t = 2.3045e+03; dt = 1.4189e+01; 46.1 %
+          [Mach = 0.128618]
+step:181; t = 2.3187e+03; dt = 1.4169e+01; 46.4 %
+> Writing file #93 (dbl) to disk...
+          [Mach = 0.128740]
+step:182; t = 2.3329e+03; dt = 1.4148e+01; 46.7 %
+          [Mach = 0.129432]
+step:183; t = 2.3470e+03; dt = 1.4125e+01; 46.9 %
+> Writing file #94 (dbl) to disk...
+          [Mach = 0.135733]
+step:184; t = 2.3612e+03; dt = 1.4103e+01; 47.2 %
+> Writing file #95 (dbl) to disk...
+          [Mach = 0.145240]
+step:185; t = 2.3753e+03; dt = 1.4080e+01; 47.5 %
+          [Mach = 0.154315]
+step:186; t = 2.3893e+03; dt = 1.4059e+01; 47.8 %
+> Writing file #96 (dbl) to disk...
+          [Mach = 0.162860]
+step:187; t = 2.4034e+03; dt = 1.4038e+01; 48.1 %
+          [Mach = 0.170964]
+step:188; t = 2.4174e+03; dt = 1.4018e+01; 48.3 %
+> Writing file #97 (dbl) to disk...
+          [Mach = 0.178431]
+step:189; t = 2.4315e+03; dt = 1.4000e+01; 48.6 %
+          [Mach = 0.185362]
+step:190; t = 2.4455e+03; dt = 1.3983e+01; 48.9 %
+> Writing file #98 (dbl) to disk...
+          [Mach = 0.192256]
+step:191; t = 2.4594e+03; dt = 1.3967e+01; 49.2 %
+          [Mach = 0.198691]
+step:192; t = 2.4734e+03; dt = 1.3953e+01; 49.5 %
+> Writing file #99 (dbl) to disk...
+          [Mach = 0.204447]
+step:193; t = 2.4874e+03; dt = 1.3938e+01; 49.7 %
+> Writing file #100 (dbl) to disk...
+          [Mach = 0.209274]
+step:194; t = 2.5013e+03; dt = 1.3920e+01; 50.0 %
+          [Mach = 0.214741]
+step:195; t = 2.5152e+03; dt = 1.3903e+01; 50.3 %
+> Writing file #101 (dbl) to disk...
+          [Mach = 0.221757]
+step:196; t = 2.5291e+03; dt = 1.3888e+01; 50.6 %
+          [Mach = 0.228170]
+step:197; t = 2.5430e+03; dt = 1.3872e+01; 50.9 %
+> Writing file #102 (dbl) to disk...
+          [Mach = 0.234041]
+step:198; t = 2.5569e+03; dt = 1.3856e+01; 51.1 %
+          [Mach = 0.239296]
+step:199; t = 2.5707e+03; dt = 1.3840e+01; 51.4 %
+> Writing file #103 (dbl) to disk...
+          [Mach = 0.244176]
+step:200; t = 2.5846e+03; dt = 1.3824e+01; 51.7 %
+          [Mach = 0.248702]
+step:201; t = 2.5984e+03; dt = 1.3808e+01; 52.0 %
+> Writing file #104 (dbl) to disk...
+          [Mach = 0.252840]
+step:202; t = 2.6122e+03; dt = 1.3792e+01; 52.2 %
+> Writing file #105 (dbl) to disk...
+          [Mach = 0.256551]
+step:203; t = 2.6260e+03; dt = 1.3778e+01; 52.5 %
+          [Mach = 0.259804]
+step:204; t = 2.6398e+03; dt = 1.3764e+01; 52.8 %
+> Writing file #106 (dbl) to disk...
+          [Mach = 0.262570]
+step:205; t = 2.6535e+03; dt = 1.3751e+01; 53.1 %
+          [Mach = 0.264743]
+step:206; t = 2.6673e+03; dt = 1.3739e+01; 53.3 %
+> Writing file #107 (dbl) to disk...
+          [Mach = 0.266086]
+step:207; t = 2.6810e+03; dt = 1.3728e+01; 53.6 %
+          [Mach = 0.266710]
+step:208; t = 2.6948e+03; dt = 1.3718e+01; 53.9 %
+> Writing file #108 (dbl) to disk...
+          [Mach = 0.266813]
+step:209; t = 2.7085e+03; dt = 1.3709e+01; 54.2 %
+          [Mach = 0.266775]
+step:210; t = 2.7222e+03; dt = 1.3701e+01; 54.4 %
+> Writing file #109 (dbl) to disk...
+          [Mach = 0.266652]
+step:211; t = 2.7359e+03; dt = 1.3693e+01; 54.7 %
+          [Mach = 0.266301]
+step:212; t = 2.7496e+03; dt = 1.3685e+01; 55.0 %
+> Writing file #110 (dbl) to disk...
+          [Mach = 0.265506]
+step:213; t = 2.7633e+03; dt = 1.3677e+01; 55.3 %
+> Writing file #111 (dbl) to disk...
+          [Mach = 0.264237]
+step:214; t = 2.7769e+03; dt = 1.3670e+01; 55.5 %
+          [Mach = 0.266265]
+step:215; t = 2.7906e+03; dt = 1.3663e+01; 55.8 %
+> Writing file #112 (dbl) to disk...
+          [Mach = 0.268494]
+step:216; t = 2.8043e+03; dt = 1.3657e+01; 56.1 %
+          [Mach = 0.269063]
+step:217; t = 2.8179e+03; dt = 1.3651e+01; 56.4 %
+> Writing file #113 (dbl) to disk...
+          [Mach = 0.269369]
+step:218; t = 2.8316e+03; dt = 1.3646e+01; 56.6 %
+          [Mach = 0.269917]
+step:219; t = 2.8452e+03; dt = 1.3639e+01; 56.9 %
+> Writing file #114 (dbl) to disk...
+          [Mach = 0.270620]
+step:220; t = 2.8589e+03; dt = 1.3633e+01; 57.2 %
+          [Mach = 0.271049]
+step:221; t = 2.8725e+03; dt = 1.3628e+01; 57.4 %
+> Writing file #115 (dbl) to disk...
+          [Mach = 0.270840]
+step:222; t = 2.8861e+03; dt = 1.3625e+01; 57.7 %
+          [Mach = 0.270450]
+step:223; t = 2.8998e+03; dt = 1.3623e+01; 58.0 %
+> Writing file #116 (dbl) to disk...
+          [Mach = 0.269282]
+step:224; t = 2.9134e+03; dt = 1.3621e+01; 58.3 %
+> Writing file #117 (dbl) to disk...
+          [Mach = 0.267422]
+step:225; t = 2.9270e+03; dt = 1.3621e+01; 58.5 %
+          [Mach = 0.265077]
+step:226; t = 2.9406e+03; dt = 1.3621e+01; 58.8 %
+> Writing file #118 (dbl) to disk...
+          [Mach = 0.262472]
+step:227; t = 2.9542e+03; dt = 1.3621e+01; 59.1 %
+          [Mach = 0.259750]
+step:228; t = 2.9679e+03; dt = 1.3623e+01; 59.4 %
+> Writing file #119 (dbl) to disk...
+          [Mach = 0.256780]
+step:229; t = 2.9815e+03; dt = 1.3625e+01; 59.6 %
+          [Mach = 0.253134]
+step:230; t = 2.9951e+03; dt = 1.3627e+01; 59.9 %
+> Writing file #120 (dbl) to disk...
+          [Mach = 0.250157]
+step:231; t = 3.0087e+03; dt = 1.3629e+01; 60.2 %
+          [Mach = 0.247535]
+step:232; t = 3.0224e+03; dt = 1.3631e+01; 60.4 %
+> Writing file #121 (dbl) to disk...
+          [Mach = 0.244976]
+step:233; t = 3.0360e+03; dt = 1.3633e+01; 60.7 %
+          [Mach = 0.242931]
+step:234; t = 3.0496e+03; dt = 1.3633e+01; 61.0 %
+> Writing file #122 (dbl) to disk...
+          [Mach = 0.241552]
+step:235; t = 3.0633e+03; dt = 1.3633e+01; 61.3 %
+> Writing file #123 (dbl) to disk...
+          [Mach = 0.239905]
+step:236; t = 3.0769e+03; dt = 1.3636e+01; 61.5 %
+          [Mach = 0.237852]
+step:237; t = 3.0905e+03; dt = 1.3639e+01; 61.8 %
+> Writing file #124 (dbl) to disk...
+          [Mach = 0.235304]
+step:238; t = 3.1042e+03; dt = 1.3643e+01; 62.1 %
+          [Mach = 0.232195]
+step:239; t = 3.1178e+03; dt = 1.3650e+01; 62.4 %
+> Writing file #125 (dbl) to disk...
+          [Mach = 0.230350]
+step:240; t = 3.1315e+03; dt = 1.3657e+01; 62.6 %
+          [Mach = 0.228035]
+step:241; t = 3.1451e+03; dt = 1.3665e+01; 62.9 %
+> Writing file #126 (dbl) to disk...
+          [Mach = 0.224877]
+step:242; t = 3.1588e+03; dt = 1.3672e+01; 63.2 %
+          [Mach = 0.221566]
+step:243; t = 3.1725e+03; dt = 1.3680e+01; 63.4 %
+> Writing file #127 (dbl) to disk...
+          [Mach = 0.218349]
+step:244; t = 3.1861e+03; dt = 1.3688e+01; 63.7 %
+          [Mach = 0.215106]
+step:245; t = 3.1998e+03; dt = 1.3697e+01; 64.0 %
+> Writing file #128 (dbl) to disk...
+          [Mach = 0.211719]
+step:246; t = 3.2135e+03; dt = 1.3703e+01; 64.3 %
+> Writing file #129 (dbl) to disk...
+          [Mach = 0.208123]
+step:247; t = 3.2272e+03; dt = 1.3708e+01; 64.5 %
+          [Mach = 0.204374]
+step:248; t = 3.2409e+03; dt = 1.3714e+01; 64.8 %
+> Writing file #130 (dbl) to disk...
+          [Mach = 0.200579]
+step:249; t = 3.2546e+03; dt = 1.3721e+01; 65.1 %
+          [Mach = 0.196831]
+step:250; t = 3.2684e+03; dt = 1.3729e+01; 65.4 %
+> Writing file #131 (dbl) to disk...
+          [Mach = 0.193172]
+step:251; t = 3.2821e+03; dt = 1.3737e+01; 65.6 %
+          [Mach = 0.190693]
+step:252; t = 3.2958e+03; dt = 1.3746e+01; 65.9 %
+> Writing file #132 (dbl) to disk...
+          [Mach = 0.190498]
+step:253; t = 3.3096e+03; dt = 1.3754e+01; 66.2 %
+          [Mach = 0.190196]
+step:254; t = 3.3233e+03; dt = 1.3763e+01; 66.5 %
+> Writing file #133 (dbl) to disk...
+          [Mach = 0.189784]
+step:255; t = 3.3371e+03; dt = 1.3773e+01; 66.7 %
+> Writing file #134 (dbl) to disk...
+          [Mach = 0.189128]
+step:256; t = 3.3509e+03; dt = 1.3782e+01; 67.0 %
+          [Mach = 0.188278]
+step:257; t = 3.3646e+03; dt = 1.3792e+01; 67.3 %
+> Writing file #135 (dbl) to disk...
+          [Mach = 0.187288]
+step:258; t = 3.3784e+03; dt = 1.3802e+01; 67.6 %
+          [Mach = 0.186143]
+step:259; t = 3.3922e+03; dt = 1.3812e+01; 67.8 %
+> Writing file #136 (dbl) to disk...
+          [Mach = 0.184838]
+step:260; t = 3.4061e+03; dt = 1.3822e+01; 68.1 %
+          [Mach = 0.183376]
+step:261; t = 3.4199e+03; dt = 1.3832e+01; 68.4 %
+> Writing file #137 (dbl) to disk...
+          [Mach = 0.181770]
+step:262; t = 3.4337e+03; dt = 1.3842e+01; 68.7 %
+          [Mach = 0.180035]
+step:263; t = 3.4475e+03; dt = 1.3851e+01; 69.0 %
+> Writing file #138 (dbl) to disk...
+          [Mach = 0.178192]
+step:264; t = 3.4614e+03; dt = 1.3861e+01; 69.2 %
+> Writing file #139 (dbl) to disk...
+          [Mach = 0.176259]
+step:265; t = 3.4753e+03; dt = 1.3870e+01; 69.5 %
+          [Mach = 0.174253]
+step:266; t = 3.4891e+03; dt = 1.3879e+01; 69.8 %
+> Writing file #140 (dbl) to disk...
+          [Mach = 0.172187]
+step:267; t = 3.5030e+03; dt = 1.3888e+01; 70.1 %
+          [Mach = 0.170066]
+step:268; t = 3.5169e+03; dt = 1.3897e+01; 70.3 %
+> Writing file #141 (dbl) to disk...
+          [Mach = 0.167878]
+step:269; t = 3.5308e+03; dt = 1.3905e+01; 70.6 %
+          [Mach = 0.165622]
+step:270; t = 3.5447e+03; dt = 1.3913e+01; 70.9 %
+> Writing file #142 (dbl) to disk...
+          [Mach = 0.163303]
+step:271; t = 3.5586e+03; dt = 1.3922e+01; 71.2 %
+          [Mach = 0.160930]
+step:272; t = 3.5725e+03; dt = 1.3930e+01; 71.5 %
+> Writing file #143 (dbl) to disk...
+          [Mach = 0.158504]
+step:273; t = 3.5865e+03; dt = 1.3938e+01; 71.7 %
+> Writing file #144 (dbl) to disk...
+          [Mach = 0.156031]
+step:274; t = 3.6004e+03; dt = 1.3947e+01; 72.0 %
+          [Mach = 0.153513]
+step:275; t = 3.6144e+03; dt = 1.3956e+01; 72.3 %
+> Writing file #145 (dbl) to disk...
+          [Mach = 0.150952]
+step:276; t = 3.6283e+03; dt = 1.3964e+01; 72.6 %
+          [Mach = 0.148350]
+step:277; t = 3.6423e+03; dt = 1.3973e+01; 72.8 %
+> Writing file #146 (dbl) to disk...
+          [Mach = 0.145715]
+step:278; t = 3.6562e+03; dt = 1.3981e+01; 73.1 %
+          [Mach = 0.143054]
+step:279; t = 3.6702e+03; dt = 1.3989e+01; 73.4 %
+> Writing file #147 (dbl) to disk...
+          [Mach = 0.140378]
+step:280; t = 3.6842e+03; dt = 1.3997e+01; 73.7 %
+          [Mach = 0.137688]
+step:281; t = 3.6982e+03; dt = 1.4005e+01; 74.0 %
+> Writing file #148 (dbl) to disk...
+          [Mach = 0.134987]
+step:282; t = 3.7122e+03; dt = 1.4012e+01; 74.2 %
+> Writing file #149 (dbl) to disk...
+          [Mach = 0.132273]
+step:283; t = 3.7262e+03; dt = 1.4019e+01; 74.5 %
+          [Mach = 0.129545]
+step:284; t = 3.7402e+03; dt = 1.4026e+01; 74.8 %
+> Writing file #150 (dbl) to disk...
+          [Mach = 0.126799]
+step:285; t = 3.7543e+03; dt = 1.4033e+01; 75.1 %
+          [Mach = 0.124021]
+step:286; t = 3.7683e+03; dt = 1.4040e+01; 75.4 %
+> Writing file #151 (dbl) to disk...
+          [Mach = 0.121197]
+step:287; t = 3.7823e+03; dt = 1.4046e+01; 75.6 %
+          [Mach = 0.118392]
+step:288; t = 3.7964e+03; dt = 1.4053e+01; 75.9 %
+> Writing file #152 (dbl) to disk...
+          [Mach = 0.118550]
+step:289; t = 3.8104e+03; dt = 1.4059e+01; 76.2 %
+          [Mach = 0.118599]
+step:290; t = 3.8245e+03; dt = 1.4065e+01; 76.5 %
+> Writing file #153 (dbl) to disk...
+          [Mach = 0.118553]
+step:291; t = 3.8386e+03; dt = 1.4071e+01; 76.8 %
+> Writing file #154 (dbl) to disk...
+          [Mach = 0.118605]
+step:292; t = 3.8526e+03; dt = 1.4076e+01; 77.1 %
+          [Mach = 0.118599]
+step:293; t = 3.8667e+03; dt = 1.4082e+01; 77.3 %
+> Writing file #155 (dbl) to disk...
+          [Mach = 0.118574]
+step:294; t = 3.8808e+03; dt = 1.4087e+01; 77.6 %
+          [Mach = 0.118556]
+step:295; t = 3.8949e+03; dt = 1.4092e+01; 77.9 %
+> Writing file #156 (dbl) to disk...
+          [Mach = 0.118731]
+step:296; t = 3.9090e+03; dt = 1.4097e+01; 78.2 %
+          [Mach = 0.118814]
+step:297; t = 3.9231e+03; dt = 1.4102e+01; 78.5 %
+> Writing file #157 (dbl) to disk...
+          [Mach = 0.118773]
+step:298; t = 3.9372e+03; dt = 1.4106e+01; 78.7 %
+> Writing file #158 (dbl) to disk...
+          [Mach = 0.118752]
+step:299; t = 3.9513e+03; dt = 1.4110e+01; 79.0 %
+          [Mach = 0.118763]
+step:300; t = 3.9654e+03; dt = 1.4115e+01; 79.3 %
+> Writing file #159 (dbl) to disk...
+          [Mach = 0.118740]
+step:301; t = 3.9795e+03; dt = 1.4119e+01; 79.6 %
+          [Mach = 0.118694]
+step:302; t = 3.9936e+03; dt = 1.4122e+01; 79.9 %
+> Writing file #160 (dbl) to disk...
+          [Mach = 0.118598]
+step:303; t = 4.0077e+03; dt = 1.4126e+01; 80.2 %
+          [Mach = 0.118598]
+step:304; t = 4.0219e+03; dt = 1.4129e+01; 80.4 %
+> Writing file #161 (dbl) to disk...
+          [Mach = 0.118684]
+step:305; t = 4.0360e+03; dt = 1.4132e+01; 80.7 %
+> Writing file #162 (dbl) to disk...
+          [Mach = 0.118727]
+step:306; t = 4.0501e+03; dt = 1.4135e+01; 81.0 %
+          [Mach = 0.118685]
+step:307; t = 4.0643e+03; dt = 1.4138e+01; 81.3 %
+> Writing file #163 (dbl) to disk...
+          [Mach = 0.118699]
+step:308; t = 4.0784e+03; dt = 1.4141e+01; 81.6 %
+          [Mach = 0.118695]
+step:309; t = 4.0926e+03; dt = 1.4143e+01; 81.9 %
+> Writing file #164 (dbl) to disk...
+          [Mach = 0.118672]
+step:310; t = 4.1067e+03; dt = 1.4145e+01; 82.1 %
+          [Mach = 0.118600]
+step:311; t = 4.1208e+03; dt = 1.4148e+01; 82.4 %
+> Writing file #165 (dbl) to disk...
+          [Mach = 0.118640]
+step:312; t = 4.1350e+03; dt = 1.4150e+01; 82.7 %
+          [Mach = 0.118711]
+step:313; t = 4.1491e+03; dt = 1.4152e+01; 83.0 %
+> Writing file #166 (dbl) to disk...
+          [Mach = 0.118672]
+step:314; t = 4.1633e+03; dt = 1.4154e+01; 83.3 %
+> Writing file #167 (dbl) to disk...
+          [Mach = 0.118656]
+step:315; t = 4.1774e+03; dt = 1.4156e+01; 83.5 %
+          [Mach = 0.118637]
+step:316; t = 4.1916e+03; dt = 1.4158e+01; 83.8 %
+> Writing file #168 (dbl) to disk...
+          [Mach = 0.118616]
+step:317; t = 4.2058e+03; dt = 1.4160e+01; 84.1 %
+          [Mach = 0.118575]
+step:318; t = 4.2199e+03; dt = 1.4162e+01; 84.4 %
+> Writing file #169 (dbl) to disk...
+          [Mach = 0.118469]
+step:319; t = 4.2341e+03; dt = 1.4164e+01; 84.7 %
+          [Mach = 0.118366]
+step:320; t = 4.2482e+03; dt = 1.4166e+01; 85.0 %
+> Writing file #170 (dbl) to disk...
+          [Mach = 0.118369]
+step:321; t = 4.2624e+03; dt = 1.4168e+01; 85.2 %
+> Writing file #171 (dbl) to disk...
+          [Mach = 0.118350]
+step:322; t = 4.2766e+03; dt = 1.4170e+01; 85.5 %
+          [Mach = 0.118327]
+step:323; t = 4.2907e+03; dt = 1.4172e+01; 85.8 %
+> Writing file #172 (dbl) to disk...
+          [Mach = 0.118293]
+step:324; t = 4.3049e+03; dt = 1.4173e+01; 86.1 %
+          [Mach = 0.118282]
+step:325; t = 4.3191e+03; dt = 1.4175e+01; 86.4 %
+> Writing file #173 (dbl) to disk...
+          [Mach = 0.118260]
+step:326; t = 4.3333e+03; dt = 1.4176e+01; 86.7 %
+          [Mach = 0.118190]
+step:327; t = 4.3474e+03; dt = 1.4177e+01; 86.9 %
+> Writing file #174 (dbl) to disk...
+          [Mach = 0.118113]
+step:328; t = 4.3616e+03; dt = 1.4178e+01; 87.2 %
+> Writing file #175 (dbl) to disk...
+          [Mach = 0.118156]
+step:329; t = 4.3758e+03; dt = 1.4179e+01; 87.5 %
+          [Mach = 0.118126]
+step:330; t = 4.3900e+03; dt = 1.4180e+01; 87.8 %
+> Writing file #176 (dbl) to disk...
+          [Mach = 0.118112]
+step:331; t = 4.4042e+03; dt = 1.4181e+01; 88.1 %
+          [Mach = 0.118073]
+step:332; t = 4.4183e+03; dt = 1.4182e+01; 88.4 %
+> Writing file #177 (dbl) to disk...
+          [Mach = 0.118053]
+step:333; t = 4.4325e+03; dt = 1.4183e+01; 88.7 %
+          [Mach = 0.118011]
+step:334; t = 4.4467e+03; dt = 1.4184e+01; 88.9 %
+> Writing file #178 (dbl) to disk...
+          [Mach = 0.117907]
+step:335; t = 4.4609e+03; dt = 1.4185e+01; 89.2 %
+> Writing file #179 (dbl) to disk...
+          [Mach = 0.117737]
+step:336; t = 4.4751e+03; dt = 1.4186e+01; 89.5 %
+          [Mach = 0.117723]
+step:337; t = 4.4893e+03; dt = 1.4187e+01; 89.8 %
+> Writing file #180 (dbl) to disk...
+          [Mach = 0.117712]
+step:338; t = 4.5034e+03; dt = 1.4187e+01; 90.1 %
+          [Mach = 0.117686]
+step:339; t = 4.5176e+03; dt = 1.4188e+01; 90.4 %
+> Writing file #181 (dbl) to disk...
+          [Mach = 0.117636]
+step:340; t = 4.5318e+03; dt = 1.4189e+01; 90.6 %
+          [Mach = 0.117614]
+step:341; t = 4.5460e+03; dt = 1.4190e+01; 90.9 %
+> Writing file #182 (dbl) to disk...
+          [Mach = 0.117542]
+step:342; t = 4.5602e+03; dt = 1.4190e+01; 91.2 %
+          [Mach = 0.117398]
+step:343; t = 4.5744e+03; dt = 1.4191e+01; 91.5 %
+> Writing file #183 (dbl) to disk...
+          [Mach = 0.117276]
+step:344; t = 4.5886e+03; dt = 1.4191e+01; 91.8 %
+> Writing file #184 (dbl) to disk...
+          [Mach = 0.117254]
+step:345; t = 4.6028e+03; dt = 1.4192e+01; 92.1 %
+          [Mach = 0.117241]
+step:346; t = 4.6170e+03; dt = 1.4192e+01; 92.3 %
+> Writing file #185 (dbl) to disk...
+          [Mach = 0.117183]
+step:347; t = 4.6312e+03; dt = 1.4193e+01; 92.6 %
+          [Mach = 0.117133]
+step:348; t = 4.6454e+03; dt = 1.4193e+01; 92.9 %
+> Writing file #186 (dbl) to disk...
+          [Mach = 0.117083]
+step:349; t = 4.6595e+03; dt = 1.4194e+01; 93.2 %
+          [Mach = 0.116968]
+step:350; t = 4.6737e+03; dt = 1.4194e+01; 93.5 %
+> Writing file #187 (dbl) to disk...
+          [Mach = 0.116856]
+step:351; t = 4.6879e+03; dt = 1.4195e+01; 93.8 %
+> Writing file #188 (dbl) to disk...
+          [Mach = 0.116678]
+step:352; t = 4.7021e+03; dt = 1.4195e+01; 94.0 %
+          [Mach = 0.116649]
+step:353; t = 4.7163e+03; dt = 1.4196e+01; 94.3 %
+> Writing file #189 (dbl) to disk...
+          [Mach = 0.116639]
+step:354; t = 4.7305e+03; dt = 1.4196e+01; 94.6 %
+          [Mach = 0.116613]
+step:355; t = 4.7447e+03; dt = 1.4196e+01; 94.9 %
+> Writing file #190 (dbl) to disk...
+          [Mach = 0.116555]
+step:356; t = 4.7589e+03; dt = 1.4197e+01; 95.2 %
+          [Mach = 0.116534]
+step:357; t = 4.7731e+03; dt = 1.4197e+01; 95.5 %
+> Writing file #191 (dbl) to disk...
+          [Mach = 0.116463]
+step:358; t = 4.7873e+03; dt = 1.4198e+01; 95.7 %
+> Writing file #192 (dbl) to disk...
+          [Mach = 0.116323]
+step:359; t = 4.8015e+03; dt = 1.4198e+01; 96.0 %
+          [Mach = 0.116170]
+step:360; t = 4.8157e+03; dt = 1.4198e+01; 96.3 %
+> Writing file #193 (dbl) to disk...
+          [Mach = 0.116151]
+step:361; t = 4.8299e+03; dt = 1.4199e+01; 96.6 %
+          [Mach = 0.116139]
+step:362; t = 4.8441e+03; dt = 1.4199e+01; 96.9 %
+> Writing file #194 (dbl) to disk...
+          [Mach = 0.116082]
+step:363; t = 4.8583e+03; dt = 1.4199e+01; 97.2 %
+          [Mach = 0.116029]
+step:364; t = 4.8725e+03; dt = 1.4200e+01; 97.4 %
+> Writing file #195 (dbl) to disk...
+          [Mach = 0.115979]
+step:365; t = 4.8867e+03; dt = 1.4200e+01; 97.7 %
+> Writing file #196 (dbl) to disk...
+          [Mach = 0.115868]
+step:366; t = 4.9009e+03; dt = 1.4200e+01; 98.0 %
+          [Mach = 0.115678]
+step:367; t = 4.9151e+03; dt = 1.4200e+01; 98.3 %
+> Writing file #197 (dbl) to disk...
+          [Mach = 0.115515]
+step:368; t = 4.9293e+03; dt = 1.4201e+01; 98.6 %
+          [Mach = 0.115506]
+step:369; t = 4.9435e+03; dt = 1.4201e+01; 98.9 %
+> Writing file #198 (dbl) to disk...
+          [Mach = 0.115467]
+step:370; t = 4.9577e+03; dt = 1.4201e+01; 99.2 %
+          [Mach = 0.115375]
+step:371; t = 4.9719e+03; dt = 1.4201e+01; 99.4 %
+> Writing file #199 (dbl) to disk...
+          [Mach = 0.115343]
+step:372; t = 4.9861e+03; dt = 1.3900e+01; 99.7 %
+          [Mach = 0.115253]
+> Writing file #200 (dbl) to disk...
+
+> Total allocated memory    1.35 Mb
+> Elapsed time              0d:0h:0m:1s
+> Average time/step         2.68e-03  (sec)  
+> Local time                Tue Apr 28 20:39:49 2020
+> Done
