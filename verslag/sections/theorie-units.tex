@@ -19,6 +19,7 @@ Here the subscript $u$ denotes that these numbers or vectors are dimensionless, 
 \par}
 
 We see that all the units drop out of the equations and we are left with a set of dimensionless equations.
+\emph{In the remainder of this document the subscript $u$ to denote dimensionless quantities will be dropped. When a quantity has units, these will be explicity stated.}
 This highlights an important fact for ideal MHD: the equations are scale-invariant.
 For the behaviour of waves the absolute scales are not important, but only the relative magnitude of the characteristic scales for a wave.
 When we have a wave with wavelength $\lambda_1$ and frequency $f_1$, it will show the same behaviour as a wave with wavelength $\lambda_2$ and frequency $f_1/\lambda_1$ in the same medium (that is, same Alfvén speed).
@@ -41,3 +42,12 @@ and that
 	\label{eq:sound-code-units}
 \end{equation}
 These expressions will be necessary to compare the simulation data to the theoretical results from the previous sections.
+
+Notice that the factor $4\pi$ is included in the definition of $B_0$. When we want to calculate magnetic pressure or the plasma-$\beta$ this has to be taken into account.
+he expression for the magnetic pressure/energy density is simply
+\begin{equation}
+	p_m = e_m = \frac{B^2}{2}
+	\label{eq:magnetic-pressure}
+\end{equation}
+This is the reason for the factor $2$ instead of $8\pi$ in \cref{eq:plasma-beta} which is commonly found in the literature.
+

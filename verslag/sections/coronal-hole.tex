@@ -6,7 +6,11 @@ An ideal equation of state is assumed, this gives the following relation between
 	nk_BT = p
 	\label{eq:ideal-gas}
 \end{equation}
-The total pressure $p^T$ is given by [REF], from there the magnitude of the magnetic field is calculated as follows (expressions for code units):
+The total pressure is obtained by adding the magnetic pressure given by \cref{eq:magnetic-pressure} to the mechanical pressure giving.
+\begin{equation*}
+	p^T = p + \frac{B^2}{2}
+\end{equation*}
+From there the magnitude of the magnetic field is calculated as follows (expressions for code units):
 \begin{equation}
 	B = \sqrt{2 \left( p^T-p \right) }
 	\label{eq:magnetic-magnitude}

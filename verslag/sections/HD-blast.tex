@@ -1,19 +1,29 @@
 As a testcase to learn how to use the PLUTO software we simulated hydrodynamic and magnetohydrodynamic blastwaves in a 2D domain. The initial condition for the simulations is a circle with radius $0.3$ (in code units) with higher pressure.
-The pressure outside the circle is $1$, in code units. For the pressure inside the circle two scenarios were simulated.
-One with a large pressure difference, where the pressure inside the circle is $5$. In the other scenario a lower pressure difference was used: the pressure inside the circle was $1.5$
+The pressure outside the circle is $1$, in code units. For the pressure inside the circle three scenarios were simulated.
+One with a large pressure difference, where the pressure inside the circle is $5$. One with a lower pressure difference with $1.5$ as inside pressure and one with $1.05$ as inside pressure.
 The reason for using different pressure differences is to see the non-linear effects in the shock-wave with high pressure difference.
 
 \subsection{Hydrodynamic shockwave}
-First some technical details of the simulation (all physical quantities are in code units).
+First some technical details of the simulation.
+The normalization constants for the units used are the following:
+\begin{align*}
+	v_0 &= 10^8 \text{cm/s}\\
+	L_0 &= 10^8 \text{cm}\\
+	\rho_0 = 10^9 m_p \text{cm}^{-3}
+\end{align*}
+where $m_p$ is the mass of a proton. These values are of the order of what is commonly found in the solar corona. \todo{referentie naar een of andere paper}
+As was noted in \cref{sec:units} are the ideal MHD equation dimensionless.
+The ideal HD equations are the ideal MHD equations with the terms relating to the magnetic field dropped, therefore they are dimensionless as well.
+In an effort to keep the discussion as general as possible dimensionless quantities are used in the remainder of the section, except when the units are explicitly stated.
+
 The simulation was done on a $1024 \times 1024$ grid for a period of $t=1.5$ with an initial time step of $1e-4$.
 A snapshot of the variables describing the system was saved every $0.03$ time units, for a total of $50$ snapshots (excluding the initial condition).
-The Pluto simulation used $996$ steps.
 
 \begin{figure}[H]
 	%\hspace{-1cm}
 	\centering
 	\includegraphics[width=\linewidth]{images/HD-blast-prs-1.pdf}
-	\caption{Pressure profile for a blastwave in an ideal fluid at different times. The top row start with the larger pressure difference of $5/1$, the bottom row is the blastwave with smaller pressure difference of $1.5/1$.}
+	\caption{Pressure profile for a blastwave in an ideal fluid at different times. The top row start with the larger pressure difference of $5/1$, the bottom row is the blastwave with smallest pressure difference of $1.05/1$.}
 	\label{fig:HD-blast-short}
 \end{figure}
 
@@ -22,22 +32,20 @@ In \cref{fig:HD-blast-long} the profile is plotted for later times.
 Its imedeatly clear that the shock wave with the higher pressure difference travels faster then the other one, but the general shape of the wave is the same.
 
 
-
-In \cref{fig:speed-time-hd} the speed of the wave front along the positive $x$-axis is plotted as a function of time, and this confirms that the wave speed is lower with a lower pressure difference.
-The group speed was calculated in two ways. The first was to start at a point at the edge of the domain and find the first point on the line from this point to the center with a pressure higher than $1.01$ times the background pressure.
-This gives a relation $x(t)$ for the position of the wave-front along this line.
+In the right plot of \cref{fig:HD-speed} the speed of the wave front along the positive $x$-axis is plotted as a function of time, and this confirms that the wave speed is lower with a lower pressure difference.
+The group speed was calculated in two ways. 
+The first was to start at a point at the edge of the domain and find the first point on the line from this point to the center with a pressure higher than $1.01$ times the background pressure.
+This way, we get a function $r(t,\theta)$ expressing the distance from the center to the wavefront along a line as a function of the angle between this line and the $x$-axis and time.
 The speed was calculated using numerical differentiation with the following central difference:
 \begin{equation*}
 	f'(t_0) = \frac{f(t+dt)-f(t-dt)}{2dt} + O(dt^2)
 \end{equation*}
-found in [REF]\todo{reference naar cursus numerieke wiskunde}. This is the simulated speed, represented by the dots. 
+found in [REF]\todo{reference naar cursus numerieke wiskunde}. This is the simulated speed, represented by the dots.
+In the left graph of \cref{fig:HD-speed} we see that the speed is isotropic, apart from some deviations.
+These deviations are mainly due to the discrete nature of the grid which prevents calculating an exact position of the wave-front.
+To mitigate this noise, the speeds calculated in all directions were averaged together te get the dots representing the wave speed in the right graph of \cref{fig:HD-speed}.
 
-Using [FORMULA SHOCK SPEED RIEMANN PROBLEM]\todo{calculate shock speed in a Riemann problem as function of the two pressures}
-the theoretical speed of a shock in a Riemann problem was calculated using the highest pressure in the domain as max pressure and 1 as the lowe pressure. This is plotted as the line.
-
-Firstly, we notice that the speeds calculated with the first metod tend to lie on some lines. This is a numerical from the discretization of time and space. 
-It has nothing to do with the physics of the problem. 
-The slight deviations from this lines are because PLUTO does not use fixed time steps for integration, therefore the time between two snapshots is not always exactly the same.
+Using \cref{eq:Riemann-solution2} the theoretical speed of a shock in a Riemann problem was calculated using the highest pressure in the domain as max pressure ($p_1$) and 1 as the lowest pressure ($p_0$). This is plotted as the solid lines in \cref{fig:HD-speed}.
 
 \begin{figure}[H]
 	%\hspace{-1cm}
@@ -47,12 +55,19 @@ The slight deviations from this lines are because PLUTO does not use fixed time 
 	\label{fig:HD-blast-long}
 \end{figure}
 
-We see that the curve closely follows the dots with the lower pressure difference, whereas this is not the case for the higher pressure difference.
-There are two main reasons for this discrepancy. 
-Firstly, this is not exactly the same as a Riemann problem, certainly at a later stage when the sharp boundary has smoothend out.
-Secondly, due to non-linear effects we cannot assume that the wave is non-dispersive. 
-This means that the first edge of the wave is probably traveling faster than the group speed of the center of this shockwave, which is the value calculated in the Riemann problem.
-These two effects together can explain the difference in speed between the value for a Riemann problem and the value calculated from the simulation data.
+The first 10 snapshots are not included in the right graph of \cref{fig:HD-speed}. 
+The reason can be seen in \cref{fig-HD-blast-short}. 
+When the shock wave starts going outwards the pressure in the center stays at it's original pressure for some more time.
+We use the max pressure in the domain to estimate $p_1$ in \cref{eq:Riemann-Solution2}, however for these first frames this is not the maximum pressure in the wavefront.
+It proved to be difficult to accuratly detect the maximum of the wavefront, therefore the first couple of frames were dropped.
+The higher initial speed and sudden drop in \cref{fig:HD-speed} for $p=1.5$ is due to these effects. A closer look to the curve for $p=1.05$ will reveal something similar.
+
+We see that the curves do match rather closely, proving the ability of the PLUTO code to deal with shocks. 
+The periodic behaviour of dots lying under and above the curve could still be an artifact of the grid discretization, however no conclusive results where found that could prove this so it could point to a systematic error.
+
+Lastly, in \cref{fig:HD-blast-long} there are new waves appearing from the center. This is due to the nature of a 2.5d simulation.
+The initial condition has to be interpreted as a long cilinder in 3d, from which a slice perpendicular to this cilinder is taken to be simulated. 
+The secondary wavefronts can then be seen as waves coming from different points of the cilinder.
 
 We remark that approximating the shock as a Riemann problem is a crude first-order approximation. 
 The PLUTO code calculates flow velocities like this in every integration step. 
@@ -61,19 +76,13 @@ This small example highlights the importance of robust integrators and Riemann s
 \begin{figure}[H]
 	%\hspace{-1cm}
 	\centering
-	\includegraphics[width=\linewidth]{images/speed-time-hd.pdf}
-	\caption{the speed of the wave as a function of time, along the $x$-axis. The dots represent the speed calculated from the simulation data by deriving the function $x(t)$ that represents the position of the wave front. The lines represent the theoretical shock speed in a Riemann-problem with as high pressure the highest pressure in the domain, and low pressure $1$.}
-	\label{fig:speed-time-hd}
+	\includegraphics[width=\linewidth]{images/HD-speed.pdf}
+	\caption{\emph{Left}: Speed at 3 consecutive timestamps averaged together as a function of the angle of propagation for the 3 situations. 
+		The averaging was done to lower the noise and find systematic deviations.
+	\emph{Right}: The speed of the wave as a function of time, along the $x$-axis. 
+	The dots represent the speed calculated from the simulation data by deriving the function $x(t)$ that represents the position of the wave front. 
+	The lines represent the theoretical shock speed in a Riemann-problem with as high pressure the highest pressure in the domain, and lowest pressure $1$.
+	The black dashed line in both graphs is the speed of sound for linear pressure waves in a medium with pressure $1$ (code units).}
+	\label{fig:HD-speed}
 \end{figure}
 
-\begin{figure}[H]
-	%\hspace{-1cm}
-	\centering
-	\includegraphics[width=\linewidth]{images/speed-angle-hd.pdf}
-	\caption{The wave speed as a function of the angle between the $x$-axis and the line connecting a point on the wave-front with the center of the domain. The wavespeed is calculated from the simulation data.}
-	\label{fig:speed-angle-hd}
-\end{figure}
-
-Finally \cref{fig:speed-angle-hd} shows that the wave is isotropic. 
-The speed of the wavefront aling lines making an angle $\theta$ with the $x$-axis through the origin was calculated. 
-The slight variations in speed are again artifacts of the space discretization.
