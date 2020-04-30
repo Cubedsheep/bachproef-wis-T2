@@ -1,9 +1,9 @@
 \subsection{Magnetohydrodynamic waves}
-For the discussion of linear magnetohydrodynamic waves we take an intial condition with homgeneous plasma in equilibrium.
+For the discussion concerning linear magnetohydrodynamic waves, we take as the initial condition with a homogeneous plasma in equilibrium.
 Denote with $\rho_0$, $p_0$, $\vec{v}_0$ and $\vec{B}_0$ these equilibrium values. 
 To derive the equations for the waves, consider slight perturbations $\rho_1$, $p_1$, $\vec{v}_1$ and $\vec{B}_1$ of this equilibrium state, just like what was done to find the HD waves.
 
-Firstly, rewrite the basic MHD equations into a form which is easier to linearize,
+Firstly, rewrite the basic MHD equations into a form which is easier to linearise,
 this means that we shall remove the cross products in the original equations as follows:
 
 {\centering 
@@ -34,7 +34,7 @@ The MHD equations now become
 }}
 \par}
 
-Of course the condition that $ \nabla \cdot \vec{B} = 0  $ remains. In this form the equations are much easier to linearize:
+Of course the requirement that $ \nabla \cdot \vec{B} = 0  $ remains. In this form the equations can easily be linearised:
 
 {\centering 
 \noindent \fbox{\parbox{.85\linewidth}{
@@ -50,7 +50,7 @@ Of course the condition that $ \nabla \cdot \vec{B} = 0  $ remains. In this form
 }}
 \par}
 
-The second one of these equations \cref{eq:ideal-MHD-linear} is the linearized momentum equation. 
+The second one of \cref{eq:ideal-MHD-linear} is the linearised momentum equation. 
 We shall work from this one as it lends itself the most for our discussion of ideal MHD waves, because it directly describes flow velocity. 
 Plugging the other three into this equation gives us the essential equation for ideal MHD waves:
 
@@ -59,7 +59,7 @@ Plugging the other three into this equation gives us the essential equation for 
 		\frac{\partial^2 \vec{v}_1}{\partial t^2} = \bigg( (\vec{v_a} \nabla)^2 \I + (v_a^2 + v_s^2)\nabla \nabla - \vec{v_a} \cdot \nabla (\nabla \vec{v_a} + \vec{v_a} \nabla) \bigg) \cdot \vec{v}_1
 \end{equation}
 
-where
+\noindent where
 \begin{equation}
 v_s = \sqrt{\cfrac{\gamma p_0}{\rho_0}}
 \label{eq:acoustic-speed}
@@ -69,20 +69,18 @@ and
 \vec{v_a} = \cfrac{\vec{B}_0}{\sqrt{\rho_0}}.
 \label{eq:Alfven-speed}
 \end{equation}
-We introduce the constants $v_s$ and $\vec{v_a}$ as they will be the wave velocities of the solutions of the wave equation \cref{eq:ideal-wave}. 
-The constant $v_s$ is the acoustic speed known from regular hydrodynamics. 
-The constant $\vec{v_a}$ is know as the \emph{Alfvén} velocity and it is a vector in the same direction as the background magnetic field $\vec{B}_0$.\\
-\\
+We introduce the constants $v_s$ and $\vec{v_a}$ as they will be the wave velocities of the solutions of wave equation \cref{eq:ideal-wave}. 
+The constant $v_s$ is the acoustic speed known from ordinary hydrodynamics. 
+The constant $\vec{v_a}$ is know as the \emph{Alfvén} velocity and it is a vector in the same direction as the background magnetic field $\vec{B}_0$.
+
 Notice that if we set $\vec{B} = 0$ \cref{eq:ideal-wave} becomes
 
 $$ \frac{\partial^2 \vec{v}_1}{\partial t^2} = v_s^2 \nabla^2 \vec{v}_1 $$
 
-which is exactly what we would expect as this is wave equation in the normal hydrodynamic case. This is an important sanity check for our method.\\
-\\
+which is exactly what we would expect as this is wave equation in the regular hydrodynamic case. This is an important sanity check for our method.
 
 Next we seek sinusoidal wave solutions. 
-For now we shall also limit the discussion the waves in the velocity vector field as the waves in the scalar pressure and density fields and the magnetic vector field can easily be expressed in terms of the velocity field using \cref{eq:ideal-MHD-linear}. 
-The solutions we look for are of the form
+For now we shall also limit the discussion to waves in the velocity vector field as the waves in the scalar pressure and density fields and the magnetic vector field can easily be expressed in terms of the velocity field using \cref{eq:ideal-MHD-linear}. The solutions we search are of the form
 
 $$ \vec{v}_1 = \bar{\vec{v}} \exp(i(\omega t - \vec{k} \cdot \vec{x})) \ .$$ 
 
@@ -115,7 +113,7 @@ Without any loss of generality we may assume that $\vec{v_a} = (v_a,0,0)$ and $\
 \end{pmatrix}
 \end{equation} 
 
-This has a non-trivial solution when the determinant of the matrix in \cref{eq:plane-wave-equation-matrixform} is $0$. This results in the dispersion relation
+This has a non-trivial solutions when the determinant of the matrix in \cref{eq:plane-wave-equation-matrixform} is equal to $0$. This results in the dispersion relation
 
 \begin{equation}
 \label{eq:dispersion}
@@ -123,7 +121,7 @@ This has a non-trivial solution when the determinant of the matrix in \cref{eq:p
 \end{equation}
 
 
-We shall first discuss the factor $\left( \omega^4 - \omega^2k^2(v_a^2+v_s^2) + v_a^2 v_s^2k^4\cos^2\theta  \right)$
+\noindent We shall first discuss the factor $\left( \omega^4 - \omega^2k^2(v_a^2+v_s^2) + v_a^2 v_s^2k^4\cos^2\theta  \right)$
 of which the roots are
 \begin{equation}
 	\omega_{\pm}^2 = \frac{k^2}{2} \left[ v_a^2+v_s^2 \pm \sqrt{(v_a^2+v_s^2)^2-4v_a^2v_s^2\cos^2\theta} \right] 	
@@ -132,22 +130,21 @@ of which the roots are
 These solutions correspond to the so-calles fast (+) and slow (-) magnetosonic waves. 
 Notice that because $(v_a^2+v_s^2)^2-4v_a^2v_s^2\cos^2\theta \geq (v_a^2-v_s^2)^2) \geq 0$ the square root can always be taken.
 One can readily see that they are the result of a quite complicated interplay between the hydrodynamic and magnetic sides of the story. 
-We will rely on the simulations to get a better understanding of their behaviour.\\
-\\
-The only root of the firs factor in \cref{eq:dispersion} is $ \omega^2 = k_x^2 b^2 $. 
-This solution is of great interest as it does not contain the same complicated magnetosonic interaction and solely depends on the nature of the magnetic field. 
-The density irregularities only provide the wave's momentum. The restoring force is entirely generated by the tension in the magnetic field.
-\improvement{ref to course notes for justification of these claims}
+We shall rely on the simulations to get a better understanding of their behaviour.
 
-The wave corresponding to $\omega_A^2 = k_x^2 b^2$ is called the \textit{Alfvén} wave. 
-Notice that its direction corresponds to that of the magnetic field, where $\omega_A = k_x b$ lies in the same direction and $-\omega_A$ in the opposite direction. 
+The only root of the first factor in \cref{eq:dispersion} is $ \omega^2 = k^2 v_a^2\cos^2\theta$. 
+This solution is of great interest as it does not contain the same complicated magnetosonic interaction and solely depends on the nature of the magnetic field. 
+The density irregularities only provide the wave's momentum. The restoring force is entirely generated by the tension in the magnetic field. \cite{notes-principles-MHD}[Subsection 5.2.3]
+
+The wave corresponding to $\omega_A^2 = k^2 v_a^2\cos^2\theta$ is called the \textit{Alfvén} wave. 
+Notice that its direction corresponds to that of the magnetic field, where $\omega_A = k v_a\cos\theta$ lies in the same direction and $-\omega_A$ in the opposite direction. 
 It should be noted that this solution is non-relativistic. 
-As the magnetic field becomes stronger in comparison to the density the Alfén wave becomes a regular electromagnetic wave.
+As the magnetic field becomes stronger in comparison to the density, the Alfén wave becomes a regular electromagnetic wave.
 
 Now, the first roots we had - the magnetosonic waves - are combinations of Alvén waves and ordinary sound waves. 
 There are two types because the Alfvén and sound waves can either be in fase or in antifase to one another. 
 In the first case $\omega_+$ the region of high pressure will correspond to a high magnetic field density, which causes the resulting wave to be driven forward by both ordinary hydrodynamic pressure and the tension of the concentrated magnetic field lines. 
-In the other case $\omega_-$ these same two forces work against each other, slowing the wave.
+In the other case of $\omega_-$, these same two forces work against each other, slowing the wave.
 
 \subsubsection{Group speed}
 The wave speed that is derived from the simulations is the group speed and not the phase speed of the waves. We use the relation \cref{eq:group-velocity} to calculate this quantity.
