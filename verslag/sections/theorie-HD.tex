@@ -1,7 +1,7 @@
-While the main focus of this bachelor project is the numerical modeling of waves in the solar corona, some theoretical background is important to frame the results of our simulations.
-Furthermore, this knowledge gives some insight in the assumptions that are made in deriving the magnetohydrodynamic (MHD) equations and when they are valid.
-
-\subsection*{Hydrodynamics}
+While the main focus of this project is the numerical modeling of waves in the solar corona, some theoretical background is important to frame the results of our simulations.
+Furthermore, this knowledge gives some insight in the assumptions that are made in deriving the magnetohydrodynamic (MHD) equations and when they are valid. \\
+\\
+We shall begin by a discussion of the cleaner and more transparent theory of ideal hydrodynamics before delving into the much more complicated and cluttered realm of magnetohydrodynamic theory. However, we emphasize that there is no fine line between the two and that indeed, HD theory can be seen as the special case of MHD theory in with a negligible magnetic field. 
 
 \subsection{Hydrodynamic fluid equations}
 The theory in this section is adapted from \cite{notes-fluid-dynamics}. For the first task a non-viscous Newtonian fluid is considered. Heat conduction and dissipation is neglected as well.
@@ -21,13 +21,13 @@ This type of fluid obeys the Euler equations for conservation of mass, momentum 
 
 
 These are the Euler equations in Lagrangian form, with time derivatives following the fluid, hence the total derivatives with respect to time.
-PLUTO does the fluid simulation using a static grid, so we need the equations in Eulerian form: partial derivatives with respect to time instead of total derivatives.
-This change of derivatives can be carried out using the following relation, found in \cite{notes-fluid-dynamics} in section 2.4:
+PLUTO does the fluid simulation using a static grid. Therefore we need the equations in their Eulerian form: partial derivatives with respect to time instead of total derivatives.
+This change of derivatives can be carried out using the following relation, found in \cite{notes-fluid-dynamics}, section 2.4:
 \begin{equation}
 	\frac{df}{dt} = \frac{\partial f}{\partial t} + (\vec{v} \cdot \nabla) f
 	\label{eq:relation-total-partial}
 \end{equation}
-where $f(x,y,z,t)$ is a function that describes a property of the fluid. The equations can also be rederived using an Eulerian view. In any case the result is the same:
+where $f(x,y,z,t)$ is a function that describes a property of the fluid. The resulting equations could also have been re-derived using an Eulerian view to begin with. In any case the result is the same:
 
 {\centering 
 \noindent \fbox{\parbox{0.7\linewidth}{
@@ -41,7 +41,7 @@ where $f(x,y,z,t)$ is a function that describes a property of the fluid. The equ
 \end{equation}}}
 \par}
 
-Next introduce the variable $\vec{m}=\rho \vec{v}$, the momentum density. The energy density $\mathcal{U}$ can be split in the thermal energy $\rho e$ and gravitational potential energy $\rho\Phi$. Let $E_t = e\rho + \frac{v^2}{2}$ The only external force is $\vec{F} = \rho\vec{g}$
+Next introduced is the variable $\vec{m}=\rho \vec{v}$, the momentum density. The energy density $\mathcal{U}$ can be split in the thermal energy $\rho e$ and gravitational potential energy $\rho\Phi$. Let $E_t = e\rho + \frac{v^2}{2}$. The only external force is $\vec{F} = \rho\vec{g}$
 carrying out these substitutions leads to the equations in section 6 in the PLUTO manual \cite{pluto-manual}: \unsure{is the expression for $\vec{F}$ correct? Looks to be different in equation 2 and 3}
 
 {\centering 
