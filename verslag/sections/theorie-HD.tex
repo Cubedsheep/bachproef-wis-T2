@@ -65,8 +65,7 @@ This expression which can be rewritten as
 \begin{equation*}
 	f = \frac{2}{\gamma-1}
 \end{equation*}
-Finally, the necessary equation of state is found \cite{notes-fluid-dynamics}[section 3.6.5] :
-\improvement{Add a reference for this energy equation}
+Finally, the necessary equation of state is found \cite{notes-fluid-dynamics}[Subsection 3.6.5] :
 \begin{equation*}
 	\rho e = \frac{f}{2}nk_BT = \frac{p}{\gamma-1}
 \end{equation*}
@@ -75,7 +74,7 @@ Finally, the necessary equation of state is found \cite{notes-fluid-dynamics}[se
 \subsection{Hydrodynamic linear waves}
 We start again from the ideal fluid equations as given in \cref{eq:ideal-HD-euler} and linearize them.
 For this we rewrite the quantities $\rho$ and $p$ as a background density $\rho_0$ and pressure $p_0$ with slight deviations $\rho_1$, $p_1$.
-Furthermore it is assumed that there are no external forces acting on the fluid. The Linearized equations are:
+Furthermore, assume that there are no external forces acting on the fluid. The linearised equations are:
 
 {\centering 
 \noindent \fbox{\parbox{0.5\linewidth}{
@@ -102,9 +101,8 @@ which is the wave equation with speed
 v_s = \sqrt{ \frac{\gamma p_0}{\rho_0} }
 \label{eq:sound-speed}
 \end{equation}
-the speed of sound in the ideal fluid, and the phase- and group speed of linear sound waves.
-Similar expressions are found for the other variables. \improvement{Referentie?}
-this wave speed can be found by substituting a plane wave of the form $p_1 = A \exp \left( i(\omega t - \vec{k}\cdot\vec{x}) \right) $. Substituting this expression in the wave equation for $p_1$ leads to the dispersion relation:
+the speed of sound in the ideal fluid, and the phase- \textit{and} group speed of linear sound waves.
+Similar expressions are found for the other variables. This wave speed can be found by substituting a plane wave of the form $p_1 = A \exp \left( i(\omega t - \vec{k}\cdot\vec{x}) \right) $. Substituting this expression in the wave equation for $p_1$ leads to the dispersion relation:
 \begin{equation}
 	\omega^2 = k^2v_s^2.
 \end{equation}
@@ -113,12 +111,11 @@ The group velocity is given by
 	\vec{v}_{g} = \frac{\partial \omega}{\partial \vec{k}} = v_s\unitvec{k}
 	\label{eq:group-velocity}
 \end{equation}
-\improvement{reference for this relation for the group speed?}
-from which we conclude that these waves are non-dispersive.
+from which we conclude that these waves are non-dispersive \cite{notes-fluid-dynamics}[Chapter 6].
 
 \subsection{Hydrodynamic shocks}
 
-Now we shall reconsider one of the least convincing assumptions made for the derivations of the fluid equations: that of perfectly continuous background variables. In reality, we might encounter very sudden changes in the scalar variable density $\rho$ and vectorial variable velocity $\vec{v}$. To have the theory of ideal fluids take this into account, we can introduce these jumps in the variables as mathematical discontinuities. This discontinuity is appropriately called a 'shock'. We are interested in how this shock moves through the fluid. The derivation of its motion is quite straight forward.\\
+Now we shall reconsider one of the least convincing assumptions made for the derivations of the fluid equations: that of perfectly continuous background variables. In reality, we might encounter very sudden changes in the scalar variable density $\rho$ and vectorial variable velocity $\vec{v}$. To have the theory of ideal fluids take this into account, we can introduce these jumps in the variables as mathematical discontinuities. Such a discontinuity is appropriately called a `shock'. We are interested in how these shock move through the fluid. The derivation of their motion is quite straightforward.\\
 \\
 Start from the continuity equation in its Eulerian form in 1D
 
@@ -142,14 +139,14 @@ Then for $\Delta x, \Delta t \to 0$ we get
 \frac{\partial x}{\partial t} \Delta \rho + \Delta(\rho v) = -V_S \Delta \rho + \Delta(\rho v) = 0
 \end{equation}
 
-where $V_S$ is the shock speed. This relation is the hydrodynamic shock condition. To generalize it beyond 1D, it suffices to take $\vec{v} \cdot \vec{n}$ instead of $v$ where $\vec{n}$ is the unit normal vector on the shock wave front pointing towards the region with lower pressure. It looks as follows
+where $V_S$ is the shock speed. This relation is the first hydrodynamic shock condition. To generalize it beyond 1D, it suffices to take $\vec{v} \cdot \vec{n}$ instead of $v$ where $\vec{n}$ is the unit normal vector on the shock wave front pointing towards the region with lower pressure. It looks as follows:
 
 \begin{equation}
 \label{eq:HD-3D-shock-condition}
 - V_S \Delta(\rho v) + \Delta(\rho \ \vec{v} \cdot \vec{n}) = 0 \ .
 \end{equation}
 
-The minus sign in front of $V_S$ is merely a matter of orientation. In \cref{eq:HD-shock-condition} the orientation is along the positive x-axis. In \cref{eq:HD-3D-shock-condition} it is along the unit vector $\vec{n}$. This is the first of the three \textit{Rankine–Hugoniot} relations. The other two can analogously be derived from the Eulerian form of momentum and energy equations in \cref{eq:ideal-fluid}. The three Rankine–Hugoniot conditions are
+The minus sign in front of $V_S$ is merely a matter of orientation. In \cref{eq:HD-shock-condition} the orientation is along the positive x-axis. In \cref{eq:HD-3D-shock-condition} it is along the unit vector $\vec{n}$. This is the first of the three HD \textit{Rankine–Hugoniot} relations. The other two can analogously be derived from the Eulerian form of the momentum and energy equations in \cref{eq:ideal-HD-euler}. The three Rankine–Hugoniot conditions are
 
 \begin{equation}
 \label{HD-shock-conditions}
@@ -161,7 +158,7 @@ V_S \Delta E_t &= \vec{n} \cdot \Delta \big (\rho \ (e + \frac{v^2}{2} + \frac{p
 \end{equation}
 
 
-Now, for the purposes of this report we would like to write a shock condition in terms of the shock speed as a function of the initial conditions $p_0, \rho_0, v_0$ and the final pressure $p_1$ as pressure is the variable on which we shall be focusing in the simulation data results. Consider a pressure discontinuity $\Delta p = p_1 - p_0$. Use the 1D mass and momentum equations to obtain that
+Now, for the purposes of this report we would like to write a shock condition in terms of the shock speed as a function of the initial conditions $p_0, \rho_0, v_0$ and the final pressure $p_1$ since pressure is the variable on which we shall be focusing in the simulation data results. Consider a pressure discontinuity $\Delta p = p_1 - p_0$. Use the 1D mass and momentum equations to obtain that
 
 \begin{equation}
 \label{eq:Riemann-problem}
@@ -170,7 +167,7 @@ V_S^2 = \frac{\Delta \rho v^2 + p}{\Delta \rho}
 \end{split}
 \end{equation}
 
-Assume that $v_0 = 0$. This assumption may not seem entirely reasonable, but is very helpful in simplifying the problem and will be correct for most of our purposes. Furthermore, we shall see that it can be easily removed when we wish. Combining \cref{eq:Riemann-problem} with the shock conditions derived from the Energy equation, this then results in 
+Assume that $v_0 = 0$. This assumption may not seem entirely reasonable, but is very helpful in simplifying the problem and will be correct for most of our purposes. Furthermore, we shall see that it can be easily removed when we wish. Combining \cref{eq:Riemann-problem} with the third shock condition derived from the energy equation, this then results in 
 
 \begin{equation}
 \label{eq:Riemann-solution}
@@ -179,7 +176,7 @@ V_S^2 = v_s^2 + \frac{\gamma + 1}{2 \rho_0} \Delta p
 \end{split}
 \end{equation}
 
-where $v_s = \sqrt{\frac{\gamma p_0}{\rho}}$ is the speed of sound under the initial conditions. Notice that for $\Delta p = 0$ this expression gives $V_S = v_s$ as we should expect.\\
+where $v_s = \sqrt{\frac{\gamma p_0}{\rho_0}}$ is the speed of sound under the initial conditions. Notice that for $\Delta p = 0$ this expression gives $V_S = v_s$ as we should expect \cite{notes-principles-MHD}[Subsection 4.5.1].\\
 \\
 In case we cannot assume $v_0 = 0$ (and do not wish to view the problem from a moving reference frame) the expression changes only slightly.
 
@@ -197,10 +194,3 @@ Of course, for the 3D case, one simply writes
 \label{eq:Riemann-solution-3D}
 V_S = \vec{n} \cdot \vec{v_0} + \sqrt{v_s^2 + \frac{\gamma + 1}{2 \rho_0} \Delta p}
 \end{equation}
-
-
-
-
-\todo[inline]{Derivation of MHD equation, discussion of the integration scheme used}
-\todo[inline]{Test informatievaardigheden!!!}
-
