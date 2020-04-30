@@ -1,32 +1,27 @@
 \subsection{Magnetohydrodynamic fluid equations}
-Since the aim of this bachelor project is mainly using simulation software to get an understanding of the behaviour of waves in plasma and the subject of magnetohydrodynamics is a really complex one,
-we will merely state the results relevant as theoretical background for our simulations and skim over the derivations, without diving into every technical detail.
-Where necessary, the assumptions behind the equations and how these assumptions limit the applicability is discussed.
-We provide references to the material where we found the relevant formulas and derivations can often be found.
+Since the aim of this project is mainly using simulation software to acquire an understanding of the behaviour of waves in a plasma and the subject of magnetohydrodynamic theory is particularly complicated,
+we will merely state the relevant results as theoretical background for our simulation results and only briefly discuss the derivations, without delving into every technical detail.
+That being said, some theory is required to properly appreciate the interpretation and significance of the simulation results.
 
-There are two approaches commonly taken in the literature to derive the MHD equations. They are either derived from kinetic gass theory, or postulated with added justification of why they can accuratly describe plasmas.
+There are two common approaches in the literature for deriving the MHD equations. They are either derived from kinetic gass theory, or postulated with added justification as to why they provide an accurate description of plasma physics.
 
-We will now sketch the first aproach in order to get some insight in the underlying assumptions of the theory.
-A plasma is an ionised gas consisting of postive and negative ions. In the case of the corona of the sun this is mainly ionised hydrogen.
-Therefore the negative ions are free electrons and the positive ions protons, which are a lot heavier than electrons.
-When the characteristic timescales $\tau_e$ and $\tau_i$ between two collisions of electrons, respectively ions, is much shorter than characteristic timescales $\tau_f$ at which macroscopic variables change we can use a fluid description. 
-At these timescales the individual interactions of individual particles are not relevant anymore.
+We will now sketch the first aproach in order to get some insight into the underlying assumptions of the theory.
+A plasma is an ionised gas consisting of positively and negatively charged particles. In the case of the solar corona, the plasma mainly consists of ionised hydrogen.
+Therefore the negatively charged particles are free electrons whereas the positively charged particles are protons, which are much heavier than electrons.
+When the characteristic time scales $\tau_e$ and $\tau_i$ between two collisions of electrons, respectively ions, is much smaller than characteristic time scales $\tau_f$ at which the macroscopic variables change, we can use a fluid description. 
+At these timescales the mutual interactions of individual particles are no longer relevant \cite{notes-principles-MHD}[Subsection 1.4.1, 1.4.2].
 
-The plasma can then be described as two different fluids, commonly refered to as the \emph{two-fluid theory}.
-The electron gas is one fluid and the proton gas the other. 
-The next assumption that is made, is that the relaxation time $\tau_T$ until the electron fluid and ion fluid are in thermal equilibrium after a slight disturbance is also a lot smaller than $\tau_f$.
+The plasma can then be described as two different fluids, commonly referred to as the \emph{two-fluid theory} where the electron gas is one fluid and the proton gas the other. 
+The next assumption that is made, is that the relaxation time $\tau_T$ until the electron fluid and ion fluid reach thermal equilibrium following a slight disturbance, is also a lot smaller than $\tau_f$.
 Finally, we assume that the fluid has no net charge. Not globally, but also not locally. 
-This means that in every large enough volume, for every ion with charge $Z$, there are also about $Z$ electrons in this volume.
-When all this applies, the variables describing the different fluids can be averaged or added together, to describe the plasma as one fluid.\improvement{add reference to cursus Poedts and course notes arxiv}
+This means that in every large enough volume, for every ion with charge $Q$, there are also approximately a charge $-Q$ due to electrons in this volume. When all this applies, the variables describing the different fluids can be averaged over or added together, to describe the plasma as a single fluid \cite{notes-principles-MHD}[Subsection 2.4.1].
 
-The MHD equations can then be found by adding the maxwell equations to the HD equations. There is one complication: the HD equations are invariant under Galilean transformations. 
-However the Maxwell equations are invariant under Lorentz transformations, so we cannot simply add them to the HD equations and expect a consistent picture.
-To solve this the term for the displacement current $\epsilon_0 \frac{\partial \vec{E}}{\partial t}$ is dropped \improvement{referentie} which results in a set of equations that are invariant under Galilean transformations.
+The MHD equations can then be found by adding the Maxwell equations to the HD equations. However, there is one complication: the HD equations are invariant under Galilean transformations, whereas the Maxwell equations are invariant under Lorentz transformations. Thus we cannot simply combine them with the HD equations and expect a consistent picture.
+In order to solve this, the term for the displacement current $\epsilon_0 \frac{\partial \vec{E}}{\partial t}$ is removed, \cite{notes-principles-MHD}[Subsection 2.4.1, 3.3.1, 3.4.2] which results in a set of equations that are invariant under Galilean transformations.
 
-Understanding the averaging process which brings us from two-fluid theory to the decription given by the magnetohydrodynamic equations is important for understanding what the plasma variables actually represent and when thes representation is an acurate depiction of the state of the plasma.
-Denote with $n_\alpha$ the number density of a certain type of particle, $m_\alpha$ the mass of one particle, $\vec{u}_\alpha$ the velocity of a fluid element of the fluid consisting from particles $\alpha$ and with $p_\alpha$ the pressure of the gas of these particles. 
-Let the subscript $e$ denote variables concerning the electrongas and $i$ variables describing the iongas.
-The variables describing the plasma are the following linear combinations of variables describing the electron and ion gas:
+Understanding the averaging process, which brings us from the two-fluid theory to the description given by the MHD equations, is important for understanding what the plasma variables actually represent and whether this representation is an accurate depiction of the state of the plasma.
+
+Denote with $n_\alpha$ the number density of a certain type of particle $\alpha$, with $m_\alpha$ the mass of one such particle, with $\vec{u}_\alpha$ the velocity of a fluid element, and with $p_\alpha$ the pressure.  Let the subscript $e$ denote variables concerning the electron gas and $i$ variables describing the ion gas. The variables describing the plasma are the following linear combinations of variables describing the electron and ion gasses:
 
 {\centering 
 \noindent \fbox{\parbox{.5\linewidth}{
@@ -42,18 +37,17 @@ The variables describing the plasma are the following linear combinations of var
 }}
 \par}
 
-Where $e$ is the charge of an electron and $Z$ the charge of an ion as a multiple of the electron charge. The first equation is the \emph{total mass density}, the second the \emph{center of mass velocity}, the third the \emph{current density} and the last one describes the \emph{total pressure}.
+Where $e$ is the charge of an electron and $Z$ the charge number of an ion representing its charge as a whole multiple of the electron charge. The first equation is the \emph{total mass density}, the second is the \emph{center of mass velocity}, the third the \emph{current density}, and the last one describes the \emph{total pressure}.
 
-Finally, the viscosity and heat flow are neglected like in the HD case. Furthermore, for the ideal MHD case the resistivity of the fluid is neglected. The extra equations we need are then:
+Finally, the viscosity and heat flow are neglected as in the ordinary HD case. Furthermore, for the ideal MHD case the resistivity of the fluid is ignored as well. The extra equations we need are then:
 \begin{align*}
 	\frac{\partial \vec{B}}{\partial t} &= - \nabla \times \vec{E}\\
 	\nabla \cdot \vec{B} &= 0\\
 	\nabla \times \vec{B} &= \mu_0 \vec{J}
 \end{align*}
-We do not need an equation relating the charge distribution to the electric field in the first equation since we assumed the fluid is locally neutral.
-Furthermore the displacement term in the third equation was neglected.
+We do not need an equation relating the charge distribution to the electric field in the first equation since we assumed the fluid is locally neutral. Moreover, the displacement term in the third equation has been neglected.
 
-Adding everything together such as in [REFERENCE TO ONE OF THE COURSES]\improvement{reference to course notes poedts} yields the ideal MHD equations:
+Adding everything together such as in \cite{notes-principles-MHD}[Subsection 4.1.1] yields the ideal MHD equations:
 
 {\centering 
 \noindent \fbox{\parbox{.85\linewidth}{
@@ -69,16 +63,16 @@ Adding everything together such as in [REFERENCE TO ONE OF THE COURSES]\improvem
 }}
 \par}
 
-Where $$\vec{J} = \frac{\nabla\times \vec{B}}{\mu_0}. $$ We need one additional equation which the inital condition has to satisfy:
+Here $$\vec{J} = \frac{\nabla\times \vec{B}}{\mu_0}. $$ We need one additional equation which the initial condition has to satisfy:
 \begin{equation*}
 	\nabla\cdot\vec{B}=0
 \end{equation*}
-which expresses that there are no magnetic monopoles. By acting with $\nabla\cdot$ on the fourth equation in \cref{eq:ideal-MHD} we see that if the initial equation satisfies $\nabla\cdot\vec{B}=0$, it is automatically satisfied for all later times:
+This excludes magnetic monopoles from the description. By acting with $\nabla\cdot$ on the fourth equation in \cref{eq:ideal-MHD} we see that if the initial equation satisfies $\nabla\cdot\vec{B}=0$, the condition is automatically satisfied for all later times:
 \begin{equation*}
 	\frac{\partial (\nabla\cdot\vec{B})}{\partial t} = 0
 \end{equation*}
 
-The equations used by PLUTO in the ideal case have a slightly different form: \improvement{reference to user guide}
+The equations used by PLUTO in the ideal MHD case have a slightly different form \cite{pluto-manual} :
 
 {\centering 
 \noindent \fbox{\parbox{.85\linewidth}{
@@ -94,7 +88,7 @@ The equations used by PLUTO in the ideal case have a slightly different form: \i
 }}
 \par}
 
-where, as with the HD equations, $\vec{m}=\rho\vec{v}$ and $E_t$ is again the total energy density, this time with an extra term for the magnetic field:
+where, as with the HD equations, $\vec{m}=\rho\vec{v}$ and $E_t$ is the total energy density, this time with an extra term for the magnetic field:
 \begin{equation*}
 	E_t = \rho e + \frac{\rho v^2 + B^2}{2}
 \end{equation*}
@@ -102,9 +96,4 @@ $c\vec{E}$ is given by:
 \begin{equation*}
 	c\vec{E} = -\vec{v}\times \vec{B}
 \end{equation*}
-note that the equations do not formally depend on the speed of light, but it is kept in the equations for consistency with the relativistic case.
-
-
-
-
-
+Note that the equations do not formally depend on the speed of light, but it is kept in the equations for consistency with the relativistic case \cite{notes-principles-MHD}[Subsection 4.1.1].
