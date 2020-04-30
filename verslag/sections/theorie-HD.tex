@@ -42,7 +42,7 @@ where $f(x,y,z,t)$ is a function that describes a property of the fluid. The res
 \par}
 
 Next introduced is the variable $\vec{m}=\rho \vec{v}$, the momentum density. The energy density $\mathcal{U}$ can be split in the thermal energy $\rho e$ and gravitational potential energy $\rho\Phi$. Let $E_t = e\rho + \frac{v^2}{2}$. The only external force is $\vec{F} = \rho\vec{g}$
-carrying out these substitutions leads to the equations in section 6 in the PLUTO manual \cite{pluto-manual}: \unsure{is the expression for $\vec{F}$ correct? Looks to be different in equation 2 and 3}
+carrying out these substitutions leads to the equations in section 6 in the PLUTO manual \cite{pluto-manual}:
 
 {\centering 
 \noindent \fbox{\parbox{.7\linewidth}{
@@ -56,23 +56,22 @@ carrying out these substitutions leads to the equations in section 6 in the PLUT
 \end{equation}}}
 \par}
 
-Together with an equation of state $\rho e = \rho e(p, \rho)$, which gives the thermal energy as a function of $p$ and $\rho$.
-In the remainder of this paper a calorically ideal gas is assumed. This is a gas for which the adiabatic constant $\gamma$ is constant and obeys:
+These equations are soluble given an appropriate equation of state, expressing the thermal energy density $\rho e$ as a function of $p$ and $\rho$. For the purpose of finding such an equation, assume the gas to be calorically ideal. That is, presuppose a constant number of degrees of freedom $f$ for its constituent molecules. From this we extract the adiabatic constant:
 \begin{equation}
 	\gamma = \frac{f+2}{f}
 	\label{eq:adiabatic constant}
 \end{equation}
-where $f$ is the number of degrees of freedom for a molecule of the gas. the previous relation can be rewritten as
+This expression which can be rewritten as
 \begin{equation*}
 	f = \frac{2}{\gamma-1}
 \end{equation*}
-And by substituting this equation in the equation that expresses the energy as a function of degrees of freedom the closure relation $\rho e= \rho e(\rho, p)$ is found:
+Finally, the necessary equation of state is found \cite{notes-fluid-dynamics}[section 3.6.5] :
 \improvement{Add a reference for this energy equation}
 \begin{equation*}
-	E_t = \rho e = \frac{f}{2}nk_BT = \frac{p}{\gamma-1}
+	\rho e = \frac{f}{2}nk_BT = \frac{p}{\gamma-1}
 \end{equation*}
 \todo[inline]{short discussion of assumptions made (no viscosity and heat conduction, callorically ideal gas)}
-\todo[inline]{afleiding golven, groepssnelheid}
+
 \subsection{Hydrodynamic linear waves}
 We start again from the ideal fluid equations as given in \cref{eq:ideal-HD-euler} and linearize them.
 For this we rewrite the quantities $\rho$ and $p$ as a background density $\rho_0$ and pressure $p_0$ with slight deviations $\rho_1$, $p_1$.
