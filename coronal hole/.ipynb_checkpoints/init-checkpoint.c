@@ -150,10 +150,8 @@ void UserDefBoundary (const Data *d, RBox *box, int side, Grid *grid)
 {
   int   i, j, k, nv;
   double  *x1, *x2, *x3;
-  double v0, v1, v2;
+  double v0, mult;
   v0 = 50.0*1.e5/UNIT_VELOCITY;   //normalized velocity of 50 km/s
-  v1 = -v0;
-  v2 = 0.0;
 
   x1 = grid->x[IDIR];
   x2 = grid->x[JDIR];
@@ -166,10 +164,10 @@ void UserDefBoundary (const Data *d, RBox *box, int side, Grid *grid)
   if (side == X1_BEG){  /* -- X1_BEG boundary -- */
     if (box->vpos == CENTER) {
       BOX_LOOP(box,k,j,i){ 
- 
-       d->Vc[VX1][k][j][i] = v0*tanh(g_time/20.0) - v0/2*(tanh((g_time-600)/60.0)+1);
+       mult = tanh(g_time/20.0) - 1/2*(tanh((g_time-600)/60.0)+1);
+       d->Vc[VX1][k][j][i] = v0*mult;
        d->Vc[VX2][k][j][i] = 0.0;
-       
+       d->Vc[RHO][k][j][i] = 1.0 + 0.2*mult;
        }
     }else if (box->vpos == X1FACE){
       BOX_LOOP(box,k,j,i){  }
