@@ -1,7 +1,7 @@
-While the main focus of this bachelor project is the numerical modeling of waves in the solar corona, some theoretical background is important to frame the results of our simulations.
-Furthermore, this knowledge gives some insight in the assumptions that are made in deriving the magnetohydrodynamic (MHD) equations and when they are valid.
-
-\subsection*{Hydrodynamics}
+While the main focus of this project is the numerical modeling of waves in the solar corona, some theoretical background is important to frame the results of our simulations.
+Furthermore, this knowledge gives some insight in the assumptions that are made in deriving the magnetohydrodynamic (MHD) equations and when they are valid. \\
+\\
+We shall begin by a discussion of the cleaner and more transparent theory of ideal hydrodynamics before delving into the much more complicated and cluttered realm of magnetohydrodynamic theory. However, we emphasize that there is no fine line between the two and that indeed, HD theory can be seen as the special case of MHD theory in with a negligible magnetic field. 
 
 \subsection{Hydrodynamic fluid equations}
 The theory in this section is adapted from \cite{notes-fluid-dynamics}. For the first task a non-viscous Newtonian fluid is considered. Heat conduction and dissipation is neglected as well.
@@ -21,13 +21,13 @@ This type of fluid obeys the Euler equations for conservation of mass, momentum 
 
 
 These are the Euler equations in Lagrangian form, with time derivatives following the fluid, hence the total derivatives with respect to time.
-PLUTO does the fluid simulation using a static grid, so we need the equations in Eulerian form: partial derivatives with respect to time instead of total derivatives.
-This change of derivatives can be carried out using the following relation, found in \cite{notes-fluid-dynamics} in section 2.4:
+PLUTO does the fluid simulation using a static grid. Therefore we need the equations in their Eulerian form: partial derivatives with respect to time instead of total derivatives.
+This change of derivatives can be carried out using the following relation, found in \cite{notes-fluid-dynamics}, section 2.4:
 \begin{equation}
 	\frac{df}{dt} = \frac{\partial f}{\partial t} + (\vec{v} \cdot \nabla) f
 	\label{eq:relation-total-partial}
 \end{equation}
-where $f(x,y,z,t)$ is a function that describes a property of the fluid. The equations can also be rederived using an Eulerian view. In any case the result is the same:
+where $f(x,y,z,t)$ is a function that describes a property of the fluid. The resulting equations could also have been re-derived using an Eulerian view to begin with. In any case the result is the same:
 
 {\centering 
 \noindent \fbox{\parbox{0.7\linewidth}{
@@ -41,8 +41,8 @@ where $f(x,y,z,t)$ is a function that describes a property of the fluid. The equ
 \end{equation}}}
 \par}
 
-Next introduce the variable $\vec{m}=\rho \vec{v}$, the momentum density. The energy density $\mathcal{U}$ can be split in the thermal energy $\rho e$ and gravitational potential energy $\rho\Phi$. Let $E_t = e\rho + \frac{v^2}{2}$ The only external force is $\vec{F} = \rho\vec{g}$
-carrying out these substitutions leads to the equations in section 6 in the PLUTO manual \cite{pluto-manual}: \unsure{is the expression for $\vec{F}$ correct? Looks to be different in equation 2 and 3}
+Next introduced is the variable $\vec{m}=\rho \vec{v}$, the momentum density. The energy density $\mathcal{U}$ can be split in the thermal energy $\rho e$ and gravitational potential energy $\rho\Phi$. Let $E_t = e\rho + \frac{v^2}{2}$. The only external force is $\vec{F} = \rho\vec{g}$
+carrying out these substitutions leads to the equations in section 6 in the PLUTO manual \cite{pluto-manual}:
 
 {\centering 
 \noindent \fbox{\parbox{.7\linewidth}{
@@ -56,27 +56,25 @@ carrying out these substitutions leads to the equations in section 6 in the PLUT
 \end{equation}}}
 \par}
 
-Together with an equation of state $\rho e = \rho e(p, \rho)$, which gives the thermal energy as a function of $p$ and $\rho$.
-In the remainder of this paper a calorically ideal gas is assumed. This is a gas for which the adiabatic constant $\gamma$ is constant and obeys:
+These equations are soluble given an appropriate equation of state, expressing the thermal energy density $\rho e$ as a function of $p$ and $\rho$. For the purpose of finding such an equation, assume the gas to be calorically ideal. That is, presuppose a constant number of degrees of freedom $f$ for its constituent molecules. From this we extract the adiabatic constant:
 \begin{equation}
 	\gamma = \frac{f+2}{f}
 	\label{eq:adiabatic constant}
 \end{equation}
-where $f$ is the number of degrees of freedom for a molecule of the gas. the previous relation can be rewritten as
+This expression which can be rewritten as
 \begin{equation*}
 	f = \frac{2}{\gamma-1}
 \end{equation*}
-And by substituting this equation in the equation that expresses the energy as a function of degrees of freedom the closure relation $\rho e= \rho e(\rho, p)$ is found:
-\improvement{Add a reference for this energy equation}
+Finally, the necessary equation of state is found \cite{notes-fluid-dynamics}[Subsection 3.6.5] :
 \begin{equation*}
-	E_t = \rho e = \frac{f}{2}nk_BT = \frac{p}{\gamma-1}
+	\rho e = \frac{f}{2}nk_BT = \frac{p}{\gamma-1}
 \end{equation*}
 \todo[inline]{short discussion of assumptions made (no viscosity and heat conduction, callorically ideal gas)}
-\todo[inline]{afleiding golven, groepssnelheid}
+
 \subsection{Hydrodynamic linear waves}
 We start again from the ideal fluid equations as given in \cref{eq:ideal-HD-euler} and linearize them.
 For this we rewrite the quantities $\rho$ and $p$ as a background density $\rho_0$ and pressure $p_0$ with slight deviations $\rho_1$, $p_1$.
-Furthermore it is assumed that there are no external forces acting on the fluid. The Linearized equations are:
+Furthermore, assume that there are no external forces acting on the fluid. The linearised equations are:
 
 {\centering 
 \noindent \fbox{\parbox{0.5\linewidth}{
@@ -103,9 +101,8 @@ which is the wave equation with speed
 v_s = \sqrt{ \frac{\gamma p_0}{\rho_0} }
 \label{eq:sound-speed}
 \end{equation}
-the speed of sound in the ideal fluid, and the phase- and group speed of linear sound waves.
-Similar expressions are found for the other variables. \improvement{Referentie?}
-this wave speed can be found by substituting a plane wave of the form $p_1 = A \exp \left( i(\omega t - \vec{k}\cdot\vec{x}) \right) $. Substituting this expression in the wave equation for $p_1$ leads to the dispersion relation:
+the speed of sound in the ideal fluid, and the phase- \textit{and} group speed of linear sound waves.
+Similar expressions are found for the other variables. This wave speed can be found by substituting a plane wave of the form $p_1 = A \exp \left( i(\omega t - \vec{k}\cdot\vec{x}) \right) $. Substituting this expression in the wave equation for $p_1$ leads to the dispersion relation:
 \begin{equation}
 	\omega^2 = k^2v_s^2.
 \end{equation}
@@ -114,12 +111,11 @@ The group velocity is given by
 	\vec{v}_{g} = \frac{\partial \omega}{\partial \vec{k}} = v_s\unitvec{k}
 	\label{eq:group-velocity}
 \end{equation}
-\improvement{reference for this relation for the group speed?}
-from which we conclude that these waves are non-dispersive.
+from which we conclude that these waves are non-dispersive \cite{notes-fluid-dynamics}[Chapter 6].
 
 \subsection{Hydrodynamic shocks}
 
-Now we shall reconsider one of the least convincing assumptions made for the derivations of the fluid equations: that of perfectly continuous background variables. In reality, we might encounter very sudden changes in the scalar variable density $\rho$ and vectorial variable velocity $\vec{v}$. To have the theory of ideal fluids take this into account, we can introduce these jumps in the variables as mathematical discontinuities. This discontinuity is appropriately called a 'shock'. We are interested in how this shock moves through the fluid. The derivation of its motion is quite straight forward.\\
+Now we shall reconsider one of the least convincing assumptions made for the derivations of the fluid equations: that of perfectly continuous background variables. In reality, we might encounter very sudden changes in the scalar variable density $\rho$ and vectorial variable velocity $\vec{v}$. To have the theory of ideal fluids take this into account, we can introduce these jumps in the variables as mathematical discontinuities. Such a discontinuity is appropriately called a `shock'. We are interested in how these shock move through the fluid. The derivation of their motion is quite straightforward.\\
 \\
 Start from the continuity equation in its Eulerian form in 1D
 
@@ -143,14 +139,14 @@ Then for $\Delta x, \Delta t \to 0$ we get
 \frac{\partial x}{\partial t} \Delta \rho + \Delta(\rho v) = -V_S \Delta \rho + \Delta(\rho v) = 0
 \end{equation}
 
-where $V_S$ is the shock speed. This relation is the hydrodynamic shock condition. To generalize it beyond 1D, it suffices to take $\vec{v} \cdot \vec{n}$ instead of $v$ where $\vec{n}$ is the unit normal vector on the shock wave front pointing towards the region with lower pressure. It looks as follows
+where $V_S$ is the shock speed. This relation is the first hydrodynamic shock condition. To generalize it beyond 1D, it suffices to take $\vec{v} \cdot \vec{n}$ instead of $v$ where $\vec{n}$ is the unit normal vector on the shock wave front pointing towards the region with lower pressure. It looks as follows:
 
 \begin{equation}
 \label{eq:HD-3D-shock-condition}
 - V_S \Delta(\rho v) + \Delta(\rho \ \vec{v} \cdot \vec{n}) = 0 \ .
 \end{equation}
 
-The minus sign in front of $V_S$ is merely a matter of orientation. In \cref{eq:HD-shock-condition} the orientation is along the positive x-axis. In \cref{eq:HD-3D-shock-condition} it is along the unit vector $\vec{n}$. This is the first of the three \textit{Rankine–Hugoniot} relations. The other two can analogously be derived from the Eulerian form of momentum and energy equations in \cref{eq:ideal-fluid}. The three Rankine–Hugoniot conditions are
+The minus sign in front of $V_S$ is merely a matter of orientation. In \cref{eq:HD-shock-condition} the orientation is along the positive x-axis. In \cref{eq:HD-3D-shock-condition} it is along the unit vector $\vec{n}$. This is the first of the three HD \textit{Rankine–Hugoniot} relations. The other two can analogously be derived from the Eulerian form of the momentum and energy equations in \cref{eq:ideal-HD-euler}. The three Rankine–Hugoniot conditions are
 
 \begin{equation}
 \label{HD-shock-conditions}
@@ -162,7 +158,7 @@ V_S \Delta E_t &= \vec{n} \cdot \Delta \big (\rho \ (e + \frac{v^2}{2} + \frac{p
 \end{equation}
 
 
-Now, for the purposes of this report we would like to write a shock condition in terms of the shock speed as a function of the initial conditions $p_0, \rho_0, v_0$ and the final pressure $p_1$ as pressure is the variable on which we shall be focusing in the simulation data results. Consider a pressure discontinuity $\Delta p = p_1 - p_0$. Use the 1D mass and momentum equations to obtain that
+Now, for the purposes of this report we would like to write a shock condition in terms of the shock speed as a function of the initial conditions $p_0, \rho_0, v_0$ and the final pressure $p_1$ since pressure is the variable on which we shall be focusing in the simulation data results. Consider a pressure discontinuity $\Delta p = p_1 - p_0$. Use the 1D mass and momentum equations to obtain that
 
 \begin{equation}
 \label{eq:Riemann-problem}
@@ -171,7 +167,7 @@ V_S^2 = \frac{\Delta \rho v^2 + p}{\Delta \rho}
 \end{split}
 \end{equation}
 
-Assume that $v_0 = 0$. This assumption may not seem entirely reasonable, but is very helpful in simplifying the problem and will be correct for most of our purposes. Furthermore, we shall see that it can be easily removed when we wish. Combining \cref{eq:Riemann-problem} with the shock conditions derived from the Energy equation, this then results in 
+Assume that $v_0 = 0$. This assumption may not seem entirely reasonable, but is very helpful in simplifying the problem and will be correct for most of our purposes. Furthermore, we shall see that it can be easily removed when we wish. Combining \cref{eq:Riemann-problem} with the third shock condition derived from the energy equation, this then results in 
 
 \begin{equation}
 \label{eq:Riemann-solution}
@@ -180,7 +176,7 @@ V_S^2 = v_s^2 + \frac{\gamma + 1}{2 \rho_0} \Delta p
 \end{split}
 \end{equation}
 
-where $v_s = \sqrt{\frac{\gamma p_0}{\rho}}$ is the speed of sound under the initial conditions. Notice that for $\Delta p = 0$ this expression gives $V_S = v_s$ as we should expect.\\
+where $v_s = \sqrt{\frac{\gamma p_0}{\rho_0}}$ is the speed of sound under the initial conditions. Notice that for $\Delta p = 0$ this expression gives $V_S = v_s$ as we should expect \cite{notes-principles-MHD}[Subsection 4.5.1].\\
 \\
 In case we cannot assume $v_0 = 0$ (and do not wish to view the problem from a moving reference frame) the expression changes only slightly.
 
@@ -198,10 +194,3 @@ Of course, for the 3D case, one simply writes
 \label{eq:Riemann-solution-3D}
 V_S = \vec{n} \cdot \vec{v_0} + \sqrt{v_s^2 + \frac{\gamma + 1}{2 \rho_0} \Delta p}
 \end{equation}
-
-
-
-
-\todo[inline]{Derivation of MHD equation, discussion of the integration scheme used}
-\todo[inline]{Test informatievaardigheden!!!}
-
