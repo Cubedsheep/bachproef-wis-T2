@@ -36,19 +36,19 @@ It is immediately clear that the shock wave with the higher pressure difference 
 
 
 In the right hand plot of \cref{fig:HD-speed} the speed of the wave front along the positive $x$-axis is plotted as a function of time. This confirms that the wave speed is lower with a lower pressure difference.
-The group speed was calculated in two ways. 
-The first was to start at a point at the edge of the domain and find the first point on the line from this point to the center with a pressure higher than $1.01$ times the background pressure.
+The group speed can be calculated in two ways. 
+The first is to start at a point at the edge of the domain and find the first point on the line from this point to the center with a pressure higher than $1.01$ times the background pressure.
 This way, we get a function $r(t,\theta)$ expressing the distance from the center to the wave front along a line as a function of the angle between this line and the $x$-axis and time.
 The speed was calculated using numerical differentiation with the following central difference:
 \begin{equation*}
 	f'(t_0) = \frac{f(t+dt)-f(t-dt)}{2dt} + O(dt^2)
 \end{equation*}
 found in [REF]\todo{reference naar cursus numerieke wiskunde}. This is the simulated speed, represented by the dots.
-In the left graph of \cref{fig:HD-speed} we see that the speed is isotropic, apart from some deviations.
-These deviations are mainly due to the discrete nature of the grid which prevents calculating an exact position of the wave-front.
-To mitigate this noise, the speeds calculated in all directions were averaged together te get the dots representing the wave speed in the right graph of \cref{fig:HD-speed}.
+In the left graph of \cref{fig:HD-speed}, we see that the speed is isotropic, apart from some deviations.
+These deviations are mainly due to the discrete nature of the grid, which prevents calculating an exact position of the wave-front.
+To mitigate this noise, the speeds calculated in all directions were averaged together to get the dots representing the wave speed in the right hand graph of \cref{fig:HD-speed}.
 
-Using \cref{eq:Riemann-solution2} the theoretical speed of a shock in a Riemann problem was calculated using the highest pressure in the domain as max pressure ($p_1$) and 1 as the lowest pressure ($p_0$). This is plotted as the solid lines in \cref{fig:HD-speed}.
+Using \cref{eq:Riemann-solution2} the theoretical speed of a shock in a Riemann problem was calculated, using the highest pressure in the domain as max pressure ($p_1$) and $1$ as the lowest pressure ($p_0$). This is plotted as the solid lines in \cref{fig:HD-speed}.
 
 \begin{figure}[H]
 	%\hspace{-1cm}
@@ -60,21 +60,21 @@ Using \cref{eq:Riemann-solution2} the theoretical speed of a shock in a Riemann 
 
 The first 10 snapshots are not included in the right graph of \cref{fig:HD-speed}. 
 The reason can be seen in \cref{fig-HD-blast-short}. 
-When the shock wave starts going outwards the pressure in the center stays at it's original pressure for some more time.
-We use the max pressure in the domain to estimate $p_1$ in \cref{eq:Riemann-Solution2}, however for these first frames this is not the maximum pressure in the wavefront.
-It proved to be difficult to accuratly detect the maximum of the wavefront, therefore the first couple of frames were dropped.
+When the shock wave starts going outwards, the pressure in the center stays at it's original pressure for some more time.
+We use the max pressure in the domain to estimate $p_1$ in \cref{eq:Riemann-Solution2}. However for these first frames this is not the maximum pressure in the wave front.
+It proved to be difficult to accurately detect the maximum of the wave front Therefore, the first couple of frames were left out.
 The higher initial speed and sudden drop in \cref{fig:HD-speed} for $p=1.5$ is due to these effects. A closer look to the curve for $p=1.05$ will reveal something similar.
 
-We see that the curves do match rather closely, proving the ability of the PLUTO code to deal with shocks. 
-The periodic behaviour of dots lying under and above the curve could still be an artifact of the grid discretization, however no conclusive results where found that could prove this so it could point to a systematic error.
+We notice that the curves do match rather closely, proving the ability of the PLUTO code to deal with shocks. 
+The periodic behaviour of dots lying under and above the curve could still be an artefact of the grid discretization. However, no conclusive results were found to prove this. Thus, it could point to a systematic error.
 
-Lastly, in \cref{fig:HD-blast-long} there are new waves appearing from the center. This is due to the nature of a 2.5d simulation.
-The initial condition has to be interpreted as a long cilinder in 3d, from which a slice perpendicular to this cilinder is taken to be simulated. 
-The secondary wavefronts can then be seen as waves coming from different points of the cilinder.
+Lastly, in \cref{fig:HD-blast-long}, there are new waves appearing from the center. This is due to the nature of a 2.5D simulation.
+The initial condition has to be interpreted as a long cylinder in 3D, from which a slice perpendicular to this cylinder, is taken for the simulated. 
+The secondary wave fronts can then be seen as waves coming from different points on the cylinder.
 
 We remark that approximating the shock as a Riemann problem is a crude first-order approximation. 
 The PLUTO code calculates flow velocities like this in every integration step. 
-This small example highlights the importance of robust integrators and Riemann solvers, together with small enought time steps, to acuratly model flow variables in the vicinity of large gradients.
+This small example highlights the importance of robust integrators and Riemann solvers, together with small enough time steps, to accurately model flow variables in the vicinity of large gradients.
 
 \begin{figure}[H]
 	%\hspace{-1cm}
