@@ -8,26 +8,6 @@ Studying the behaviour of a plasma based on analytically acquired solutions of t
 \\
 In this manner we have completed an analysis of the behaviours of an idealised plasma for different boundary conditions. For each case we have investigated the influence of changes in the initial conditions by running the simulation in parallel for different values of the initial variables and comparing the outputs. 
 
-\subsection*{Physics of the solar corona}
-
-A brief justification of some basic assumptions is in place. As mentioned, we presuppose that the solar corona consists of an ideal plasma. That is, a highly ionised gas with smooth background conditions. A gas of this type should demonstrate a `collective behaviour' which is necessary for the the ideal MHD equations to be sufficiently accurate. By `collective behaviour', we mean the following.\\
-\\
-A plasma consists of positively charged ions and negatively charges electrons. To be able to assume the ideal MHD theory we must have that the kinetic energy of these particles sufficiently outweighs the potential energy produced by the pairwise Coulomb interactions. In other words, we require $\frac{KE}{PE} \gg 1$. If this is indeed the case we may presume that we are working with a collection of particles that interact on a smooth background.\\
-\\
-Such a smooth background is achieved by a phenomenon called `electric screening'. This is the effect by which positively charges ions are electrically screened from each other - in that their mutual Coulomb interaction becomes negligible - by a surrounding cloud of electrons.\\
-\\
-Consider any such ion. We can write its circumambient electric potential in a system of mobile charged particles as 
-
-$$ \phi  \sim \frac{1}{r} e^{-r k_D}$$
-
-where $k_D = \frac{1}{\lambda_D}$ and $ \lambda_D $ is the Debye length. The reason why the Debye length is important for our purposes is that it traces the boundary of where the motion of the particles begins to outweigh the electric potential. We can see this because for a given electric charge $Q$ 
-
-$$ \frac{KE}{PE}  \sim \frac{T}{\frac{Q}{\lambda_D}}  \sim \frac{\lambda_{MFP}}{\lambda_D} $$
-
-where $\lambda_{MFP}$ is the mean length of a free particle path. This clarifies the significance of the strong inequality $\frac{KE}{PE} \gg 1$: the charged particles move quasi freely through the plasma with very infrequent occurrence of one to one electromagnetic interaction.\\
-\\
-Since the temperature in the solar corona is of the order of $10^6 K$ we may assume that these ratios are sufficiently large to consider the ion gas as a collection of charges particles which behave collectively, which is what constitutes a plasma. \cite{notes-principles-MHD}
-
 \subsection*{Goal of this report}
 
 As mentioned, the main purpose of the project was to gain a basic understanding of the nature of the plasma in the solar corona. Specifically MHD waves are of great interest as they are directly observable in satellite observations of the sun. Therefore, we shall focus our report on them. Concretely, we discuss two compelling examples of MHD waves: the MHD blastwave and the interaction of an MHD wave with a coronal hole.\\
