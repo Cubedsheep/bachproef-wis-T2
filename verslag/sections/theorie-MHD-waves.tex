@@ -1,5 +1,9 @@
+
 \subsection{Magnetohydrodynamic waves}
 \label{sec:MHD-waves}
+
+\subsubsection{Magnetohydrodynamic waves}
+
 For the discussion concerning linear magnetohydrodynamic waves, we take as the initial condition with a homogeneous plasma in equilibrium.
 Denote with $\rho_0$, $p_0$, $\vec{v}_0$ and $\vec{B}_0$ these equilibrium values. 
 To derive the equations for the waves, consider slight perturbations $\rho_1$, $p_1$, $\vec{v}_1$ and $\vec{B}_1$ of this equilibrium state, just like what was done to find the HD waves.
@@ -147,6 +151,22 @@ There are two types because the Alfvén and sound waves can either be in fase or
 In the first case $\omega_+$ the region of high pressure will correspond to a high magnetic field density, which causes the resulting wave to be driven forward by both ordinary hydrodynamic pressure and the tension of the concentrated magnetic field lines. 
 In the other case of $\omega_-$, these same two forces work against each other, slowing the wave.
 
+\subsubsection{Magnetohydrodynamic shocks}
+
+To derive the Rankine–Hugoniot conditions for MHD shocks, one simply uses \cref{eq:ideal-MHD} as it is already in its Eulerian form and preforms the same calculations as for the Rankine–Hugoniot conditions for HD shocks. 
+This yields:
+\begin{equation}
+\label{eq:MHD-shock-conditions}
+\begin{split}
+V_S \Delta \rho &= \vec{n}\cdot\Delta(\rho \ \vec{v})\\
+V_S \Delta (\rho \ \vec{v}) &= \vec{n} \cdot \Delta(\rho \ \vec{v} \ \vec{v} + (p + \frac{B^2}{2}) \ \I -  \vec{B}\vec{B}) \\
+V_S \Delta E_t &= \vec{n} \cdot \Delta \big( (\rho \frac{v^2}{2} + \frac{\gamma}{\gamma - 1} p + B^2) \ \vec{v} - \vec{v} \cdot \vec{B} \vec{B} \big) \\
+V_S \Delta \vec{B} &= \vec{n} \cdot \Delta \big( \vec{v} \vec{B} - \vec{B} \vec{v} \big)
+\end{split}
+\end{equation}
+
+These equations will not result in an expression for the shock speed which is fundamentally different from the result we found in the HD case. Therefore, we shall now focus on the group speed which is in the MHD case quite peculiar indeed.
+
 \subsubsection{Group speed}
 The wave speed that is derived from the simulations is the group speed and not the phase speed of the waves. We use the relation \cref{eq:group-velocity} to calculate this quantity.
 For the Alfvén waves, this is easy and yields:
@@ -174,21 +194,9 @@ We remark that the group speed of the slow-mode along the magnetic field has a m
 	\caption{Group speed diagrams for the fast (blue) and slow (red) magnetosonic waves. The magnetic field points along the $x$-axis. The magnetic field is oriented along the horizontal axis. The lines represent the group speed of the wave (distance from origin) as a function of the angle $\theta$ between the wave vector $\vec{k}$ and magnetic field $\vec{B}$.}
 	\label{fig:MHD-group-speed}
 \end{figure}
-\newpage
 
-\subsection*{Magnetohydrodynamic shocks}
 
-To derive the Rankine–Hugoniot conditions for MHD shocks, one simply uses \cref{eq:ideal-MHD} as it is already in its Eulerian form and preforms the same calculations as for the Rankine–Hugoniot conditions for HD shocks. 
-This yields:
-\begin{equation}
-\label{eq:MHD-shock-conditions}
-\begin{split}
-V_S \Delta \rho &= \vec{n}\cdot\Delta(\rho \ \vec{v})\\
-V_S \Delta (\rho \ \vec{v}) &= \vec{n} \cdot \Delta(\rho \ \vec{v} \ \vec{v} + (p + \frac{B^2}{2}) \ \I -  \vec{B}\vec{B}) \\
-V_S \Delta E_t &= \vec{n} \cdot \Delta \big( (\rho \frac{v^2}{2} + \frac{\gamma}{\gamma - 1} p + B^2) \ \vec{v} - \vec{v} \cdot \vec{B} \vec{B} \big) \\
-V_S \Delta \vec{B} &= \vec{n} \cdot \Delta \big( \vec{v} \vec{B} - \vec{B} \vec{v} \big)
-\end{split}
-\end{equation}
+
 
 
 
