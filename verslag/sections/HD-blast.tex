@@ -1,22 +1,26 @@
-As a testcase to learn how to use the PLUTO software we simulated hydrodynamic and magnetohydrodynamic blastwaves in a 2D domain. The initial condition for the simulations is a circle with radius $0.3$ (in code units) with higher pressure.
-The pressure outside the circle is $1$, in code units. For the pressure inside the circle three scenarios were simulated.
-One with a large pressure difference, where the pressure inside the circle is $5$. One with a lower pressure difference with $1.5$ as inside pressure and one with $1.05$ as inside pressure.
-The reason for using different pressure differences is to see the non-linear effects in the shock-wave with high pressure difference.
-
-\subsection{Hydrodynamic shockwave}
-First some technical details of the simulation.
+As a testcase to learn how to use the PLUTO software we simulated hydrodynamic and magnetohydrodynamic blastwaves in a 2D domain.
 The normalization constants for the units used are the following:
 \begin{align*}
 	v_0 &= 10^8 \text{cm/s}\\
 	L_0 &= 10^8 \text{cm}\\
-	\rho_0 = 10^9 m_p \text{cm}^{-3}
+	\rho_0 &= 10^9 m_p \text{cm}^{-3}
 \end{align*}
 where $m_p$ is the mass of a proton. These values are of the order of what is commonly found in the solar corona. \todo{referentie naar een of andere paper}
 As was noted in \cref{sec:units} are the ideal MHD equation dimensionless.
 The ideal HD equations are the ideal MHD equations with the terms relating to the magnetic field dropped, therefore they are dimensionless as well.
 In an effort to keep the discussion as general as possible dimensionless quantities are used in the remainder of the section, except when the units are explicitly stated.
+In some cases Empty square brackets $[\,]$ underscore that a quantity is dimensionless.
+$\mathscr{F}$
 
+The initial condition for the simulations is a circle with radius $0.3$ with higher pressure.
+The pressure outside the circle is $1$. For the pressure inside the circle three scenarios were simulated.
+One with a large pressure difference, where the pressure inside the circle is $5$. One with a lower pressure difference with $1.5$ as inside pressure and one with $1.05$ as inside pressure.
+The reason for using different pressure differences is to see the non-linear effects in the shock-wave with high pressure difference.
+
+\subsection{Hydrodynamic shockwave}
+First some technical details of the simulation.
 The simulation was done on a $1024 \times 1024$ grid for a period of $t=1.5$ with an initial time step of $1e-4$.
+The size of the grid is $6$ by $6$.
 A snapshot of the variables describing the system was saved every $0.03$ time units, for a total of $50$ snapshots (excluding the initial condition).
 
 \begin{figure}[H]
