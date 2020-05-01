@@ -1,7 +1,7 @@
-
 \subsubsection{Magnetohydrodynamic waves}
 \label{sec:MHD-waves}
 
+The following discussion is largely based on \cite{site-mhd-waves} [Magnetohydrodynamic Fluids] and \cite{notes-principles-MHD}recompile.
 For the discussion concerning linear magnetohydrodynamic waves, we take as the initial condition with a homogeneous plasma in equilibrium.
 Denote with $\rho_0$, $p_0$, $\vec{v}_0$ and $\vec{B}_0$ these equilibrium values. 
 To derive the equations for the waves, consider slight perturbations $\rho_1$, $p_1$, $\vec{v}_1$ and $\vec{B}_1$ of this equilibrium state, just like what was done to find the HD waves.
@@ -173,12 +173,13 @@ For the Alfvén waves, this is straightforward and yields:
 \end{equation}
 Where $\theta$ is again the angle between $\unitvec{k}$ and the magnetic field $\vec{B}$.
 
-For the slow and fast magnetosonic waves, this is a lot more involved. A derivation can be found in \todo{ref naar \url{http://www.ss.ncu.edu.tw/~lyu/lecture_files_en/lyu_SPP_Book_A4format_pdf_html/pdf_1_Ch/lyu_SPP_Chapter_6.pdf}} [REF].
+For the slow and fast magnetosonic waves, this is a lot more involved. A derivation can be found in \cite{elementary-space-plasma} [chapter 6].
 The result is ($v_\pm=\omega_\pm/k$):
 \begin{equation}
 	\vec{v}_{g\pm} = \frac{v_\pm^4(\theta)\unitvec{k} - v_s^2v_a^2\unitvec{B}\cos\theta}{v_\pm(\theta) \left[ 2v_\pm^2-(v_s^2+v_a^2) \right]}
 	\label{eq:magnetoaccoustic-group-speed}
 \end{equation}
+Where the hats denote unit vectors.
 This gives the group speed of the fast and slow magnetosonic modes as a function of the angle $\theta$.
 In \cref{fig:MHD-group-speed} this relation is plotted in polar form for a few different values of the plasma-$\beta$.
 The $\beta$ used here is one calculated using the dimensionless units introduced in \cref{sec:units}. 

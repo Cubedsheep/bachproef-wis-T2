@@ -45,7 +45,7 @@ Finally, the viscosity and heat flow are neglected as in the ordinary HD case. F
 	\nabla \cdot \vec{B} &= 0\\
 	\nabla \times \vec{B} &= \mu_0 \vec{J}
 \end{align*}
-We do not need an equation relating the charge distribution to the electric field in the first equation since we assumed the fluid is locally neutral. Moreover, the displacement term in the third equation has been neglected.
+We do not need an equation relating the charge distribution to the electric field in the first equation since we assumed the fluid is locally neutral. Moreover, the displacement term in the third equation has been neglected, see \cite{notes-astro-fluid-dyn} [chapter 3].
 
 Adding everything together such as in \cite{notes-principles-MHD}[Subsection 4.1.1] yields the ideal MHD equations:
 
@@ -96,4 +96,12 @@ $c\vec{E}$ is given by:
 \begin{equation*}
 	c\vec{E} = -\vec{v}\times \vec{B}
 \end{equation*}
-Note that the equations do not formally depend on the speed of light, but it is kept in the equations for consistency with the relativistic case \cite{notes-principles-MHD}[Subsection 4.1.1].
+Note that the equations do not formally depend on the speed of light, but it is kept in the equations for consistency with the relativistic case \cite{notes-principles-MHD} [Subsection 4.1.1].
+
+Lastly we introduce the plasma-$\beta$. 
+This is the ratio of the mechanical pressure $p$ and the magnetic pressure $ \frac{B^2}{2\mu_0} $:
+\begin{equation*}
+	\beta = \frac{p}{B^2/2\mu_0}
+\end{equation*}
+When $\beta$ is small, the magnetic effects dominate the classic hydrodynamic effects and when $\beta$ is large we approximate the hydrodynamic situation.
+This parameter will be frequently used to choose simulation parameters, as well as in the analysis of the simulation results.

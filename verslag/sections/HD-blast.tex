@@ -5,7 +5,7 @@ The normalization constants for the units used are the following:
 	L_0 &= 10^8 \text{cm}\\
 	\rho_0 &= 10^9 m_p \text{cm}^{-3}
 \end{align*}
-where $m_p$ is the mass of a proton. These values are of the order of what is commonly found in the solar corona. \todo{referentie naar een of andere paper}
+where $m_p$ is the mass of a proton. These values are of the order of what is commonly found in the solar corona, see \cite{article2}.
 As was noted in \cref{sec:units}, the ideal MHD equation are dimensionless.
 The ideal HD equations are the ideal MHD equations without the terms relating to the magnetic field. Therefore, they are dimensionless as well.
 In an effort to keep the discussion as general as possible, dimensionless quantities are used in the remainder of the section, unless explicitly stated otherwise.
@@ -30,6 +30,19 @@ A snapshot of the variables describing the system was saved every $0.03$ time un
 	\label{fig:HD-blast-short}
 \end{figure}
 
+\begin{figure}[H]
+	%\hspace{-1cm}
+	\centering
+	\includegraphics[width=\linewidth]{images/HD-speed.pdf}
+	\caption{\emph{Left}: Speed at 3 consecutive timestamps averaged together as a function of the angle of propagation for the 3 situations. 
+		The averaging was done to lower the noise and find systematic deviations.
+	\emph{Right}: The speed of the wave as a function of time, along the $x$-axis. 
+	The dots represent the speed calculated from the simulation data by deriving the function $x(t)$ that represents the position of the wave front. 
+	The lines represent the theoretical shock speed in a Riemann-problem with as high pressure the highest pressure in the domain, and lowest pressure $1$.
+	The black dashed line in both graphs is the speed of sound for linear pressure waves in a medium with pressure $1$ (code units).}
+	\label{fig:HD-speed}
+\end{figure}
+
 In \cref{fig:HD-blast-short} the pressure profile of both scenarios is plotted for the initial condition and two frames right after the start of the simulation.
 In \cref{fig:HD-blast-long} the profile is plotted for later times.
 It is immediately clear that the shock wave with the higher pressure difference travels faster than the other one. However, the general shape of the wave remains the same.
@@ -43,12 +56,20 @@ The speed was calculated using numerical differentiation with the following cent
 \begin{equation*}
 	f'(t_0) = \frac{f(t+dt)-f(t-dt)}{2dt} + O(dt^2)
 \end{equation*}
-found in [REF]\todo{reference naar cursus numerieke wiskunde}. This is the simulated speed, represented by the dots.
+found in \cite{numerieke-wiskunde}. 
+This is the simulated speed, represented by the dots.
 In the left graph of \cref{fig:HD-speed}, we see that the speed is isotropic, apart from some deviations.
 These deviations are mainly due to the discrete nature of the grid, which prevents calculating an exact position of the wave-front.
 To mitigate this noise, the speeds calculated in all directions were averaged together to get the dots representing the wave speed in the right hand graph of \cref{fig:HD-speed}.
 
 Using \cref{eq:Riemann-solution2} the theoretical speed of a shock in a Riemann problem was calculated, using the highest pressure in the domain as max pressure ($p_1$) and $1$ as the lowest pressure ($p_0$). This is plotted as the solid lines in \cref{fig:HD-speed}.
+
+The first 10 snapshots are not included in the right graph of \cref{fig:HD-speed}. 
+The reason can be seen in \cref{fig:HD-blast-short}. 
+When the shock wave starts going outwards, the pressure in the center stays at it's original pressure for some more time.
+We use the max pressure in the domain to estimate $p_1$ in \cref{eq:Riemann-solution2}. However for these first frames this is not the maximum pressure in the wave front.
+It proved to be difficult to accurately detect the maximum of the wave front Therefore, the first couple of frames were left out.
+The higher initial speed and sudden drop in \cref{fig:HD-speed} for $p=1.5$ is due to these effects. A closer look to the curve for $p=1.05$ will reveal something similar.
 
 \begin{figure}[H]
 	%\hspace{-1cm}
@@ -57,13 +78,6 @@ Using \cref{eq:Riemann-solution2} the theoretical speed of a shock in a Riemann 
 	\caption{Pressure profile for a blastwave in an ideal fluid at larger timescales. Initial conditions for each row are the same as in \cref{fig:HD-blast-short}.}
 	\label{fig:HD-blast-long}
 \end{figure}
-
-The first 10 snapshots are not included in the right graph of \cref{fig:HD-speed}. 
-The reason can be seen in \cref{fig-HD-blast-short}. 
-When the shock wave starts going outwards, the pressure in the center stays at it's original pressure for some more time.
-We use the max pressure in the domain to estimate $p_1$ in \cref{eq:Riemann-Solution2}. However for these first frames this is not the maximum pressure in the wave front.
-It proved to be difficult to accurately detect the maximum of the wave front Therefore, the first couple of frames were left out.
-The higher initial speed and sudden drop in \cref{fig:HD-speed} for $p=1.5$ is due to these effects. A closer look to the curve for $p=1.05$ will reveal something similar.
 
 We notice that the curves do match rather closely, proving the ability of the PLUTO code to deal with shocks. 
 The periodic behaviour of dots lying under and above the curve could still be an artefact of the grid discretization. However, no conclusive results were found to prove this. Thus, it could point to a systematic error.
@@ -76,16 +90,4 @@ We remark that approximating the shock as a Riemann problem is a crude first-ord
 The PLUTO code calculates flow velocities like this in every integration step. 
 This small example highlights the importance of robust integrators and Riemann solvers, together with small enough time steps, to accurately model flow variables in the vicinity of large gradients.
 
-\begin{figure}[H]
-	%\hspace{-1cm}
-	\centering
-	\includegraphics[width=\linewidth]{images/HD-speed.pdf}
-	\caption{\emph{Left}: Speed at 3 consecutive timestamps averaged together as a function of the angle of propagation for the 3 situations. 
-		The averaging was done to lower the noise and find systematic deviations.
-	\emph{Right}: The speed of the wave as a function of time, along the $x$-axis. 
-	The dots represent the speed calculated from the simulation data by deriving the function $x(t)$ that represents the position of the wave front. 
-	The lines represent the theoretical shock speed in a Riemann-problem with as high pressure the highest pressure in the domain, and lowest pressure $1$.
-	The black dashed line in both graphs is the speed of sound for linear pressure waves in a medium with pressure $1$ (code units).}
-	\label{fig:HD-speed}
-\end{figure}
 

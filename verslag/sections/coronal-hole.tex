@@ -99,7 +99,6 @@ Adapted from \cite{coronal-hole}}
 	\label{fig:plume-initial}
 \end{figure}
 
-\todo{Add a clearer discussion about terminology used}
 \subsection{Terminology}
 Before we delve into the discussion of our simulation results, first some comments on the terminology used.
 Our discussion is mainly based on \cref{fig:hole-frames}, \cref{fig:plume-frames}, \cref{fig:hole-sections} and \cref{fig:plume-sections}.
@@ -123,12 +122,36 @@ The main wave is the wave generated at the left boundary.
 
 
 \subsection{Results coronal hole}
+
 In \cref{fig:hole-frames}, a couple of density profiles of the \emph{coronal hole} simulation are plotted.
 From \cref{fig:hole-initial} we see that the speed of the wave (the fast magnetosonic speed) is a lot higher inside than outside the hole.
 Therefore, it is to be expected that the wave transmitted through the hole will be faster then the wave going around.
 This effect is visible on the heatmaps in \cref{fig:hole-frames}. 
 In the image at $t=2.97e+3s$, the wave front of the transmitted wave is barely visible, a significant distance in front of the main wave front.
 The frames at later times show that the main wave slowly catches up with the transmitted wave. This is probably due to non-linear effects in the shock-wave.
+
+\begin{figure}[H]
+	%\hspace{-1cm}
+	\centering
+	\includegraphics[width=\linewidth]{images/hole-sections.pdf}
+	\caption{Density profiles along a cut, parallel to the direction of propagation of the wave, through the center of the \emph{coronal hole} at different times. The vertical dashed lines show the position of the wave front at the bottom edge of the simulation domain.}
+	\label{fig:hole-sections}
+\end{figure}
+
+\begin{figure}[H]
+	%\hspace{-1cm}
+	\centering
+	\includegraphics[width=\linewidth]{images/hole-frames.pdf}
+	\caption{Plots of the density profile of the \emph{coronal hole model} for different times. 
+	The plots in the first and third column cover de complete domain.
+	The plots in the second and last column are zoom in on the plume. 
+	The domain covered is the white box in the plots to the left.
+ The density is measured in $10^{9}$ cm$^{-3}$.
+The white circle has the characteristic width $d$ as diameter. 
+In the second and third pair of plots, the density range for the right plot is taken a lot more narrow to highlight the wave transmitted through the coronal hole.}
+	\label{fig:hole-frames}
+\end{figure}
+
 
 This fast transmission is the most visible in \cref{fig:hole-sections}. 
 At $t=2.5e+3 s$, the wave is almost at the center of the hole. Whereas the wave front at the edge of the simulation domain (the green dashed line) is already lagging $100\times10^{11} cm$ behind.
@@ -152,28 +175,13 @@ Furthermore, by carefully studying the form of these waves and amount of dimming
 Lastly, we note that the hole's position is slightly shifted along de direction of propagation of the wave.
 Apart from a slight deformation of the center of the hole, where the density is almost uniform, its shape remains largely unaltered.
 
-\begin{figure}[H]
-	%\hspace{-1cm}
-	\centering
-	\includegraphics[width=\linewidth]{images/hole-frames.pdf}
-	\caption{Plots of the density profile of the \emph{coronal hole model} for different times. 
-	The plots in the first and third column cover de complete domain.
-	The plots in the second and last column are zoom in on the plume. 
-	The domain covered is the white box in the plots to the left.
- The density is measured in $10^{9}$ cm$^{-3}$.
-The white circle has the characteristic width $d$ as diameter. 
-In the second and third pair of plots, the density range for the right plot is taken a lot more narrow to highlight the wave transmitted through the coronal hole.}
-	\label{fig:hole-frames}
-\end{figure}
 
-\begin{figure}[H]
-	%\hspace{-1cm}
-	\centering
-	\includegraphics[width=\linewidth]{images/hole-sections.pdf}
-	\caption{Density profiles along a cut, parallel to the direction of propagation of the wave, through the center of the \emph{coronal hole} at different times. The vertical dashed lines show the position of the wave front at the bottom edge of the simulation domain.}
-	\label{fig:hole-sections}
-\end{figure}
-
+\subsection{Results coronal plume}
+Next we discuss the \emph{coronal plume model}. There is again a reflected wave visible.
+In \cref{fig:plume-sections} we see that now there is a wave front with slightly higher density first, followed by a lower density wake by looking at the snapshots for $t=1.93e+3 s$ and $t=2.32e+3 s$.
+We see that the the wave reflected when going from fast to slow magnetosonic speed is in phase, while the reflected wave going from low to high magnetosonic speed is out of phase.
+This second fact was already observed in the case of the coronal hole, but can also be seen in the zoomed in images of the plume or the density profiles along a cut in the plume.
+Between the frames at $t=2.1e+3 s$ and $t=2.3+e3$ in \cref{fig:plume-frames}  or $t=1.93e+3 s$ and $t=2.32e+3 s$ in \cref{fig:plume-sections}, the wave inside the plume reflects at the boundary and switches from a significantly higher density than the surrounding area to lower density, thus switching phase.
 
 \begin{figure}[H]
 	%\hspace{-1cm}
@@ -182,23 +190,6 @@ In the second and third pair of plots, the density range for the right plot is t
 	\caption{Plots of density profiles for the \emph{coronal plume model}. Same conventions used as in \cref{fig:hole-frames}}
 	\label{fig:plume-frames}
 \end{figure}
-
-\begin{figure}[H]
-	%\hspace{-1cm}
-	\centering
-	\includegraphics[width=\linewidth]{images/plume-sections.pdf}
-	\caption{Density profiles along a cut through the center of the \emph{coronal plume} at different times, along the direction of propagation of the waves.
-	The vertical dashed lines show the position of the wave at the bottom edge of the simulation domain.}
-	\label{fig:plume-sections}
-\end{figure}
-
-\subsection{Results coronal plume}
-
-Next we discuss the \emph{coronal plume model}. There is again a reflected wave visible.
-In \cref{fig:plume-sections} we see that now there is a wave front with slightly higher density first, followed by a lower density wake by looking at the snapshots for $t=1.93e+3 s$ and $t=2.32e+3 s$.
-We see that the the wave reflected when going from fast to slow magnetosonic speed is in phase, while the reflected wave going from low to high magnetosonic speed is out of phase.
-This second fact was already observed in the case of the coronal hole, but can also be seen in the zoomed in images of the plume or the density profiles along a cut in the plume.
-Between the frames at $t=2.1e+3 s$ and $t=2.3+e3$ in \cref{fig:plume-frames}  or $t=1.93e+3 s$ and $t=2.32e+3 s$ in \cref{fig:plume-sections}, the wave inside the plume reflects at the boundary and switches from a significantly higher density than the surrounding area to lower density, thus switching phase.
 
 In this case, the transmitted wave is, as expected, slower than the wave outside the hole.
 This is clearly visible as the line corresponding to $t=2.32e+3 s$ in the second plot of \cref{fig:plume-sections}.
@@ -217,3 +208,13 @@ If there is a deformation of the coronal plume, it is a lot smaller than in the 
 
 Just as in the coronal hole model the wave is deformed by the interaction with the structure.
 The transmitted wave forms a secondary wave front behind the main wave front, which is deformed by diffraction around the hole.
+
+\begin{figure}[H]
+	%\hspace{-1cm}
+	\centering
+	\includegraphics[width=\linewidth]{images/plume-sections.pdf}
+	\caption{Density profiles along a cut through the center of the \emph{coronal plume} at different times, along the direction of propagation of the waves.
+	The vertical dashed lines show the position of the wave at the bottom edge of the simulation domain.}
+	\label{fig:plume-sections}
+\end{figure}
+

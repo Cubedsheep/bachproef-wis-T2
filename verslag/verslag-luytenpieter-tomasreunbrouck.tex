@@ -8,8 +8,8 @@
 \usepackage{LATEX-PREAMBLE/definitions}  % define custom shortcuts for e.g. real numbers
 
 %\usepackage[backend=bibtex]{biblatex}	% used to include bibliographies
-%\usepackage[natbibapa]{apacite}
-%\bibliographystyle{apacite}
+\usepackage[natbibapa]{apacite}
+\bibliographystyle{apacite}
 %\addbibresource{bibliografie.bib}
 
 
@@ -29,8 +29,10 @@
 
 \section{Theoretical background}
 %\import{sections/}{theorie.tex}
+
 \subsection{Hydrodynamic theory}
 \import{sections/}{theorie-HD.tex}
+
 \subsection{Magnetohydrodynamic theory}
 \import{sections/}{theorie-MHD.tex}
 \import{sections/}{theorie-MHD-waves.tex}
@@ -39,6 +41,7 @@
 
 \section{Modeling shock waves}
 \import{sections/}{HD-blast.tex}
+\newpage
 \import{sections/}{MHD-blast.tex}
 \newpage
 
@@ -46,11 +49,11 @@
 \import{sections/}{coronal-hole.tex}
 \newpage
 
-\section{Conclusion}
+\section{Final remarks}
 \import{sections/}{conclusion.tex}
 
 %\newpage
-%\bibliography{bibliografie}
+\bibliography{bibliografie}
 %\printbibliography
 
 \end{document}
