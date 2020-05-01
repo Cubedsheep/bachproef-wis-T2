@@ -7,10 +7,10 @@
 \usepackage{LATEX-PREAMBLE/environments} % definitions for environments
 \usepackage{LATEX-PREAMBLE/definitions}  % define custom shortcuts for e.g. real numbers
 
-\usepackage[backend=bibtex]{biblatex}	% used to include bibliographies
-\usepackage[natbibapa]{apacite}
-\bibliographystyle{apacite}
-\addbibresource{bibliografie.bib}
+%\usepackage[backend=bibtex]{biblatex}	% used to include bibliographies
+%\usepackage[natbibapa]{apacite}
+%\bibliographystyle{apacite}
+%\addbibresource{bibliografie.bib}
 
 
 \title{Modeling of MHD waves in the solar corona}
@@ -29,9 +29,12 @@
 
 \section{Theoretical background}
 %\import{sections/}{theorie.tex}
+\subsection{Hydrodynamic theory}
 \import{sections/}{theorie-HD.tex}
+\subsection{Magnetohydrodynamic theory}
 \import{sections/}{theorie-MHD.tex}
 \import{sections/}{theorie-MHD-waves.tex}
+
 \import{sections/}{theorie-units.tex}
 \newpage
 
@@ -42,13 +45,13 @@
 
 \section{Cornal hole}
 \import{sections/}{coronal-hole.tex}
-
+\newpage
 
 \section{Conclusion}
 \import{sections/}{conclusion.tex}
 
-\newpage
-\bibliography{bibliografie}
+%\newpage
+%\bibliography{bibliografie}
 %\printbibliography
 
 \end{document}
