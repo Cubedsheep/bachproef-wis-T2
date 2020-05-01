@@ -16,6 +16,7 @@ From there the magnitude of the magnetic field is calculated as follows (express
 	\label{eq:magnetic-magnitude}
 \end{equation}
 The total pressure inside and outside the coronal hole is kept in equilibrium by changing the magnitude of the magnetic field accordingly.
+In contrast to the magnetic field in the MHD blastwave simulation, the magnetic field is now taken to be in the $z$-direction.
 
 \subsection{Initial and boundary conditions}
 
@@ -31,7 +32,7 @@ The physical size of the domain is a square with sidelength $2\times 10^{11}cm$,
 $r$ represents the distance from the center of the hole and $d$ the characteristic size of the hole. 
 The parameters $n_{out}, n_{in}, T_{out}$ and $T_{in}$ are respectively the plasma number density outside and inside the hole, the temperature outside and the temperature inside the hole. 
 The magnetic field has zero $x$ and $y$ component and the $z$ component is calculated according to \cref{eq:magnetic-magnitude}.
-The total pressure is calculated by fixing a value $B_{out}$ for the magnitude of the magnetic field far away from the hole, and calculated using [ref].
+The total pressure is calculated by fixing a value $B_{out}$ for the magnitude of the magnetic field far away from the hole, and calculated using \cref{eq:magnetic-magnitude}.
 As a counterpart to the coronal hole model a coronal plume model was considered as well, again based on \cite{coronal-hole}.
 Here the density outside the plume is a lot lower than the density inside.
 The parameter values for both models can be found in \cref{tab:parameters-hole}.
@@ -65,7 +66,7 @@ To smoothly transition from $0$ to a certain max velocity $v_m$, stay at this ve
 \end{equation}
 The parameters $s_1$ and $s_2$ control the steepnes of the transition from $v=0$ to $v=v_m$.
 $T_0$ controls the time when the velocity drops back from $v_m$ to $0$, at $t=0$ the velocity starts increasing immediatly.
-This wave propagates with the speed of a fast magnetoaccoustic wave transverse to the magnetic field (in the $z$-direction).
+This wave propagates with the speed of a fast magnetoaccoustic wave transverse to the magnetic field (since the magnetic field points along the $z$-direction).
 Using \cref{eq:magnetoaccoustic-group-speed} we find that the group speed of the fast magnetoacoustic wave transverse to the magnetic field is:
 \begin{equation*}
 	v_{g+} = \sqrt{v_a^2+v_s^2}
