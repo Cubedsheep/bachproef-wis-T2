@@ -1,9 +1,9 @@
 \subsection{Units}
 \label{sec:units}
 The PLUTO code works, in general, with dimensionless code-units. This is done by defining a unit density $\rho_0$, unit velocity $v_0$ and unit length $L_0$.
-From these, unit time can be defined as $t_0=L_0/v_0$. Inspired by \cref{eq:acoustic-speed} and \cref{eq:Alfven-speed} we defin $p_0=\rho_0v_0^2$ and $B_0=v_0\sqrt{4\pi\rho_0}$.
+From these, unit time can be defined as $t_0=L_0/v_0$. Inspired by \cref{eq:acoustic-speed} and \cref{eq:Alfven-speed} we define $p_0=\rho_0v_0^2$ and $B_0=v_0\sqrt{4\pi\rho_0}$.
 Next, we use the substitutions $v_0\vec{v}_u=\vec{v}$, $\rho_0\rho_u=\rho$, $L_0\vec{x}_u=\vec{x}$, $t_0t_u=t$, $p_0p_u=p$ and $B_0\vec{b}_u=\vec{B}$ in \cref{eq:ideal-MHD}.
-Here the subscript $u$ denotes that these numbers or vectors are dimensionless, the units are contained in the factors with subscript $0$.
+Here the subscript $u$ conveys that these numbers or vectors are dimensionless. The units are contained in the factors with subscript $0$.
 
 {\centering 
 \noindent \fbox{\parbox{.85\linewidth}{
@@ -18,22 +18,22 @@ Here the subscript $u$ denotes that these numbers or vectors are dimensionless, 
 }}
 \par}
 
-We see that all the units drop out of the equations and we are left with a set of dimensionless equations.
-\emph{In the remainder of this document the subscript $u$ to denote dimensionless quantities will be dropped. When a quantity has units, these will be explicity stated.}
-This highlights an important fact for ideal MHD: the equations are scale-invariant.
-For the behaviour of waves the absolute scales are not important, but only the relative magnitude of the characteristic scales for a wave.
-When we have a wave with wavelength $\lambda_1$ and frequency $f_1$, it will show the same behaviour as a wave with wavelength $\lambda_2$ and frequency $f_1/\lambda_1$ in the same medium (that is, same Alfvén speed).
+We see that all the units cancel out and we are left with a set of dimensionless equations.
+\emph{In the remainder of this report, the subscript $u$ to denote dimensionless quantities will be dropped. When a quantity does have units, these will be explicitly stated.}
+This highlights an important fact for ideal magnetohydrodynamics: the equations are scale-invariant.
+For the behaviour of the waves the absolute scales are not important. Only the relative magnitude of the characteristic variables of the wave are relevant.
+When we have a wave with wavelength $\lambda_1$ and frequency $f_1$, it will exhibit the same behaviour as a wave with wavelength $\lambda_2$ and frequency $f_1 \lambda_1/\lambda_2$ in the same medium (that is, same Alfvén speed).
 
-Because the ideal MHD equations are in fact dimensionless (without sources), we can carry out the simulations in dimensionless units and later scale our results to match conditions as found in e.g. the solar corona, under the condition that the relative magnitudes of $\rho_0$, $v_0$ and $L_0$ are correct.
+Because the ideal MHD equations are in fact dimensionless (without sources) \todo{sources = bronnen of sources = - sinks}, we can carry out the simulations in dimensionless units. Later, we can scale our results to match conditions as found in e.g. the solar corona, requiring that the relative magnitudes of $\rho_0$, $v_0$ and $L_0$ are correct.
 
-the plasma-$\beta$ in these dimensionless units is defined as
+The plasma-$\beta$ in these dimensionless units is defined as
 \begin{equation}
 	\beta = \frac{p}{B^2/2}
 	\label{eq:plasma-beta}
 \end{equation}
 We find that
 \begin{equation}
-	v_a = \frac{B_0}{\sqrt{\rho_0}} = \sqrt{ \frac{p_0}{2\beta\rho_0}} = \sqrt{ \frac{1}{2\beta}}v_0
+	v_a = \frac{B_0}{\sqrt{\rho_0}} = \sqrt{ \frac{2p_0}{\beta\rho_0}} = \sqrt{ \frac{2}{\beta}}v_0
 	\label{eq:Alfven-code-units}
 \end{equation}
 and that
@@ -43,10 +43,10 @@ and that
 \end{equation}
 These expressions will be necessary to compare the simulation data to the theoretical results from the previous sections.
 
-Notice that the factor $4\pi$ is included in the definition of $B_0$. When we want to calculate magnetic pressure or the plasma-$\beta$ this has to be taken into account.
-he expression for the magnetic pressure/energy density is simply
+Notice that the factor $4\pi$ is included in the definition of $B_0$. This has to be taken into account if we want to calculate magnetic pressure or the plasma-$\beta$.
+The expression for the magnetic pressure/energy density is simply
 \begin{equation}
-	p_m = e_m = \frac{B^2}{2}
+	p_m = e_m = \frac{B^2}{2} \ .
 	\label{eq:magnetic-pressure}
 \end{equation}
 This is the reason for the factor $2$ instead of $8\pi$ in \cref{eq:plasma-beta} which is commonly found in the literature.

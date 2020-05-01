@@ -169,7 +169,7 @@ These equations will not result in an expression for the shock speed which is fu
 
 \subsubsection{Group speed}
 The wave speed that is derived from the simulations is the group speed and not the phase speed of the waves. We use the relation \cref{eq:group-velocity} to calculate this quantity.
-For the Alfvén waves, this is easy and yields:
+For the Alfvén waves, this is straightforward and yields:
 \begin{equation}
 	\vec{v}_{ga} = \unitvec{k}\cos\theta v_a
 \end{equation}
@@ -181,17 +181,17 @@ The result is ($v_\pm=\omega_\pm/k$):
 	\vec{v}_{g\pm} = \frac{v_\pm^4(\theta)\unitvec{k} - v_s^2v_a^2\unitvec{B}\cos\theta}{v_\pm(\theta) \left[ 2v_\pm^2-(v_s^2+v_a^2) \right]}
 	\label{eq:magnetoaccoustic-group-speed}
 \end{equation}
-This gives the group speed of the fast and slow magnetosonic modes as a function of the angle $\theta$ between the wave vector $\vec{k}$ and the magnetic field $\vec{B}$.
+This gives the group speed of the fast and slow magnetosonic modes as a function of the angle $\theta$.
 In \cref{fig:MHD-group-speed} this relation is plotted in polar form for a few different values of the plasma-$\beta$.
 The $\beta$ used here is one calculated using the dimensionless units introduced in \cref{sec:units}. 
-A derivation to get from the value of $\beta$ to values for $v_a$ and $v_s$ needed to calculate teh group velocity can be found in that section as well.
+A derivation to get from the value of $\beta$ to values for $v_a$ and $v_s$ needed to calculate the group velocity can be found in that section as well.
 We remark that the group speed of the slow-mode along the magnetic field has a maximum speed equal to $\min\{v_a,v_s\}$ and the speed of the fast mode is $\max\{v_a,v_s\}$ along the $x$-axis.
 
 \begin{figure}[H]
 	%\hspace{-1cm}
 	\centering
 	\includegraphics[width=\linewidth]{images/MHD-group-speed.pdf}
-	\caption{Group speed diagrams for the fast (blue) and slow (red) magnetosonic waves. The magnetic field points along the $x$-axis. The magnetic field is oriented along the horizontal axis. The lines represent the group speed of the wave (distance from origin) as a function of the angle $\theta$ between the wave vector $\vec{k}$ and magnetic field $\vec{B}$.}
+	\caption{Group speed diagrams for the fast (blue) and slow (red) magnetosonic waves. The magnetic field is oriented along the horizontal axis. The lines represent the group speed of the wave (distance from origin) as a function of the angle $\theta$ between the wave vector $\vec{k}$ and magnetic field $\vec{B}$.}
 	\label{fig:MHD-group-speed}
 \end{figure}
 

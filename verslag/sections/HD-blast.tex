@@ -1,4 +1,4 @@
-As a testcase to learn how to use the PLUTO software we simulated hydrodynamic and magnetohydrodynamic blastwaves in a 2D domain.
+As a test case to get acquainted with the PLUTO software we simulated hydrodynamic and magnetohydrodynamic blastwaves in a 2D domain.
 The normalization constants for the units used are the following:
 \begin{align*}
 	v_0 &= 10^8 \text{cm/s}\\
@@ -6,19 +6,19 @@ The normalization constants for the units used are the following:
 	\rho_0 &= 10^9 m_p \text{cm}^{-3}
 \end{align*}
 where $m_p$ is the mass of a proton. These values are of the order of what is commonly found in the solar corona. \todo{referentie naar een of andere paper}
-As was noted in \cref{sec:units} are the ideal MHD equation dimensionless.
-The ideal HD equations are the ideal MHD equations with the terms relating to the magnetic field dropped, therefore they are dimensionless as well.
-In an effort to keep the discussion as general as possible dimensionless quantities are used in the remainder of the section, except when the units are explicitly stated.
-In some cases Empty square brackets $[\,]$ underscore that a quantity is dimensionless.
+As was noted in \cref{sec:units}, the ideal MHD equation are dimensionless.
+The ideal HD equations are the ideal MHD equations without the terms relating to the magnetic field. Therefore, they are dimensionless as well.
+In an effort to keep the discussion as general as possible, dimensionless quantities are used in the remainder of the section, unless explicitly stated otherwise.
+In some cases, empty square brackets $[\,]$ emphasize that a quantity is dimensionless.
 
-The initial condition for the simulations is a circle with radius $0.3$ with higher pressure.
-The pressure $p_{out}$ outside the circle is $1$. For the pressurei $p_{in}$ inside the circle three scenarios were simulated.
-One with a large pressure difference, where the pressure inside the circle is $5$. One with a lower pressure difference with $1.5$ as inside pressure and one with $1.05$ as inside pressure.
-The reason for using different pressure differences is to see the non-linear effects in the shock-wave with high pressure difference.
+The initial condition for the simulations is a circle with radius $0.3$ at higher pressure $p_{in}$ than its surroundings at $p_{out} = 1$.
+We ran three simulations for different values of $p_{in}$.
+The first with a large pressure difference, where $p_{in} = 5$. The other two have a lower pressure difference with $p_{in} = 1.5$ and  $p_{in}=1.05$.
+We use these different values of $p_{in}$ to highlight the non-linear effects on the shock wave of the case with higher pressure difference.
 
-\subsection{Hydrodynamic shockwave}
+\subsection{Hydrodynamic shock wave}
 First some technical details of the simulation.
-The simulation was done on a $1024 \times 1024$ grid for a period of $t=1.5$ with an initial time step of $1e-4$.
+The simulation was done on a $1024 \times 1024$ grid for a period of $t=1.5$ and an initial time step of $1e-4$.
 The size of the grid is $6$ by $6$.
 A snapshot of the variables describing the system was saved every $0.03$ time units, for a total of $50$ snapshots (excluding the initial condition).
 
@@ -26,19 +26,19 @@ A snapshot of the variables describing the system was saved every $0.03$ time un
 	%\hspace{-1cm}
 	\centering
 	\includegraphics[width=\linewidth]{images/HD-blast-prs-1.pdf}
-	\caption{Pressure profile for a blastwave in an ideal fluid at different times. The top row start with the larger pressure difference of $5/1$, the bottom row is the blastwave with smallest pressure difference of $1.05/1$.}
+	\caption{Pressure profile for a blastwave in an ideal fluid at different times. The top row starts with the larger pressure difference of $5/1$, the bottom row is the blastwave with the smallest pressure difference of $1.05/1$.}
 	\label{fig:HD-blast-short}
 \end{figure}
 
-In \cref{fig:HD-blast-short} the pressureprofile of both scenarios is plot for the initial condition and two frames right after the start of the simulation.
+In \cref{fig:HD-blast-short} the pressure profile of both scenarios is plotted for the initial condition and two frames right after the start of the simulation.
 In \cref{fig:HD-blast-long} the profile is plotted for later times.
-Its imedeatly clear that the shock wave with the higher pressure difference travels faster then the other one, but the general shape of the wave is the same.
+It is immediately clear that the shock wave with the higher pressure difference travels faster than the other one. However, the general shape of the wave remains the same.
 
 
-In the right plot of \cref{fig:HD-speed} the speed of the wave front along the positive $x$-axis is plotted as a function of time, and this confirms that the wave speed is lower with a lower pressure difference.
+In the right hand plot of \cref{fig:HD-speed} the speed of the wave front along the positive $x$-axis is plotted as a function of time. This confirms that the wave speed is lower with a lower pressure difference.
 The group speed was calculated in two ways. 
 The first was to start at a point at the edge of the domain and find the first point on the line from this point to the center with a pressure higher than $1.01$ times the background pressure.
-This way, we get a function $r(t,\theta)$ expressing the distance from the center to the wavefront along a line as a function of the angle between this line and the $x$-axis and time.
+This way, we get a function $r(t,\theta)$ expressing the distance from the center to the wave front along a line as a function of the angle between this line and the $x$-axis and time.
 The speed was calculated using numerical differentiation with the following central difference:
 \begin{equation*}
 	f'(t_0) = \frac{f(t+dt)-f(t-dt)}{2dt} + O(dt^2)
