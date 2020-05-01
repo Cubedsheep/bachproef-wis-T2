@@ -1,0 +1,5 @@
+#!/bin/bash
+
+./pluto -i initfiles/ulow-beta05.ini 
+./pluto -i initfiles/ulow-beta1.ini 
+
