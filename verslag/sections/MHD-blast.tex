@@ -3,7 +3,7 @@ In the magnetohydrodynamic case the same initial conditions were used as for the
 A uniform magnetic field in the $x$-direction was added. 
 To see the effect of the magnetic field, the simulations were carried out for the following values for the plasma-$\beta$: $\beta \in \{0.1, 0.5,1,10\}$.
 This is the dimensionless $\beta$ as given by \cref{eq:plasma-beta}.
-Figure \ref{fig:MHD-blasts} shows a snapshot of the blast wave at $t=7.5$ for these different values.
+Figure \ref{fig:MHD-blasts} shows a snapshot of the blast wave at $t=0.75$ for these different values.
 
 \begin{figure}[H]
 	%\hspace{-1cm}
@@ -17,12 +17,14 @@ Figure \ref{fig:MHD-blasts} shows a snapshot of the blast wave at $t=7.5$ for th
 The simulations for the MHD blastwave used a larger domain: 12 by 12 in code units.
 This allows us to study the waves at later times when the non-linear effects have diminished because of the lower intensity of the wave.
 Now we can compare these results to the linear MHD theory from \cref{sec:MHD-waves}.
-The results of the simulation at earlier times can be used to compare the behaviour of an MHD wave to an HD wave.
+The results of the simulation at earlier times can be used to compare the behaviour of an MHD shock to an HD shock.
 
 In the plots with $\beta \in \{0.5,1\}$ there is a clear distinction between a fast shock wave spreading in all directions, and two smaller waves following the magnetic field.
 In the plot with $\beta=0.1$, this fast wave is barely visible closer to the edge of the domain. In contrast, the two small waves stand out from the uniform background.
 For $\beta=10$, the fast wave is almost perfectly spherical and clearly visible, whereas the two smaller waves are quite faint.
-We observe that if the magnetic field is stronger, the fast wave speeds up even further, but most of the energy is concentrated in the slow-mode.
+We observe that if the magnetic field is stronger, the fast wave speeds up even further, therefore fading faster because the energy in the wave is spread out more quickly.
+Meanwhile the energy in the slow mode stays concentrated in a small region.
+At higher magnetic field strengths the slow mode gets considerably more energetic as well.
 To go a bit more in-depth, we plotted the diagram depicting the different group speeds to see how well they match. 
 This can be seen in \cref{fig:MHD-group1} and \cref{fig:MHD-group2}, where the pressure profiles of the waves are plotted at $t=1.25$.
 The white dashed lines show the group speed of the fast mode, the grey solid lines the group speed of the slow mode. 

@@ -1,5 +1,5 @@
 While the main focus of this project is the numerical modeling of waves in the solar corona, some theoretical background is important to frame the results of our simulations.
-Furthermore, this knowledge gives some insight in the assumptions that are made in deriving the magnetohydrodynamic (MHD) equations and when they are valid. \\
+Furthermore, this knowledge gives some insight in the assumptions that are made in deriving the magnetohydrodynamic equations and when they are valid. \\
 \\
 We shall begin by a discussion of the cleaner and more transparent theory of ideal hydrodynamics before delving into the much more complicated and cluttered realm of magnetohydrodynamic theory. However, we emphasize that there is no fine line between the two and that indeed, HD theory can be seen as the special case of MHD theory in with a negligible magnetic field. 
 
@@ -41,8 +41,8 @@ where $f(x,y,z,t)$ is a function that describes a property of the fluid. The res
 \end{equation}}}
 \par}
 
-Next introduced is the variable $\vec{m}=\rho \vec{v}$, the momentum density. The energy density $\mathcal{U}$ can be split in the thermal energy $\rho e$ and gravitational potential energy $\rho\Phi$. Let $E_t = e\rho + \frac{v^2}{2}$. The only external force is $\vec{F} = \rho\vec{g}$
-carrying out these substitutions leads to the equations in section 6 in the PLUTO manual \cite{pluto-manual}:
+Next introduced is the variable $\vec{m}=\rho \vec{v}$, the momentum density. The energy density $\mathcal{U}$ can be split in the thermal energy $\rho e$ and gravitational potential energy $\rho\Phi$. Let $E_t = e\rho + \frac{v^2}{2}$. The only external force is $\vec{F} = \rho\vec{g}$.
+Carrying out these substitutions leads to the equations in section 6 in the PLUTO manual \cite{pluto-manual}:
 
 {\centering 
 \noindent \fbox{\parbox{.7\linewidth}{
@@ -95,7 +95,7 @@ Acting with $ \frac{\partial}{\partial t}$ on the last equation and substituting
 \begin{equation*}
 	\frac{\partial^2 p_1}{\partial t^2} + \frac{\gamma p_0}{\rho_0} \nabla^2 p_1 = 0
 \end{equation*}
-which is the wave equation with speed
+which is the wave equation with wave speed
 \begin{equation}
 v_s = \sqrt{ \frac{\gamma p_0}{\rho_0} }
 \label{eq:sound-speed}
@@ -114,7 +114,7 @@ from which we conclude that these waves are non-dispersive \cite{notes-fluid-dyn
 
 \subsubsection{Hydrodynamic shocks}
 
-Now we shall reconsider one of the least convincing assumptions made for the derivations of the fluid equations: that of perfectly continuous background variables. In reality, we might encounter very sudden changes in the scalar variable density $\rho$ and vectorial variable velocity $\vec{v}$. To have the theory of ideal fluids take this into account, we can introduce these jumps in the variables as mathematical discontinuities. Such a discontinuity is appropriately called a `shock'. We are interested in how these shock move through the fluid. The derivation of their motion is quite straightforward.\\
+Now we shall reconsider one of the least convincing assumptions made for the derivations of the fluid equations: that of perfectly continuous background variables. In reality, we might encounter very sudden changes in the scalar variable density $\rho$ and vectorial variable velocity $\vec{v}$. To have the theory of ideal fluids take this into account, we can introduce these jumps in the variables as mathematical discontinuities. Such a discontinuity is appropriately called a `shock'. We are interested in how these shocks move through the fluid. The derivation of their motion is quite straightforward.\\
 \\
 Start from the continuity equation in its Eulerian form in 1D
 

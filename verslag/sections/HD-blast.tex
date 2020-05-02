@@ -1,9 +1,10 @@
-As a test case to get acquainted with the PLUTO software we simulated hydrodynamic and magnetohydrodynamic blastwaves in a 2D domain.
+As a test case to get acquainted with the PLUTO software we simulated HD and MHD blastwaves in a 2.5D domain.
+With 2.5D we mean that the grid used in the simulation is 2D, but the vectorfields for the velocity and magnetic field can have non-zero components along the $x$-axis.
 The normalization constants for the units used are the following:
 \begin{align*}
-	v_0 &= 10^8 \text{cm/s}\\
-	L_0 &= 10^8 \text{cm}\\
-	\rho_0 &= 10^9 m_p \text{cm}^{-3}
+	v_0 &= 10^8 \text{cm/s}
+	    &L_0 &= 10^8 \text{cm}
+	    &\rho_0 &= 10^9 m_p \text{cm}^{-3}
 \end{align*}
 where $m_p$ is the mass of a proton. These values are of the order of what is commonly found in the solar corona, see \cite{article2}.
 As was noted in \cref{sec:units}, the ideal MHD equation are dimensionless.
@@ -14,7 +15,7 @@ In some cases, empty square brackets $[\,]$ emphasize that a quantity is dimensi
 The initial condition for the simulations is a circle with radius $0.3$ at higher pressure $p_{in}$ than its surroundings at $p_{out} = 1$.
 We ran three simulations for different values of $p_{in}$.
 The first with a large pressure difference, where $p_{in} = 5$. The other two have a lower pressure difference with $p_{in} = 1.5$ and  $p_{in}=1.05$.
-We use these different values of $p_{in}$ to highlight the non-linear effects on the shock wave of the case with higher pressure difference.
+We use these different values of $p_{in}$ to highlight the non-linear effects in the shock wave of the case with higher pressure difference.
 
 \subsection{Hydrodynamic shock wave}
 First some technical details of the simulation.
@@ -54,7 +55,7 @@ The first is to start at a point at the edge of the domain and find the first po
 This way, we get a function $r(t,\theta)$ expressing the distance from the center to the wave front along a line as a function of the angle between this line and the $x$-axis and time.
 The speed was calculated using numerical differentiation with the following central difference:
 \begin{equation*}
-	f'(t_0) = \frac{f(t+dt)-f(t-dt)}{2dt} + O(dt^2)
+	f'(t_0) = \frac{f(t+\Delta t)-f(t-\Delta t)}{2\Delta t} + O(\Delta t^2)
 \end{equation*}
 found in \cite{numerieke-wiskunde}. 
 This is the simulated speed, represented by the dots.
@@ -68,7 +69,7 @@ The first 10 snapshots are not included in the right graph of \cref{fig:HD-speed
 The reason can be seen in \cref{fig:HD-blast-short}. 
 When the shock wave starts going outwards, the pressure in the center stays at it's original pressure for some more time.
 We use the max pressure in the domain to estimate $p_1$ in \cref{eq:Riemann-solution2}. However for these first frames this is not the maximum pressure in the wave front.
-It proved to be difficult to accurately detect the maximum of the wave front Therefore, the first couple of frames were left out.
+It proved to be difficult to accurately detect the maximum of the wave front. Therefore, the first couple of frames were left out.
 The higher initial speed and sudden drop in \cref{fig:HD-speed} for $p=1.5$ is due to these effects. A closer look to the curve for $p=1.05$ will reveal something similar.
 
 \begin{figure}[H]
@@ -87,7 +88,7 @@ The initial condition has to be interpreted as a long cylinder in 3D, from which
 The secondary wave fronts can then be seen as waves coming from different points on the cylinder.
 
 We remark that approximating the shock as a Riemann problem is a crude first-order approximation. 
-The PLUTO code calculates flow velocities like this in every integration step. 
+The PLUTO code calculates flow velocities like this in every integration step \cite{pluto-paper}. 
 This small example highlights the importance of robust integrators and Riemann solvers, together with small enough time steps, to accurately model flow variables in the vicinity of large gradients.
 
 

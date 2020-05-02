@@ -12,14 +12,19 @@ In this manner we have completed an analysis of the behaviours of an idealised p
 
 As mentioned, the main purpose of the project was to gain a basic understanding of the nature of the plasma in the solar corona. Specifically MHD waves are of great interest as they are directly observable in satellite observations of the sun. Therefore, we shall focus our report on them. Concretely, we discuss two compelling examples of MHD waves: the MHD blastwave and the interaction of an MHD wave with a coronal hole.\\
 \\
-For the first problem we have simulated an MHD blastwave under the influence of a very powerful magnetic field. Visualizations of the output data have shown that the results are quite distinctive for different values of the magnetic field's strength. We have also simulated a blastwave under normal hydrodynamic conditions. This HD blastwave provides the case where the field strength is $0$.\\
+For the first problem we have simulated an MHD blastwave under the influence of a very powerful magnetic field. Visualizations of the output data have shown that the results are quite distinct for different values of the magnetic field's strength. We have also simulated a blastwave under normal hydrodynamic (HD) conditions. This HD blastwave provides the case where the field strength is $0$.\\
 \\
 Secondly, we discuss a simulation where we had an MHD wave run into a coronal hole. This hole is part of the boundary conditions for this problem. It consists of a sharp drop in pressure and density. As one would expect, its effect on the wave is quite striking and we shall discuss it in detail. 
 
 \subsection*{The software used}
 
-The software that was used for the numerical solutions is called PLUTO. This is an open source code written specifically for the purpose of plasma simulations. It is a piece of code designed to solve the HD and MHD conservation laws for arbitrary initial conditions in a finite volume.\\
-\\
+The software that was used for the numerical solutions is called PLUTO. 
+This is an open source code written specifically for the purpose of plasma simulations. 
+
+Taken from the paper first introducing the PLUTO code, \cite{pluto-paper}:
+"\emph{The code is particularly suitable for time-dependent, explicit computations of highly supersonic flows in the presence of strong discontinuties, and it can be employed under different regimes, i.e., classical, relativistic unmagnetized, and magnetized flows}"
+
+PLUTO implements some high-resolution shock-capturing (HSRC) schemes to solve the hydrodynamic and magnetohydrodynamic equations, either in Galilean or relativistic form, in 1, 2 or 3 dimensions \cite{pluto-paper}.
 PLUTO was developed by the Department of Physics at Torino University.  \cite{pluto-manual}
 
 

@@ -1,6 +1,6 @@
 \subsection{Units}
 \label{sec:units}
-The PLUTO code works, in general, with dimensionless code-units. This is done by defining a unit density $\rho_0$, unit velocity $v_0$ and unit length $L_0$.
+The PLUTO code works, in general, with dimensionless code-units. This is done by defining a unit density $\rho_0$, unit velocity $v_0$ and unit length $L_0$ \cite{pluto-manual} [Chapter 5].
 From these, unit time can be defined as $t_0=L_0/v_0$. Inspired by \cref{eq:acoustic-speed} and \cref{eq:Alfven-speed} we define $p_0=\rho_0v_0^2$ and $B_0=v_0\sqrt{4\pi\rho_0}$.
 Next, we use the substitutions $v_0\vec{v}_u=\vec{v}$, $\rho_0\rho_u=\rho$, $L_0\vec{x}_u=\vec{x}$, $t_0t_u=t$, $p_0p_u=p$ and $B_0\vec{b}_u=\vec{B}$ in \cref{eq:ideal-MHD}.
 Here the subscript $u$ conveys that these numbers or vectors are dimensionless. The units are contained in the factors with subscript $0$.
@@ -24,7 +24,7 @@ This highlights an important fact for ideal magnetohydrodynamics: the equations 
 For the behaviour of the waves the absolute scales are not important. Only the relative magnitude of the characteristic variables of the wave are relevant.
 When we have a wave with wavelength $\lambda_1$ and frequency $f_1$, it will exhibit the same behaviour as a wave with wavelength $\lambda_2$ and frequency $f_1 \lambda_1/\lambda_2$ in the same medium (that is, same Alfvén speed).
 
-Because the ideal MHD equations are in fact dimensionless (whitout th presence of sources and sinks), we can carry out the simulations in dimensionless units. 
+Because the ideal MHD equations are in fact dimensionless (whitout the presence of sources and sinks), we can carry out the simulations in dimensionless units. 
 Later, we can scale our results to match conditions as found in e.g. the solar corona, by choosing appropriate values for $\rho_0$, $v_0$ and $L_0$.
 
 The plasma-$\beta$ in these dimensionless units is defined as
