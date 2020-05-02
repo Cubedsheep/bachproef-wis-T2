@@ -1,6 +1,6 @@
 In this section we study the interaction of a so-called "coronal hole" with an MHD wave as introduced in the paper \cite{coronal-hole} by A.N. Afanasyev and A. N. Zhukov. 
-A coronal hole is a region in the coronal with much lower density and a lower temperature than the surrounding area.
-A the coronal hole was simulated in 2.5d, assuming that the variables do not depend on $z$. However, the $z$-components of vectors do not need to be zero.
+A coronal hole is a region in the solar corona with much lower density and temperature than the surrounding area.
+The coronal hole was simulated in 2.5d, assuming that the variables do not depend on $z$. However, the $z$-components of vectors do not need to be zero.
 An ideal equation of state is assumed. This gives the following relation between density, temperature and pressure:
 \begin{equation}
 	nk_BT = p \ .
@@ -35,7 +35,7 @@ The magnetic field has zero $x$ and $y$ components and the $z$ component is calc
 The total pressure is calculated by fixing a value $B_{out}$ for the magnitude of the magnetic field far away from the hole and calculated using \cref{eq:magnetic-magnitude}.
 As a counterpart to the coronal hole model, a coronal plume model was considered as well, again based on \cite{coronal-hole}.
 Here the density outside the plume is a lot lower than the density inside.
-The parameter values for both models can be found in \cref{tab:parameters-hole}.
+The parameter values for both models can be found in the following table.
 In \cref{fig:hole-initial} and \cref{fig:plume-initial} the value of some important quantities at $t=0$ are shown along a section through the center of the hole or plume respectively.
 
 \begin{table}[H]
@@ -60,7 +60,7 @@ In \cref{fig:hole-initial} and \cref{fig:plume-initial} the value of some import
 	\label{tab:parameters-hole}
 \end{table}
 For the non-linear wave driver, the velocity along $x$ was perturbed at the left boundary. 
-To smoothly pass from $0$ to a certain max velocity $v_m$, stay at this velocity for some time and smoothly return to $0$. A combination of two hyperbolic tangents is used in the following formula:
+To smoothly pass from $0$ to a certain max velocity $v_m$, stay at this velocity for some time and smoothly return to $0$, a combination of two hyperbolic tangents is used in the following formula:
 \begin{equation}
 	v_x(t) = v_m \tanh \left( \frac{t}{s_1} \right) - \frac{v_m}{2} \left( \tanh \left( \frac{t-T_0}{s_2} \right) +1 \right) 
 \end{equation}
@@ -73,7 +73,7 @@ Using \cref{eq:magnetoaccoustic-group-speed}, we find that the group speed of th
 \end{equation*}
 From \cref{fig:hole-initial} and \cref{fig:plume-initial}, it is clear that this speed is a lot higher outside the plume than outside the hole (about $2.5$ times).
 To obtain a wave of the same physical width in both simulations, we use a shorter wave pulse in the coronal plume model with slightly steeper edges and higher maximum velocity.
-The parameters for the waves can again be found in \cref{tab:parameters-hole}.
+The parameters for the waves can again be found in tab. 1.
 
 At the right boundary, an open boundary condition is used. For the top and bottom boundaries a periodic boundary condition is used.
 
@@ -82,7 +82,7 @@ At the right boundary, an open boundary condition is used. For the top and botto
 	\centering
 	\includegraphics[width=.9\linewidth]{images/sections-initial-condition-hole.pdf}
 	\caption{Sections of the initial condition for the \emph{coronal hole} model. 
-		\emph{First plot}: plasma beta as given by [REF], dimensionless quantity.
+		\emph{First plot}: plasma beta as given by \cref{eq:plasma-beta}, dimensionless quantity.
 		\emph{Second plot}: the full blue line is the plasma number density in $10^8$ cm$^{-3}$.
 The red dashed line is the magnetic field in Gauss.
 \emph{Third plot}: the full line is the sound speed $v_s$, the dashed red line the Alfvén speed $v_a$ and the dash-dotted black line the fast magnetosonic speed $v_+$.
@@ -99,6 +99,7 @@ Adapted from \cite{coronal-hole}}
 	\label{fig:plume-initial}
 \end{figure}
 
+\newpage
 \subsection{Terminology}
 Before we delve into the discussion of our simulation results, first some comments on the terminology used.
 Our discussion is mainly based on \cref{fig:hole-frames}, \cref{fig:plume-frames}, \cref{fig:hole-sections} and \cref{fig:plume-sections}.
@@ -106,7 +107,8 @@ Our discussion is mainly based on \cref{fig:hole-frames}, \cref{fig:plume-frames
 \Cref{fig:hole-frames} and \cref{fig:plume-frames} contain snapshots at 6 different timestamps.
 For each timestamps, two plots are made next to each other.
 One plot contains heatmap of the complete simulation domain representing the density. Next to it is again a density heatmap, this time zoomed in on the white box in the plot next to it, providing a better view of the hole/plume.
-The limits for the colormap are chosen in such a way to highlight the wave fronts, the units of the labels are $10^9$particles cm$^{-3}$.
+The limits for the colormap are chosen in such a way to highlight the wave fronts, the units of the labels for the colorbar are $10^9$particles cm$^{-3}$.
+
 When we reference a frame, we talk about the two plots with the same timestamp. If we discuss behaviour inside the hole/plume, this concerns the right plot of the pair.
 Behaviour outside the structure is about the left plot of the pair.
 
@@ -121,15 +123,6 @@ The reflected wave refers to the wave coming from the left side, top and bottom 
 The main wave is the wave generated at the left boundary.
 
 
-\subsection{Results coronal hole}
-
-In \cref{fig:hole-frames}, a couple of density profiles of the \emph{coronal hole} simulation are plotted.
-From \cref{fig:hole-initial} we see that the speed of the wave (the fast magnetosonic speed) is a lot higher inside than outside the hole.
-Therefore, it is to be expected that the wave transmitted through the hole will be faster then the wave going around.
-This effect is visible on the heatmaps in \cref{fig:hole-frames}. 
-In the image at $t=2.97e+3s$, the wave front of the transmitted wave is barely visible, a significant distance in front of the main wave front.
-The frames at later times show that the main wave slowly catches up with the transmitted wave. This is probably due to non-linear effects in the shock-wave.
-
 \begin{figure}[H]
 	%\hspace{-1cm}
 	\centering
@@ -138,24 +131,33 @@ The frames at later times show that the main wave slowly catches up with the tra
 	\label{fig:hole-sections}
 \end{figure}
 
+\subsection{Results coronal hole}
+
+In \cref{fig:hole-frames}, a couple of density profiles of the \emph{coronal hole} simulation are plotted.
+From \cref{fig:hole-initial} we see that the speed of the wave (the fast magnetosonic speed) is a lot higher inside than outside the hole.
+Therefore, it is to be expected that the wave transmitted through the hole will be faster then the wave going around.
+This effect is visible on the heatmaps in \cref{fig:hole-frames}. 
+In the image at $t=2.97e+3s$, the wave front of the transmitted wave is barely visible as the red border to the right of the coronal hole. It is a significant distance ahead of the main wave front.
+The frames at later times show that the main wave slowly catches up with the transmitted wave. This is probably due to non-linear effects in the shock-wave.
+
 \begin{figure}[H]
 	%\hspace{-1cm}
 	\centering
 	\includegraphics[width=\linewidth]{images/hole-frames.pdf}
 	\caption{Plots of the density profile of the \emph{coronal hole model} for different times. 
-	The plots in the first and third column cover de complete domain.
-	The plots in the second and last column are zoom in on the plume. 
+	The plots in the first and third column cover de complete domain of $2e11\times2e11$cm.
+	The plots in the second and last column are zoom in on the plume, the units for the axes are $1e11$cm. 
 	The domain covered is the white box in the plots to the left.
  The density is measured in $10^{9}$ cm$^{-3}$.
 The white circle has the characteristic width $d$ as diameter. 
-In the second and third pair of plots, the density range for the right plot is taken a lot more narrow to highlight the wave transmitted through the coronal hole.}
+In the second and third pair of plots, the density range for the right plot is taken a lot more narrow to highlight the wave transmitted through the coronal hole. }
 	\label{fig:hole-frames}
 \end{figure}
 
 
 This fast transmission is the most visible in \cref{fig:hole-sections}. 
-At $t=2.5e+3 s$, the wave is almost at the center of the hole. Whereas the wave front at the edge of the simulation domain (the green dashed line) is already lagging $100\times10^{11} cm$ behind.
-Comparing this to the snapshot at $t=2.55e+3$, shows that the wave front inside the hole, which has travelled about $50\times10^{11}$ cm since the previous snapshot, propagates about $2.5$ times faster than the wave outside the hole, covering only $20\times10^{11}$ cm in the same timespan.
+At $t=2.50e+3 s$, the wave is almost at the center of the hole. Whereas the wave front at the edge of the simulation domain (the green dashed line) is already lagging $100\times10^{8} cm$ behind.
+Comparing this to the snapshot at $t=2.55e+3$, shows that the wave front inside the hole, which has travelled about $50\times10^{8}$ cm since the previous snapshot, propagates about $2.5$ times faster than the wave outside the hole, covering only $20\times10^{8}$ cm in the same timespan.
 We also remark that the effect of the wave on the hole is a sudden increase in density. This is the wave front seen in the snapshots previously discussed.
 When the wave has passed, the density drops back to its original value. However, the position where it reaches its lowest value is shifted along the direction of propagation of the wave.
 
@@ -199,7 +201,8 @@ Such a secondary wave can be seen as the red ring forming in the last frame in $
 
 In the plume, the formation of a caustic is observed in the fourth frame of \cref{fig:plume-frames}. 
 The density increase caused by the wave is concentrated in almost a single point here. 
-This is due to the wave refracting when entering the hole which makes the plume function like a lens and a slight deformation will probably lead to less striking caustics.
+This is due to the wave refracting when entering the hole which makes the plume function like a lens.
+A not perfectly symmetrical shape of the plume will probably lead to less striking caustics.
 In fact, there were also caustics in the coronal hole model.
 In the frames at the bottom in figure \cref{fig:hole-frames} we see bright edges where the reflected/transmitted wave meets the main wave.
 
